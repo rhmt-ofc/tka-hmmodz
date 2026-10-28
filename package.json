@@ -1,0 +1,15 @@
+{
+  "name": "tkaora",
+  "version": "2.5.0",
+  "description": "Platform Belajar & Latihan TKA SMA by HMMODZ",
+  "author": "HMMODZ (Rohmatulloh)",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

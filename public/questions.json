@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "subject": "Bahasa Indonesia",
+    "topic": "Teks argumentasi",
+    "question": "Bacalah pernyataan berikut: Perpustakaan sekolah memperpanjang jam layanan karena jumlah siswa yang belajar setelah kelas meningkat. Simpulan yang paling tepat adalah ...",
+    "options": [
+      "Perpustakaan hanya ramai pada pagi hari",
+      "Perpanjangan jam layanan merespons meningkatnya kebutuhan belajar siswa",
+      "Semua siswa wajib berada di perpustakaan",
+      "Jam layanan tidak berpengaruh pada kebiasaan membaca"
+    ],
+    "answer": 1,
+    "explanation": "Informasi sebab-akibat menunjukkan bahwa jam layanan diperpanjang untuk menanggapi kebutuhan belajar yang meningkat."
+  },
+  {
+    "id": 2,
+    "subject": "Bahasa Indonesia",
+    "topic": "Gagasan utama",
+    "question": "Kebun sekolah yang dikelola bersama dapat menjadi sarana belajar. Siswa mengamati pertumbuhan tanaman, mencatat perubahan, dan bekerja sama merawatnya. Gagasan utama paragraf tersebut adalah ...",
+    "options": [
+      "Kebun sekolah sebagai sarana pembelajaran",
+      "Cara menjual hasil kebun",
+      "Kesulitan menanam sayuran",
+      "Jadwal piket kelas"
+    ],
+    "answer": 0,
+    "explanation": "Kalimat-kalimat penjelas mendukung gagasan bahwa kebun sekolah dapat digunakan untuk belajar."
+  },
+  {
+    "id": 3,
+    "subject": "Bahasa Inggris",
+    "topic": "Reading comprehension",
+    "question": "Read the sentence: “Although the bus arrived late, the students reached the museum before the guided tour began.” What can be inferred?",
+    "options": [
+      "The tour was cancelled",
+      "The students missed the tour",
+      "The students arrived before the tour started",
+      "The bus arrived earlier than expected"
+    ],
+    "answer": 2,
+    "explanation": "The sentence explicitly states that the students reached the museum before the tour began."
+  },
+  {
+    "id": 4,
+    "subject": "Bahasa Inggris",
+    "topic": "Vocabulary in context",
+    "question": "“The school introduced a reusable bottle campaign to reduce plastic waste.” The word “reduce” is closest in meaning to ...",
+    "options": [
+      "Increase",
+      "Decrease",
+      "Collect",
+      "Replace"
+    ],
+    "answer": 1,
+    "explanation": "Reduce means to make something smaller or less."
+  },
+  {
+    "id": 5,
+    "subject": "Matematika",
+    "topic": "Perbandingan",
+    "question": "Sebuah resep untuk 4 orang membutuhkan 300 gram tepung. Jika resep dibuat untuk 10 orang dengan perbandingan tetap, tepung yang diperlukan adalah ...",
+    "options": [
+      "450 gram",
+      "600 gram",
+      "750 gram",
+      "900 gram"
+    ],
+    "answer": 2,
+    "explanation": "Faktor pengali 10/4 = 2,5 sehingga 300 × 2,5 = 750 gram."
+  },
+  {
+    "id": 6,
+    "subject": "Matematika",
+    "topic": "Persentase",
+    "question": "Harga sebuah buku Rp80.000 mendapat diskon 15%. Harga setelah diskon adalah ...",
+    "options": [
+      "Rp12.000",
+      "Rp65.000",
+      "Rp68.000",
+      "Rp72.000"
+    ],
+    "answer": 2,
+    "explanation": "Diskon 15% × Rp80.000 = Rp12.000. Harga akhir Rp80.000 − Rp12.000 = Rp68.000."
+  },
+  {
+    "id": 7,
+    "subject": "Biologi",
+    "topic": "Ekosistem",
+    "question": "Dalam sebuah ekosistem, jumlah serangga pemakan daun menurun tajam. Dampak yang paling mungkin terjadi pada populasi burung pemakan serangga adalah ...",
+    "options": [
+      "Selalu meningkat",
+      "Berpotensi menurun karena sumber makanan berkurang",
+      "Tidak mungkin berubah",
+      "Semua burung berubah menjadi herbivor"
+    ],
+    "answer": 1,
+    "explanation": "Penurunan sumber makanan dapat menurunkan daya dukung lingkungan bagi konsumen yang memakannya."
+  },
+  {
+    "id": 8,
+    "subject": "Ekonomi",
+    "topic": "Permintaan dan penawaran",
+    "question": "Ketika harga cabai naik sementara faktor lain tetap, jumlah cabai yang diminta konsumen umumnya akan ...",
+    "options": [
+      "Naik",
+      "Turun",
+      "Selalu tetap",
+      "Menjadi tidak terbatas"
+    ],
+    "answer": 1,
+    "explanation": "Menurut hukum permintaan, kenaikan harga cenderung menurunkan jumlah yang diminta, dengan faktor lain tetap."
+  },
+  {
+    "id": 9,
+    "subject": "Fisika",
+    "topic": "Gerak lurus",
+    "question": "Sebuah sepeda menempuh jarak 120 meter dalam 20 sekon dengan kelajuan rata-rata tetap. Kelajuannya adalah ...",
+    "options": [
+      "4 m/s",
+      "5 m/s",
+      "6 m/s",
+      "8 m/s"
+    ],
+    "answer": 2,
+    "explanation": "Kelajuan rata-rata = jarak/waktu = 120/20 = 6 m/s."
+  },
+  {
+    "id": 10,
+    "subject": "Geografi",
+    "topic": "Lingkungan",
+    "question": "Alih fungsi hutan di daerah hulu dapat meningkatkan risiko banjir di wilayah hilir terutama karena ...",
+    "options": [
+      "Air hujan seluruhnya menguap",
+      "Kemampuan tanah menyerap dan menahan air berkurang",
+      "Sungai menjadi lebih pendek",
+      "Curah hujan pasti berhenti"
+    ],
+    "answer": 1,
+    "explanation": "Hilangnya vegetasi mengurangi intersepsi dan infiltrasi sehingga limpasan permukaan dapat meningkat."
+  },
+  {
+    "id": 11,
+    "subject": "Kimia",
+    "topic": "Larutan",
+    "question": "Larutan dengan pH 3 dibandingkan larutan dengan pH 5 memiliki konsentrasi ion hidrogen ...",
+    "options": [
+      "10 kali lebih kecil",
+      "2 kali lebih besar",
+      "100 kali lebih besar",
+      "Sama"
+    ],
+    "answer": 2,
+    "explanation": "Setiap selisih satu unit pH setara faktor 10; selisih dua unit berarti faktor 100."
+  },
+  {
+    "id": 12,
+    "subject": "PPKn",
+    "topic": "Musyawarah",
+    "question": "Dalam rapat kelas, dua usulan mendapat dukungan yang sama. Sikap yang paling sesuai dengan prinsip musyawarah adalah ...",
+    "options": [
+      "Memaksakan usulan ketua",
+      "Mendengarkan alasan kedua pihak dan mencari kesepakatan",
+      "Mengabaikan semua pendapat",
+      "Membatalkan rapat tanpa diskusi"
+    ],
+    "answer": 1,
+    "explanation": "Musyawarah menekankan pertimbangan pendapat, dialog, dan pencarian kesepakatan."
+  },
+  {
+    "id": 13,
+    "subject": "Sejarah",
+    "topic": "Sumber sejarah",
+    "question": "Seorang peneliti membandingkan surat pribadi, foto sezaman, dan berita koran untuk mengkaji suatu peristiwa. Langkah ini terutama membantu ...",
+    "options": [
+      "Menghapus perbedaan sumber",
+      "Menguji dan menguatkan informasi melalui berbagai sumber",
+      "Memastikan satu sumber selalu benar",
+      "Menghindari analisis"
+    ],
+    "answer": 1,
+    "explanation": "Perbandingan sumber membantu verifikasi silang dan penilaian kredibilitas informasi."
+  },
+  {
+    "id": 14,
+    "subject": "Sosiologi",
+    "topic": "Interaksi sosial",
+    "question": "Warga dari latar belakang berbeda bekerja bersama membersihkan saluran air di lingkungan mereka. Contoh tersebut menunjukkan ...",
+    "options": [
+      "Konflik sosial saja",
+      "Kerja sama dalam interaksi sosial",
+      "Persaingan ekonomi",
+      "Isolasi sosial"
+    ],
+    "answer": 1,
+    "explanation": "Kegiatan bersama untuk mencapai tujuan lingkungan merupakan bentuk kerja sama."
+  },
+  {
+    "id": 15,
+    "subject": "Matematika",
+    "topic": "Statistika sederhana",
+    "question": "Nilai lima siswa adalah 60, 70, 70, 80, dan 90. Median dari data tersebut adalah ...",
+    "options": [
+      "60",
+      "70",
+      "75",
+      "80"
+    ],
+    "answer": 1,
+    "explanation": "Data sudah berurutan. Nilai tengah dari lima data adalah nilai ketiga, yaitu 70."
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "subject": "Matematika & Numerasi",
+    "color": "#6366f1",
+    "icon": "calculator",
+    "items": [
+      {
+        "title": "Barisan & Deret Aritmatika",
+        "formula": "Un = a + (n - 1)b  |  Sn = n/2 (2a + (n - 1)b)",
+        "tip": "Gunakan b = U2 - U1. Untuk suku tengah deret ganjil: Ut = (a + Un)/2."
+      },
+      {
+        "title": "Barisan & Deret Geometri",
+        "formula": "Un = a \u00b7 r^(n - 1)  |  S\u221e = a / (1 - r) untuk |r| < 1",
+        "tip": "Deret geometri tak hingga konvergen hanya berlaku jika rasio -1 < r < 1."
+      },
+      {
+        "title": "Statistika Sederhana",
+        "formula": "Mean = \u03a3x / n  |  Jangkauan = Xmax - Xmin",
+        "tip": "Median adalah nilai tengah data setelah diurutkan dari terkecil ke terbesar."
+      },
+      {
+        "title": "Peluang Kejadian",
+        "formula": "P(A) = n(A) / n(S)  |  P(A') = 1 - P(A)",
+        "tip": "Nilai peluang selalu berada di antara 0 (mustahil) dan 1 (pasti)."
+      }
+    ]
+  },
+  {
+    "subject": "Bahasa Indonesia (Literasi)",
+    "color": "#f59e0b",
+    "icon": "book-open",
+    "items": [
+      {
+        "title": "Menemukan Gagasan Utama",
+        "formula": "Deduktif (Awal) vs Induktif (Akhir) vs Campuran",
+        "tip": "Perhatikan kalimat pertama dan terakhir paragraf. Kalimat penjelas biasanya memuat rincian, contoh, atau pengulangan kata kunci."
+      },
+      {
+        "title": "Menentukan Simpulan Logis",
+        "formula": "Premis Umum + Premis Khusus \u2192 Kesimpulan",
+        "tip": "Simpulan yang benar HARUS didukung 100% oleh teks, bukan opini pribadi atau generalisasi berlebihan."
+      },
+      {
+        "title": "Ciri Kalimat Efektif",
+        "formula": "Subjek & Predikat Jelas + Hemat Kata + Paralel",
+        "tip": "Hindari subjek ganda (misal: 'Dalam rapat itu memutuskan...' harusnya 'Rapat itu memutuskan...')."
+      }
+    ]
+  },
+  {
+    "subject": "Bahasa Inggris (English Literacy)",
+    "color": "#10b981",
+    "icon": "languages",
+    "items": [
+      {
+        "title": "Reading Inference Questions",
+        "formula": "Text Clues + Logic = Valid Inference",
+        "tip": "Kata 'inferred' atau 'implied' berarti kesimpulan tersirat. Hindari opsi yang memakai kata mutlak (always, never, only) jika tidak ada di teks."
+      },
+      {
+        "title": "Vocabulary in Context",
+        "formula": "Surrounding Context > Dictionary Definition",
+        "tip": "Cek makna kata berdasarkan konteks kalimat, bukan arti harfiah kamus saja."
+      }
+    ]
+  },
+  {
+    "subject": "Sains & Fisika-Kimia",
+    "color": "#8b5cf6",
+    "icon": "atom",
+    "items": [
+      {
+        "title": "Gerak Lurus Beraturan (GLB & GLBB)",
+        "formula": "s = v \u00b7 t  |  vt = v0 + a\u00b7t  |  s = v0\u00b7t + 1/2 a\u00b7t\u00b2",
+        "tip": "Jika benda diperlambat hingga berhenti, vt = 0 dan percepatan bertanda negatif (-a)."
+      },
+      {
+        "title": "Hukum II Newton",
+        "formula": "\u03a3F = m \u00b7 a  (Gaya = Massa \u00d7 Percepatan)",
+        "tip": "Arah percepatan selalu searah dengan resultan gaya total yang bekerja pada benda."
+      }
+    ]
+  },
+  {
+    "subject": "Sosial & Ekonomi",
+    "color": "#ec4899",
+    "icon": "trending-up",
+    "items": [
+      {
+        "title": "Hukum Permintaan & Penawaran",
+        "formula": "Harga \u2191 Permintaan \u2193  |  Harga \u2191 Penawaran \u2191",
+        "tip": "Hukum permintaan berbanding terbalik (ceteris paribus), sedangkan penawaran berbanding lurus dengan harga."
+      },
+      {
+        "title": "Diferensiasi vs Stratifikasi Sosial",
+        "formula": "Diferensiasi = Horizontal (Setara) | Stratifikasi = Vertikal (Tingkatan)",
+        "tip": "Suku, agama, ras = Diferensiasi. Jabatan, kekayaan, pendidikan = Stratifikasi."
+      }
+    ]
+  }
+]
