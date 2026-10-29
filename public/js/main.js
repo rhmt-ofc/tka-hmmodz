@@ -1,7 +1,7 @@
 /**
  * TKAORA v2.5 — DARK NEOBRUTALISM CRAFTED EDITION
- * Core Engine & Platform Architected by rhmt ofc (HMMODZ)
- * High-Performance Pure Vanilla JavaScript — Zero Bloatware, 100% Anti-AI Slop
+ * Original Code & Documents by HMMODZ | Developed Further by rhmt ofc
+ * High-Performance Pure Vanilla JavaScript — Fast, Lightweight & Authentic Learning Platform
  */
 
 (() => {
@@ -314,10 +314,14 @@
           </div>
 
           <div class="card-footer-actions">
-            <button class="brutal-btn btn-sm btn-yellow btn-open-studio" data-id="${m.id}" style="flex-grow:1">
-              <span>Buka Studio Belajar</span>
+            <button class="brutal-btn btn-sm btn-yellow btn-open-studio" data-id="${m.id}" style="flex:1">
+              <span>Buka Studio</span>
               <svg class="icon" style="width:13px;height:13px" aria-hidden="true"><use href="#i-arrow-right"/></svg>
             </button>
+            <a class="brutal-btn btn-sm btn-outline btn-download-pdf" href="${m.pdf || `/pdfs/${m.id}.pdf`}" download="${m.id}-${m.title.replace(/[^a-zA-Z0-9]/g, '_')}.pdf" title="Unduh PDF Resmi Asli (${m.title})">
+              <svg class="icon" style="width:13px;height:13px" aria-hidden="true"><use href="#i-download"/></svg>
+              <span>Unduh PDF</span>
+            </a>
           </div>
         </article>
       `;
@@ -363,6 +367,11 @@
     $('#studioModalTitle').textContent = m.title;
     $('#studioClusterBadge').textContent = `${m.kind} • ${m.cluster}`;
     $('#studioDriveLink').href = m.sourceUrl || '#';
+    const downloadBtn = $('#studioDownloadBtn');
+    if (downloadBtn) {
+      downloadBtn.href = m.pdf || `/pdfs/${m.id}.pdf`;
+      downloadBtn.setAttribute('download', `${m.id}-${m.title.replace(/[^a-zA-Z0-9]/g, '_')}.pdf`);
+    }
 
     // Set tab buttons
     $$('.studio-tab-btn').forEach(b => {
@@ -830,9 +839,13 @@
             <span>Catatan Modul Ini</span>
           </h4>
           <p style="font-size:0.75rem;color:var(--muted);margin-bottom:10px">Catatan tersimpan otomatis di perangkat:</p>
-          <textarea class="scratchpad-textarea-brutal" id="studioScratchpadInput" placeholder="Tulis rumus penting atau ringkasan materi ${m.title}..."></textarea>
+          <textarea class="scratchpad-textarea-brutal" id="studioScratchpadInput" placeholder="Tulis rumus penting atau ringkasan materi ${m.title}…"></textarea>
 
           <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">
+            <a class="brutal-btn btn-sm btn-cyan" href="${pdfUrl}" download="${m.id}-${m.title.replace(/[^a-zA-Z0-9]/g, '_')}.pdf">
+              <svg class="icon" style="width:13px;height:13px" aria-hidden="true"><use href="#i-download"/></svg>
+              <span>Download PDF Asli Ini</span>
+            </a>
             <button class="brutal-btn btn-sm ${isDone ? 'btn-green' : 'btn-yellow'}" id="studioMarkDoneBtn">
               ${isDone ? 'Modul Sudah Selesai' : 'Tandai Selesai Dipelajari'}
             </button>

@@ -1,13 +1,13 @@
 # ⚡ TKAORA v2.5 — DARK NEOBRUTALISM EDITION
 
 > **Platform Belajar Interaktif & Latihan Soal Autentik TKA 2025 SMA.**  
-> Source Code Dasar & Arsitektur Sistem Dikembangkan oleh **rhmt ofc (HMMODZ)**.
+> Kode & File Asli dari **HMMODZ**, Dikembangkan Lebih Jauh oleh **rhmt ofc**.
 
 ---
 
 ## 🌟 Filosofi & Bahasa Desain: Dark Neobrutalism
 TKAORA v2.5 mengusung bahasa visual **Dark Neobrutalism** berenergi tinggi yang memadukan ketegasan estetika retro-tech dan kenyamanan belajar maksimal:
-- **Zero AI Slop:** Menolak tampilan SaaS generik yang membosankan. Menggunakan garis batas tebal 2.5px solid hitam, bayangan jatuh kaku (*hard offset shadows* tanpa blur: `4px 4px 0px #000`), dan respon klik mekanikal taktil (`:active { transform: translate(2px, 2px); }`).
+- **Estetika Taktil & Fokus:** Menggunakan garis batas tebal 2.5px solid hitam, bayangan jatuh kaku (*hard offset shadows* tanpa blur: `4px 4px 0px #000`), dan respon klik mekanikal taktil (`:active { transform: translate(2px, 2px); }`).
 - **High-Voltage Cyber Palette:** Aksen warna kontras tinggi: *Cyber Lemon* (`#ffe600`), *Neon Pink* (`#ff2a6d`), *Mint Acid* (`#05ffa1`), *Electric Violet* (`#7952ff`), dan *Cyan Hyper* (`#00f0ff`).
 - **Blueprint Dot Matrix Canvas:** Latar belakang dark slate bertekstur dot-grid presisi untuk nuansa instrumen laboratorium sains modern.
 
@@ -55,8 +55,9 @@ Akses di peramban: `http://localhost:8080` (atau port yang ditentukan).
 
 ---
 
-## 👤 Pengembang & Hak Cipta
-- **Creator & System Architect:** **rhmt ofc (HMMODZ)**
+## 👤 Sumber & Pengembang
+- **Kode & File Asli:** **HMMODZ**
+- **Pengembang Lanjutan:** **rhmt ofc**
 - **Portofolio:** [https://rhmt.biz.id](https://rhmt.biz.id)
 - **Live Deployment:** [https://tka-hmmodz.vercel.app](https://tka-hmmodz.vercel.app)
 - **Lisensi:** MIT License
