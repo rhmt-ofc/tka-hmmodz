@@ -256,6 +256,23 @@
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
+  // Global Delegated SPA Navigation Handler
+  document.addEventListener('click', e => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    const href = link.getAttribute('href');
+    if (!href || href === '#' || href.length < 2) return;
+    const targetId = href.substring(1);
+    const validPages = ['home', 'library', 'practice', 'cheatsheet', 'progress'];
+    if (validPages.includes(targetId)) {
+      e.preventDefault();
+      if (location.hash !== href) {
+        location.hash = href;
+      }
+      navigateTo(targetId);
+    }
+  });
+
   window.addEventListener('hashchange', () => {
     navigateTo(location.hash.replace('#', '') || 'home');
   });

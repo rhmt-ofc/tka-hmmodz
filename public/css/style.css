@@ -35,6 +35,7 @@
   --card-dark-back: #1b2438;
   --jebakan-bg: rgba(255, 42, 109, 0.16);
   --tip-bg: rgba(5, 255, 161, 0.16);
+  --nav-active-bg: rgba(255, 230, 0, 0.08);
   
   /* Text & Inks */
   --ink: #f7fafc;
@@ -114,6 +115,7 @@
   --card-dark-back: #f8fafc;
   --jebakan-bg: #fff1f2;
   --tip-bg: #ecfdf5;
+  --nav-active-bg: rgba(255, 230, 0, 0.15);
 
   --accent: #ffe600;
   --accent-text: #0a0f1d;
@@ -1074,6 +1076,11 @@ a {
   }
 }
 
+/* Native HTML5 Dialog closed state */
+dialog:not([open]) {
+  display: none !important;
+}
+
 /* ==========================================================================
    STUDIO BELAJAR (MODAL)
    ========================================================================== */
@@ -1808,10 +1815,14 @@ a {
   right: 0;
   background: var(--color-black-pure);
   border-top: 3px solid var(--neon-yellow);
-  padding: 8px 12px;
-  z-index: 999;
+  padding: 0;
+  height: 58px;
+  z-index: 10000;
   justify-content: space-around;
   align-items: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 @media (max-width: 900px) {
   .mobile-nav-dock {
@@ -1819,22 +1830,39 @@ a {
   }
 }
 .mobile-nav-item {
+  flex: 1;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
+  justify-content: center;
+  gap: 2px;
   color: var(--muted);
   font-family: var(--font-body);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 800;
   text-decoration: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  padding: 6px 0;
 }
 .mobile-nav-item.active {
   color: var(--neon-yellow);
+  background: var(--nav-active-bg);
 }
 .mobile-nav-item svg {
   width: 20px;
   height: 20px;
+  pointer-events: none;
+}
+.mobile-nav-item span {
+  pointer-events: none;
+}
+.nav-link-inner,
+.nav-link svg,
+.nav-link span {
+  pointer-events: none;
 }
 
 /* Toast Notifications */
