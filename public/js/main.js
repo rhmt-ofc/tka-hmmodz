@@ -53,6 +53,11 @@
     timerInterval: null,
     isRetestMode: false,
 
+    // CBT Anti-Cheat State
+    antiCheatActive: false,
+    antiCheatViolations: 0,
+    lastViolationTime: 0,
+
     // Focus Audio State
     audioCtx: null,
     noiseNode: null,
@@ -344,8 +349,11 @@
   });
 
   $('#materialsContainer')?.addEventListener('click', e => {
+    if (e.target.closest('.btn-download-pdf')) return;
     const btn = e.target.closest('.btn-open-studio');
-    if (btn) openStudioModal(btn.dataset.id);
+    const card = e.target.closest('.material-card-brutal');
+    const matId = btn?.dataset.id || card?.dataset.id;
+    if (matId) openStudioModal(matId);
   });
 
   // =========================================================================
@@ -908,8 +916,15 @@
 
     clearInterval(state.timerInterval);
     const timerBox = $('#quizTimerBox');
+    const antiCheatPill = $('#antiCheatStatusPill');
 
     if (mode === 'timer') {
+      state.antiCheatActive = true;
+      state.antiCheatViolations = 0;
+      if (antiCheatPill) antiCheatPill.style.display = 'inline-flex';
+      const antiCheatCount = $('#antiCheatViolationCount');
+      if (antiCheatCount) antiCheatCount.textContent = '0/3';
+
       state.timerSeconds = state.quizQuestions.length * 60;
       if (timerBox) timerBox.style.display = 'inline-flex';
       updateTimerDisplay();
@@ -923,6 +938,8 @@
         }
       }, 1000);
     } else {
+      state.antiCheatActive = false;
+      if (antiCheatPill) antiCheatPill.style.display = 'none';
       if (timerBox) timerBox.style.display = 'none';
     }
 
@@ -1091,6 +1108,12 @@
   $('#btnRestartQuiz')?.addEventListener('click', () => {
     if (confirm('Batalkan latihan dan kembali ke menu awal?')) {
       clearInterval(state.timerInterval);
+      state.antiCheatActive = false;
+      const antiCheatPill = $('#antiCheatStatusPill');
+      if (antiCheatPill) antiCheatPill.style.display = 'none';
+      const cheatModal = $('#antiCheatModal');
+      if (cheatModal?.close) { try { cheatModal.close(); } catch(_) {} }
+      else cheatModal?.removeAttribute('open');
       $('#quizActiveView').hidden = true;
       $('#quizIntroView').hidden = false;
     }
@@ -1105,6 +1128,12 @@
   // Finish Quiz & Diagnostic Scoring
   function finishQuiz(force = false) {
     clearInterval(state.timerInterval);
+    state.antiCheatActive = false;
+    const antiCheatPill = $('#antiCheatStatusPill');
+    if (antiCheatPill) antiCheatPill.style.display = 'none';
+    const cheatModal = $('#antiCheatModal');
+    if (cheatModal?.close) { try { cheatModal.close(); } catch(_) {} }
+    else cheatModal?.removeAttribute('open');
 
     const answeredCount = Object.keys(state.answers).length;
     const totalCount = state.quizQuestions.length;
@@ -1183,6 +1212,25 @@
           </a>
         </div>
       </div>
+
+      <!-- Proctoring & Anti-Cheat Integrity Report -->
+      ${state.quizMode === 'timer' ? `
+        <div class="cluster-breakdown-card" style="border-color:${state.antiCheatViolations === 0 ? 'var(--neon-green)' : (state.antiCheatViolations < 3 ? 'var(--neon-yellow)' : 'var(--neon-pink)')}">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+            <h3 style="margin:0;font-size:1.15rem;color:${state.antiCheatViolations === 0 ? 'var(--neon-green)' : (state.antiCheatViolations < 3 ? 'var(--neon-yellow)' : 'var(--neon-pink)')}">
+              Laporan Pengawas Ujian CBT
+            </h3>
+            <span class="badge-pill-brutal ${state.antiCheatViolations === 0 ? 'green' : (state.antiCheatViolations < 3 ? 'yellow' : 'pink')}">
+              ${state.antiCheatViolations === 0 ? 'INTEGRITAS TINGGI' : (state.antiCheatViolations < 3 ? 'PERINGATAN INTEGRITAS' : 'DISKUALIFIKASI SISTEM')}
+            </span>
+          </div>
+          <p style="font-size:0.92rem;color:var(--ink-secondary);margin:0">
+            ${state.antiCheatViolations === 0 
+              ? 'Status Ujian: Bersih dan Tertib. Peserta tidak berpindah tab atau meninggalkan jendela ujian selama simulasi CBT 20 menit berlangsung.' 
+              : `Status Ujian: Terekam <strong>${state.antiCheatViolations} kali</strong> aktivitas perpindahan tab atau kursor keluar dari jendela browser ujian.`}
+          </p>
+        </div>
+      ` : ''}
 
       <!-- Cluster Breakdown Analytics -->
       <div class="cluster-breakdown-card">
@@ -1482,7 +1530,7 @@
   }
 
   // =========================================================================
-  // 7. ABOUT CREATOR MODAL
+  // 7. ABOUT CREATOR MODAL & DEV INFO
   // =========================================================================
   const aboutModal = $('#aboutCreatorModal');
   const openAbout = () => {
@@ -1504,9 +1552,99 @@
     }
   };
 
+  $('#openAboutDevHomeBtn')?.addEventListener('click', openAbout);
   $('#openAboutDevSidebar')?.addEventListener('click', openAbout);
   $('#brandBoxSidebar')?.addEventListener('click', openAbout);
   $('#closeAboutCreatorBtn')?.addEventListener('click', closeAbout);
+
+  // =========================================================================
+  // CBT ANTI-CHEAT & PROCTORING CONTROLS
+  // =========================================================================
+  function playWarningTone() {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(320, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(160, ctx.currentTime + 0.25);
+      gain.gain.setValueAtTime(0.15, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.25);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.26);
+    } catch (_) {}
+  }
+
+  function triggerCheatViolation(reason = 'Berpindah tab atau aplikasi lain') {
+    if (!state.antiCheatActive) return;
+    const now = Date.now();
+    if (now - state.lastViolationTime < 1500) return; // debounce 1.5s
+    state.lastViolationTime = now;
+
+    state.antiCheatViolations++;
+    const strikes = Math.min(state.antiCheatViolations, 3);
+    const countBadge = $('#antiCheatViolationCount');
+    if (countBadge) countBadge.textContent = `${strikes}/3`;
+    const strikeText = $('#antiCheatModalStrikeCount');
+    if (strikeText) strikeText.textContent = `${strikes} / 3`;
+
+    playWarningTone();
+
+    if (state.antiCheatViolations >= 3) {
+      showToast('Batas 3 pelanggaran CBT tercapai! Ujian otomatis dihentikan.', 'pink');
+      const modal = $('#antiCheatModal');
+      if (modal?.close) { try { modal.close(); } catch(_) {} }
+      else modal?.removeAttribute('open');
+      finishQuiz(true);
+    } else {
+      const modal = $('#antiCheatModal');
+      if (modal) {
+        if (typeof modal.showModal === 'function') {
+          try { modal.showModal(); } catch (_) { modal.setAttribute('open', ''); }
+        } else {
+          modal.setAttribute('open', '');
+        }
+      }
+      showToast(`Peringatan Integritas: ${reason} (${strikes}/3)`, 'pink');
+    }
+  }
+
+  // Proctoring tab switch & blur listeners
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && state.antiCheatActive) {
+      triggerCheatViolation('Berpindah Tab / Jendela Browser');
+    }
+  });
+
+  window.addEventListener('blur', () => {
+    if (state.antiCheatActive) {
+      triggerCheatViolation('Kursor / Jendela Kehilangan Fokus');
+    }
+  });
+
+  document.addEventListener('contextmenu', e => {
+    if (state.antiCheatActive) {
+      e.preventDefault();
+      showToast('Klik kanan dinonaktifkan demi integritas ujian CBT.', 'pink');
+    }
+  });
+
+  document.addEventListener('copy', e => {
+    if (state.antiCheatActive) {
+      e.preventDefault();
+      showToast('Penyalinan teks soal dilarang saat simulasi CBT!', 'pink');
+    }
+  });
+
+  $('#btnResumeAntiCheat')?.addEventListener('click', () => {
+    const modal = $('#antiCheatModal');
+    if (modal?.close) { try { modal.close(); } catch(_) { modal.removeAttribute('open'); } }
+    else modal?.removeAttribute('open');
+  });
 
   // Theme Toggle Button
   $('#themeToggleBtn')?.addEventListener('click', toggleTheme);
