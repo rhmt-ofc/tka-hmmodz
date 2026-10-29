@@ -1,7 +1,7 @@
 /**
- * TKAORA v2.5 — DARK NEOBRUTALISM EDITION
+ * TKAORA v2.5 — DARK NEOBRUTALISM CRAFTED EDITION
  * Core Engine & Platform Architected by rhmt ofc (HMMODZ)
- * Pure High-Performance Vanilla JavaScript — Zero Bloatware, 100% Anti-AI Slop
+ * High-Performance Pure Vanilla JavaScript — Zero Bloatware, 100% Anti-AI Slop
  */
 
 (() => {
@@ -17,7 +17,8 @@
     SCRATCHPAD: 'tkaora_scratchpad_v25',
     LAST_MAT: 'tkaora_last_mat_v25',
     THEME: 'tkaora_theme_v25',
-    FLASHCARD_MASTERY: 'tkaora_fc_mastery_v25'
+    FLASHCARD_MASTERY: 'tkaora_fc_mastery_v25',
+    BOOKMARKS: 'tkaora_bookmarks_v25'
   };
 
   const LETTERS = ['A', 'B', 'C', 'D', 'E'];
@@ -28,7 +29,8 @@
     questions: [],
     cheatsheet: [],
     doneSet: new Set(),
-    flashcardMastery: {}, // { 'tka-01_0': true }
+    bookmarksSet: new Set(),
+    flashcardMastery: {},
     scratchpad: '',
     lastMaterialId: null,
     filterCluster: 'semua',
@@ -49,10 +51,16 @@
     quizIndex: 0,
     timerSeconds: 0,
     timerInterval: null,
-    isRetestMode: false
+    isRetestMode: false,
+
+    // Focus Audio State
+    audioCtx: null,
+    noiseNode: null,
+    gainNode: null,
+    isAudioPlaying: false
   };
 
-  // Safe Storage
+  // Safe Storage Accessors
   const storage = {
     get(key, fallback = null) {
       try {
@@ -71,7 +79,7 @@
     }
   };
 
-  // Toast System (Brutalist Popup)
+  // Toast Notification System
   function showToast(message, type = 'green') {
     const container = $('#toastContainer');
     if (!container) return;
@@ -79,8 +87,9 @@
     toast.className = 'toast-brutal';
     if (type === 'pink') toast.style.borderColor = 'var(--neon-pink)';
     if (type === 'yellow') toast.style.borderColor = 'var(--neon-yellow)';
+    if (type === 'cyan') toast.style.borderColor = 'var(--neon-cyan)';
 
-    toast.innerHTML = `<span>⚡</span> <span>${message}</span>`;
+    toast.innerHTML = `<span style="color:var(--neon-yellow);font-weight:900">NOTIF:</span> <span>${message}</span>`;
     container.appendChild(toast);
     setTimeout(() => {
       toast.style.transition = 'opacity 0.2s, transform 0.2s';
@@ -89,6 +98,88 @@
       setTimeout(() => toast.remove(), 250);
     }, 2800);
   }
+
+  // Focus Ambience Audio Synthesizer (Native Web Audio API - Soothing Rain / Brown Noise)
+  function toggleFocusAudio() {
+    const btn = $('#focusAudioBtn');
+    const label = $('#focusAudioLabel');
+    const icon = $('#focusAudioIcon');
+
+    if (state.isAudioPlaying) {
+      // Stop Audio
+      if (state.gainNode && state.audioCtx) {
+        state.gainNode.gain.setValueAtTime(state.gainNode.gain.value, state.audioCtx.currentTime);
+        state.gainNode.gain.exponentialRampToValueAtTime(0.0001, state.audioCtx.currentTime + 0.5);
+        setTimeout(() => {
+          if (state.noiseNode) state.noiseNode.stop();
+          state.isAudioPlaying = false;
+          if (btn) btn.classList.remove('playing');
+          if (label) label.textContent = 'Suara Fokus: Nonaktif';
+          if (icon) icon.innerHTML = '<use href="#i-sound"/>';
+          showToast('Mode suara fokus dinonaktifkan.');
+        }, 500);
+      }
+    } else {
+      // Start Synthesizer
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!state.audioCtx) {
+          state.audioCtx = new AudioContext();
+        }
+        if (state.audioCtx.state === 'suspended') {
+          state.audioCtx.resume();
+        }
+
+        // Generate Pink/Brown Noise Buffer (Soothing Rain Texture)
+        const bufferSize = state.audioCtx.sampleRate * 2;
+        const noiseBuffer = state.audioCtx.createBuffer(1, bufferSize, state.audioCtx.sampleRate);
+        const output = noiseBuffer.getChannelData(0);
+        let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+
+        for (let i = 0; i < bufferSize; i++) {
+          const white = Math.random() * 2 - 1;
+          b0 = 0.99886 * b0 + white * 0.0555179;
+          b1 = 0.99332 * b1 + white * 0.0750759;
+          b2 = 0.96900 * b2 + white * 0.1538520;
+          b3 = 0.86650 * b3 + white * 0.3104856;
+          b4 = 0.55000 * b4 + white * 0.5329522;
+          b5 = -0.7616 * b5 - white * 0.0168980;
+          output[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.04;
+          b6 = white * 0.115926;
+        }
+
+        state.noiseNode = state.audioCtx.createBufferSource();
+        state.noiseNode.buffer = noiseBuffer;
+        state.noiseNode.loop = true;
+
+        // Low-pass filter for smooth rain sound
+        const filter = state.audioCtx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(800, state.audioCtx.currentTime);
+
+        state.gainNode = state.audioCtx.createGain();
+        state.gainNode.gain.setValueAtTime(0.001, state.audioCtx.currentTime);
+        state.gainNode.gain.exponentialRampToValueAtTime(0.35, state.audioCtx.currentTime + 1.2);
+
+        state.noiseNode.connect(filter);
+        filter.connect(state.gainNode);
+        state.gainNode.connect(state.audioCtx.destination);
+
+        state.noiseNode.start();
+        state.isAudioPlaying = true;
+
+        if (btn) btn.classList.add('playing');
+        if (label) label.textContent = 'Suara Fokus: Aktif';
+        if (icon) icon.innerHTML = '<use href="#i-sound-mute"/>';
+        showToast('Suara hujan penenang fokus aktif (Binaural Brown Noise).', 'cyan');
+      } catch (err) {
+        console.warn('Audio synthesis failed', err);
+        showToast('Browser memblokir audio otomatis.', 'pink');
+      }
+    }
+  }
+
+  $('#focusAudioBtn')?.addEventListener('click', toggleFocusAudio);
 
   // Theme Toggle (Dark Neobrutalism default)
   function applyTheme(theme) {
@@ -208,7 +299,7 @@
             <span class="card-cluster-tag">${m.cluster}</span>
             <div style="display:flex;align-items:center;gap:6px">
               <span class="badge-pill-brutal ${m.kind === 'Wajib' ? 'yellow' : 'purple'}" style="font-size:0.65rem;padding:2px 6px">${m.kind}</span>
-              ${isDone ? '<span class="badge-pill-brutal green" style="font-size:0.65rem;padding:2px 6px">✓ SELESAI</span>' : ''}
+              ${isDone ? '<span class="badge-pill-brutal green" style="font-size:0.65rem;padding:2px 6px">SELESAI</span>' : ''}
             </div>
           </div>
 
@@ -216,16 +307,16 @@
           <p>${m.description || 'Modul resmi kurikulum TKA 2025.'}</p>
 
           <div class="card-feature-chips">
-            <span class="feature-chip-mini active">🧠 Flashcard 3D</span>
-            <span class="feature-chip-mini">⚡ Lab Interaktif</span>
-            <span class="feature-chip-mini">🎯 Checkpoint</span>
-            <span class="feature-chip-mini">📄 ${m.pages || 'PDF Resmi'}</span>
+            <span class="feature-chip-mini active">Flashcard 3D</span>
+            <span class="feature-chip-mini">Lab Formula</span>
+            <span class="feature-chip-mini">Checkpoint</span>
+            <span class="feature-chip-mini">${m.pages || 'PDF Resmi'}</span>
           </div>
 
           <div class="card-footer-actions">
             <button class="brutal-btn btn-sm btn-yellow btn-open-studio" data-id="${m.id}" style="flex-grow:1">
               <span>Buka Studio Belajar</span>
-              <svg class="icon" style="width:13px;height:13px"><use href="#i-arrow-right"/></svg>
+              <svg class="icon" style="width:13px;height:13px" aria-hidden="true"><use href="#i-arrow-right"/></svg>
             </button>
           </div>
         </article>
@@ -254,7 +345,7 @@
   });
 
   // =========================================================================
-  // 2. INTERACTIVE STUDY STUDIO (MODAL DIALOG)
+  // 2. INTERACTIVE STUDY STUDIO (MODAL)
   // =========================================================================
   const studioModal = $('#studioModal');
 
@@ -346,23 +437,23 @@
       <div class="flashcards-container">
         <div class="flashcard-progress-bar">
           <span>KARTU HAFALAN ${idx + 1} DARI ${cards.length}</span>
-          <span>${isMastered ? '✅ SUDAH PAHAM' : '⏳ PERLU REVIEW'}</span>
+          <span>${isMastered ? 'SUDAH DIKUASAI' : 'PERLU REVIEW'}</span>
         </div>
 
         <div class="flashcard-box-3d" id="flashcardCardBox">
           <div class="flashcard-inner ${state.isCardFlipped ? 'flipped' : ''}" id="flashcardInner">
-            <!-- Front -->
+            <!-- Front Face -->
             <div class="flashcard-face flashcard-front">
               <div>
-                <span class="flashcard-hint-badge">KLIK KARTU UNTUK MEMBALIK (3D FLIP)</span>
+                <span class="flashcard-hint-badge">KETUK KARTU UNTUK MEMBALIK</span>
                 <h3 class="flashcard-term" style="margin-top:12px">${currentCard.term}</h3>
               </div>
               <div style="font-family:var(--font-mono);font-size:0.85rem;color:var(--muted)">
-                Ketuk di mana saja pada kartu untuk melihat definisi & trik jebakan soal ➜
+                Ketuk di mana saja pada kartu untuk melihat definisi dan trik jebakan soal
               </div>
             </div>
 
-            <!-- Back -->
+            <!-- Back Face -->
             <div class="flashcard-face flashcard-back">
               <div>
                 <span class="flashcard-hint-badge" style="color:var(--neon-green)">INTISARI KONSEP</span>
@@ -370,19 +461,19 @@
 
                 ${currentCard.jebakan ? `
                   <div class="flashcard-jebakan">
-                    <strong>⚠️ JEBAKAN SOAL:</strong> ${currentCard.jebakan}
+                    <strong>JEBAKAN SOAL:</strong> ${currentCard.jebakan}
                   </div>
                 ` : ''}
 
                 ${currentCard.tip ? `
                   <div class="flashcard-tip">
-                    <strong>💡 TRIK MEMORI:</strong> ${currentCard.tip}
+                    <strong>TRIK MEMORI:</strong> ${currentCard.tip}
                   </div>
                 ` : ''}
               </div>
 
               <div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--muted)">
-                Klik lagi untuk membalik ke depan
+                Ketuk lagi untuk membalik ke depan
               </div>
             </div>
           </div>
@@ -390,16 +481,16 @@
 
         <!-- Controls -->
         <div class="flashcard-controls">
-          <button class="brutal-btn btn-outline" id="fcPrevBtn" ${idx === 0 ? 'disabled style="opacity:0.5"' : ''}>
-            ← Kartu Sebelumnya
+          <button class="brutal-btn btn-outline" id="fcPrevBtn" ${idx === 0 ? 'disabled' : ''}>
+            Sebelumnya
           </button>
 
           <button class="brutal-btn ${isMastered ? 'btn-green' : 'btn-outline'}" id="fcToggleMasterBtn">
-            ${isMastered ? '✓ Paham (Lepas)' : 'Tandai Sudah Paham'}
+            ${isMastered ? 'Sudah Dikuasai' : 'Tandai Dikuasai'}
           </button>
 
-          <button class="brutal-btn btn-yellow" id="fcNextBtn" ${idx === cards.length - 1 ? 'disabled style="opacity:0.5"' : ''}>
-            Kartu Berikutnya →
+          <button class="brutal-btn btn-yellow" id="fcNextBtn" ${idx === cards.length - 1 ? 'disabled' : ''}>
+            Berikutnya
           </button>
         </div>
       </div>
@@ -433,7 +524,7 @@
       const key = `${m.id}_${idx}`;
       state.flashcardMastery[key] = !state.flashcardMastery[key];
       storage.set(STORAGE_KEYS.FLASHCARD_MASTERY, state.flashcardMastery);
-      showToast(state.flashcardMastery[key] ? 'Konsep ditandai SUDAH PAHAM' : 'Status paham dilepas');
+      showToast(state.flashcardMastery[key] ? 'Konsep ditandai sudah dikuasai' : 'Status penguasaan dilepas');
       renderStudioContent();
     });
   }
@@ -471,7 +562,7 @@
           </div>
 
           <div style="font-size:0.85rem;color:var(--ink-secondary)">
-            💡 <em>Indikator Resmi:</em> Pada soal TKA 2025 asli, siswa diminta mencari tahun ketika suhu mencapai 0,7 °C. Model ini membuktikan jawabannya tepat tahun 2030.
+            Catatan Resmi: Pada soal TKA 2025 asli, siswa diminta mencari tahun ketika suhu mencapai 0,7 °C. Model ini membuktikan jawabannya tepat tahun 2030.
           </div>
         </div>
       `;
@@ -543,7 +634,7 @@
 
           <div class="lab-interactive-surface">
             <p style="margin-bottom:12px">Pilih unsur untuk melihat persentase massa di dalam molekul alanin:</p>
-            <div style="display:flex;gap:8px;margin-bottom:16px">
+            <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
               <button class="brutal-btn btn-sm btn-yellow lab-elem-btn active" data-elem="C" data-mass="36" data-name="Karbon (3 x 12)">Karbon (C)</button>
               <button class="brutal-btn btn-sm btn-outline lab-elem-btn" data-elem="H" data-mass="7" data-name="Hidrogen (7 x 1)">Hidrogen (H)</button>
               <button class="brutal-btn btn-sm btn-outline lab-elem-btn" data-elem="N" data-mass="14" data-name="Nitrogen (1 x 14)">Nitrogen (N)</button>
@@ -555,14 +646,14 @@
                 Persentase Massa <span id="labElemName">Karbon</span>: <strong style="color:var(--neon-green)" id="labElemPct">40.45%</strong>
               </div>
               <div style="font-size:0.85rem;color:var(--muted)" id="labElemMath">
-                Hitungan: (36 / 89) × 100% = 40,45% (Soal Asli TKA 2025: 40,4%)
+                Hitungan: (36 / 89) × 100% = 40,45% (Kunci Resmi TKA 2025: 40,4%)
               </div>
             </div>
           </div>
         </div>
       `;
     } else {
-      // General Interactive Concept Matrix
+      // General Concept Explorer
       const lab = m.lab || { title: 'Lab Eksplorasi Konsep', prompt: 'Eksplorasi wacana dan indikator kurikulum' };
       labHtml = `
         <div class="lab-container">
@@ -577,10 +668,10 @@
             ${lab.cases ? `
               <div style="display:flex;flex-direction:column;gap:12px">
                 ${lab.cases.map(c => `
-                  <div style="background:#000;border:2px solid var(--border-line);padding:14px;border-radius:var(--radius-sm)">
+                  <div style="background:var(--color-black-pure);border:2px solid var(--border-line);padding:14px;border-radius:var(--radius-sm)">
                     <div style="color:var(--neon-yellow);font-weight:800;margin-bottom:4px">${c.claim || c.sentence || c.passageA}</div>
                     <div style="font-size:0.88rem;color:var(--ink-secondary);margin-bottom:6px">${c.evidence || c.status || c.context}</div>
-                    <div style="font-family:var(--font-mono);font-size:0.82rem;color:var(--neon-green)">➔ ${c.validity || c.fix || c.meaning || c.synthesis}</div>
+                    <div style="font-family:var(--font-mono);font-size:0.82rem;color:var(--neon-green)">Hasil: ${c.validity || c.fix || c.meaning || c.synthesis}</div>
                   </div>
                 `).join('')}
               </div>
@@ -597,7 +688,7 @@
 
     container.innerHTML = labHtml;
 
-    // Attach dynamic listeners for math/physics sliders
+    // Attach slider listeners
     if (m.id === 'tka-05') {
       const slider = $('#labYearSlider');
       slider?.addEventListener('input', e => {
@@ -667,7 +758,7 @@
         <div style="margin-bottom:18px">
           <span class="badge-pill-brutal green">UJI RETENSI KILAT</span>
           <h3 style="margin-top:6px;font-size:1.3rem">Kuis Checkpoint: ${m.title}</h3>
-          <p style="font-size:0.9rem">Jawab pertanyaan berikut untuk memverifikasi pemahamanmu seketika.</p>
+          <p style="font-size:0.9rem">Jawab pertanyaan berikut untuk memverifikasi pemahaman konsep seketika.</p>
         </div>
 
         ${checkpoints.map((cp, qIdx) => `
@@ -681,8 +772,8 @@
                 </button>
               `).join('')}
             </div>
-            <div class="cp-explanation" id="cpExpl_${qIdx}" style="display:none;margin-top:14px;padding:12px;background:#000;border:1.5px solid var(--neon-yellow);border-radius:4px;font-size:0.85rem">
-              <strong>💡 PEMBAHASAN:</strong> ${cp.expl}
+            <div class="cp-explanation" id="cpExpl_${qIdx}" style="display:none;margin-top:14px;padding:12px;background:var(--color-black-pure);border:1.5px solid var(--neon-yellow);border-radius:4px;font-size:0.85rem">
+              <strong>PEMBAHASAN:</strong> ${cp.expl}
             </div>
           </div>
         `).join('')}
@@ -698,7 +789,6 @@
         const card = $(`#cpCard_${qIdx}`);
         if (!card) return;
 
-        // Disable all buttons in this card
         const allBtns = $$('.cp-btn', card);
         allBtns.forEach(b => {
           b.disabled = true;
@@ -715,7 +805,7 @@
         if (expl) expl.style.display = 'block';
 
         if (optIdx === cp.ans) {
-          showToast('Jawaban Checkpoint Benar! 🔥', 'green');
+          showToast('Jawaban Checkpoint Benar!', 'green');
         } else {
           showToast('Jawaban Belum Tepat. Periksa pembahasan.', 'pink');
         }
@@ -723,40 +813,37 @@
     });
   }
 
-  // --- SUBTAB 4: PDF READER & SPLIT SCRATCHPAD ---
+  // --- SUBTAB 4: PDF & SPLIT SCRATCHPAD ---
   function renderPdfTab(container, m) {
     const pdfUrl = `/pdfs/${m.id}.pdf`;
     const isDone = state.doneSet.has(m.id);
 
     container.innerHTML = `
       <div class="pdf-split-layout">
-        <!-- PDF Iframe -->
         <div class="pdf-frame-wrapper">
           <iframe src="${pdfUrl}#toolbar=1" title="Dokumen Resmi ${m.title}"></iframe>
         </div>
 
-        <!-- Split Scratchpad -->
         <div class="scratchpad-sidebar">
           <h4>
-            <span>📝</span>
+            <svg class="icon" style="width:16px;height:16px" aria-hidden="true"><use href="#i-pencil"/></svg>
             <span>Catatan Modul Ini</span>
           </h4>
-          <p style="font-size:0.75rem;color:var(--muted);margin-bottom:10px">Catatan tersimpan otomatis di perangkatmu:</p>
+          <p style="font-size:0.75rem;color:var(--muted);margin-bottom:10px">Catatan tersimpan otomatis di perangkat:</p>
           <textarea class="scratchpad-textarea-brutal" id="studioScratchpadInput" placeholder="Tulis rumus penting atau ringkasan materi ${m.title}..."></textarea>
 
           <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">
             <button class="brutal-btn btn-sm ${isDone ? 'btn-green' : 'btn-yellow'}" id="studioMarkDoneBtn">
-              ${isDone ? '✓ Modul Sudah Selesai' : 'Tandai Selesai Dipelajari'}
+              ${isDone ? 'Modul Sudah Selesai' : 'Tandai Selesai Dipelajari'}
             </button>
             <a class="brutal-btn btn-sm btn-outline" href="${m.sourceUrl || pdfUrl}" target="_blank" rel="noopener noreferrer">
-              Buka di Tab Baru ↗
+              Buka di Tab Baru
             </a>
           </div>
         </div>
       </div>
     `;
 
-    // Populate scratchpad
     const pad = $('#studioScratchpadInput');
     if (pad) {
       pad.value = state.scratchpad || '';
@@ -768,14 +855,13 @@
       });
     }
 
-    // Toggle Mark Done
     $('#studioMarkDoneBtn')?.addEventListener('click', () => {
       if (state.doneSet.has(m.id)) {
         state.doneSet.delete(m.id);
         showToast(`Modul ${m.title} ditandai belum selesai.`);
       } else {
         state.doneSet.add(m.id);
-        showToast(`Hebat! Modul ${m.title} selesai dipelajari! 🎉`, 'green');
+        showToast(`Modul ${m.title} selesai dipelajari.`, 'green');
       }
       storage.set(STORAGE_KEYS.DONE, [...state.doneSet]);
       renderStudioContent();
@@ -785,7 +871,7 @@
   }
 
   // =========================================================================
-  // 3. PRAKTEK & ARENA 20 SOAL AUTENTIK PDF (PRACTICE)
+  // 3. PRAKTEK & ARENA 20 SOAL RESMI (PRACTICE)
   // =========================================================================
   function startQuiz(mode = 'zen', customQuestions = null) {
     state.quizMode = mode;
@@ -800,21 +886,18 @@
       return;
     }
 
-    // Toggle views
     $('#quizIntroView').hidden = true;
     $('#quizResultsView').hidden = true;
     $('#quizActiveView').hidden = false;
 
-    // Badge
     $('#quizModeBadge').textContent = mode === 'timer' ? 'SIMULASI WAKTU' : 'ZEN MODE';
     $('#quizModeBadge').className = `quiz-mode-pill ${mode === 'timer' ? 'pink' : 'purple'}`;
 
-    // Timer setup
     clearInterval(state.timerInterval);
     const timerBox = $('#quizTimerBox');
 
     if (mode === 'timer') {
-      state.timerSeconds = state.quizQuestions.length * 60; // 1 min per question
+      state.timerSeconds = state.quizQuestions.length * 60;
       if (timerBox) timerBox.style.display = 'inline-flex';
       updateTimerDisplay();
 
@@ -846,13 +929,12 @@
     const q = state.quizQuestions[state.quizIndex];
     if (!q) return;
 
-    // Header label
     $('#quizCurrentIndexLabel').textContent = `Soal ${state.quizIndex + 1} dari ${state.quizQuestions.length}`;
     $('#qSubjectBadge').textContent = q.subject;
     $('#qTopicText').textContent = q.topic || 'Soal Resmi TKA 2025';
     $('#qQuestionText').textContent = q.question;
 
-    // Wacana Box (Authentic Passage)
+    // Stimulus Wacana
     const wacanaBox = $('#wacanaBox');
     const wacanaText = $('#wacanaText');
     if (q.passage) {
@@ -860,6 +942,14 @@
       wacanaBox.hidden = false;
     } else {
       wacanaBox.hidden = true;
+    }
+
+    // Bookmark button state
+    const isBookmarked = state.bookmarksSet.has(q.id);
+    const bookmarkBtn = $('#btnToggleBookmark');
+    if (bookmarkBtn) {
+      bookmarkBtn.classList.toggle('btn-cyan', isBookmarked);
+      $('#btnToggleBookmarkLabel').textContent = isBookmarked ? 'Tersimpan' : 'Simpan';
     }
 
     // Flag button state
@@ -870,7 +960,7 @@
       $('#btnToggleFlagLabel').textContent = isFlagged ? 'Ditandai Ragu' : 'Ragu';
     }
 
-    // Render Options
+    // Options
     const optContainer = $('#optionsContainer');
     const selectedAns = state.answers[state.quizIndex];
 
@@ -884,18 +974,17 @@
       `;
     }).join('');
 
-    // Previous / Next button labels
+    // Previous / Next buttons
     const isLast = state.quizIndex === state.quizQuestions.length - 1;
     const nextBtn = $('#btnNextQuestion');
     if (nextBtn) {
-      nextBtn.innerHTML = isLast ? '<span>Selesai & Kumpulkan ✓</span>' : '<span>Berikutnya →</span>';
+      nextBtn.innerHTML = isLast ? '<span>Kumpulkan Jawaban</span>' : '<span>Berikutnya</span>';
       nextBtn.className = isLast ? 'brutal-btn btn-green' : 'brutal-btn btn-yellow';
     }
 
     const prevBtn = $('#btnPrevQuestion');
     if (prevBtn) {
       prevBtn.disabled = state.quizIndex === 0;
-      prevBtn.style.opacity = state.quizIndex === 0 ? '0.4' : '1';
     }
 
     renderQuestionPalette();
@@ -905,15 +994,17 @@
     const palette = $('#questionNavStrip');
     if (!palette) return;
 
-    palette.innerHTML = state.quizQuestions.map((_, i) => {
+    palette.innerHTML = state.quizQuestions.map((q, i) => {
       const isCurrent = i === state.quizIndex;
       const isAnswered = state.answers[i] !== undefined;
       const isFlagged = state.flagged.has(i);
+      const isBookmarked = state.bookmarksSet.has(q.id);
 
       let cls = 'palette-cell-btn';
       if (isCurrent) cls += ' current';
       if (isAnswered) cls += ' answered';
       if (isFlagged) cls += ' flagged';
+      if (isBookmarked) cls += ' bookmarked';
 
       return `
         <button class="${cls}" data-goto="${i}" title="Nomor ${i + 1}">
@@ -923,7 +1014,7 @@
     }).join('');
   }
 
-  // Option selection
+  // Option Click
   $('#optionsContainer')?.addEventListener('click', e => {
     const btn = e.target.closest('.quiz-option-btn');
     if (!btn) return;
@@ -940,7 +1031,7 @@
     renderActiveQuestion();
   });
 
-  // Next / Prev Controls
+  // Next / Prev Buttons
   $('#btnPrevQuestion')?.addEventListener('click', () => {
     if (state.quizIndex > 0) {
       state.quizIndex--;
@@ -957,7 +1048,23 @@
     }
   });
 
-  // Flag toggle
+  // Bookmark Toggle Listener
+  $('#btnToggleBookmark')?.addEventListener('click', () => {
+    const q = state.quizQuestions[state.quizIndex];
+    if (!q) return;
+
+    if (state.bookmarksSet.has(q.id)) {
+      state.bookmarksSet.delete(q.id);
+      showToast(`Soal nomor ${state.quizIndex + 1} dihapus dari bookmark.`);
+    } else {
+      state.bookmarksSet.add(q.id);
+      showToast(`Soal nomor ${state.quizIndex + 1} disimpan ke bookmark.`, 'cyan');
+    }
+    storage.set(STORAGE_KEYS.BOOKMARKS, [...state.bookmarksSet]);
+    renderActiveQuestion();
+  });
+
+  // Flag Toggle
   $('#btnToggleFlag')?.addEventListener('click', () => {
     if (state.flagged.has(state.quizIndex)) {
       state.flagged.delete(state.quizIndex);
@@ -967,7 +1074,7 @@
     renderActiveQuestion();
   });
 
-  // Restart / Cancel
+  // Cancel Quiz
   $('#btnRestartQuiz')?.addEventListener('click', () => {
     if (confirm('Batalkan latihan dan kembali ke menu awal?')) {
       clearInterval(state.timerInterval);
@@ -982,7 +1089,7 @@
     startQuiz(selectedMode);
   });
 
-  // Finish Quiz & Results Calculation
+  // Finish Quiz & Diagnostic Scoring
   function finishQuiz(force = false) {
     clearInterval(state.timerInterval);
 
@@ -1006,13 +1113,30 @@
     let correctCount = 0;
     const wrongQuestions = [];
 
+    // Cluster Accuracy Counters
+    const clusterStats = {
+      'Bahasa': { total: 0, correct: 0, name: 'Literasi Bahasa (Indo & Inggris)' },
+      'Sains': { total: 0, correct: 0, name: 'Numerasi & Sains (Mat, Fis, Bio, Kim)' },
+      'Soshum': { total: 0, correct: 0, name: 'Sosial & Humaniora (Eko, Geo, Sej, PPKn, Sos)' }
+    };
+
     state.quizQuestions.forEach((q, i) => {
       const userAns = state.answers[i];
-      if (userAns === q.answer) {
+      const isRight = userAns === q.answer;
+
+      if (isRight) {
         correctCount++;
       } else {
         wrongQuestions.push(q);
       }
+
+      // Tally by subject
+      let cKey = 'Sains';
+      if (q.subject.includes('Bahasa') || q.subject.includes('Inggris')) cKey = 'Bahasa';
+      else if (['Ekonomi', 'Geografi', 'Sejarah', 'Pendidikan Pancasila', 'Sosiologi'].includes(q.subject)) cKey = 'Soshum';
+
+      clusterStats[cKey].total++;
+      if (isRight) clusterStats[cKey].correct++;
     });
 
     const scorePct = Math.round((correctCount / state.quizQuestions.length) * 100);
@@ -1028,14 +1152,14 @@
         </div>
 
         <p style="font-size:1.05rem;max-width:600px;margin:0 auto 24px">
-          ${scorePct >= 80 ? 'Luar biasa! Pemahaman konsepmu terhadap kurikulum TKA 2025 sudah sangat matang.' : 'Bagus! Pelajari pembahasan di bawah untuk menguasai butir soal yang belum tepat.'}
+          ${scorePct >= 80 ? 'Pemahaman konsepmu terhadap kurikulum TKA 2025 sudah sangat matang.' : 'Pelajari pembahasan detil di bawah untuk menuntaskan butir soal yang belum tepat.'}
         </p>
 
         <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
           ${wrongQuestions.length > 0 ? `
             <button class="brutal-btn btn-pink" id="btnRetestWrongs">
               <span>Latih Ulang ${wrongQuestions.length} Soal Keliru</span>
-              <svg class="icon" style="width:16px;height:16px"><use href="#i-refresh"/></svg>
+              <svg class="icon" style="width:15px;height:15px" aria-hidden="true"><use href="#i-refresh"/></svg>
             </button>
           ` : ''}
           <button class="brutal-btn btn-yellow" id="btnRestartAll">
@@ -1047,8 +1171,31 @@
         </div>
       </div>
 
+      <!-- Cluster Breakdown Analytics -->
+      <div class="cluster-breakdown-card">
+        <h3 style="margin-bottom:14px;color:var(--neon-cyan)">Diagnostik Penguasaan Rumpun Soal</h3>
+        ${Object.values(clusterStats).map(c => {
+          const cPct = c.total > 0 ? Math.round((c.correct / c.total) * 100) : 0;
+          let gradeCls = 'cyan';
+          if (cPct >= 80) gradeCls = 'green';
+          else if (cPct < 60) gradeCls = 'pink';
+
+          return `
+            <div class="cluster-bar-row">
+              <div class="cluster-bar-header">
+                <span>${c.name}</span>
+                <span style="color:var(--neon-${gradeCls})">${c.correct}/${c.total} Benar (${cPct}%)</span>
+              </div>
+              <div class="cluster-progress-track">
+                <div class="cluster-progress-fill ${gradeCls}" style="width:${cPct}%"></div>
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+
       <!-- Detailed Breakdown -->
-      <h3 style="font-size:1.4rem;margin-bottom:16px;color:#fff">Pembahasan Mendalam Soal per Soal:</h3>
+      <h3 style="font-size:1.4rem;margin-bottom:16px;color:var(--color-white)">Pembahasan Lengkap Soal per Soal:</h3>
       <div style="display:flex;flex-direction:column;gap:16px">
         ${state.quizQuestions.map((q, i) => {
           const userAns = state.answers[i];
@@ -1058,7 +1205,7 @@
             <article class="question-card-brutal" style="border-color:${isCorrect ? 'var(--neon-green)' : 'var(--neon-pink)'}">
               <div class="question-meta-row">
                 <span class="badge-pill-brutal ${isCorrect ? 'green' : 'pink'}">
-                  ${isCorrect ? '✓ BENAR' : '✗ PERLU PERBAIKAN'}
+                  ${isCorrect ? 'BENAR' : 'PERLU PERBAIKAN'}
                 </span>
                 <span style="font-family:var(--font-mono);font-size:0.8rem;color:var(--muted)">${q.subject} • ${q.topic}</span>
                 <span class="badge-pill-brutal yellow">Nomor ${i + 1}</span>
@@ -1071,29 +1218,29 @@
                 </div>
               ` : ''}
 
-              <h4 style="font-size:1.1rem;margin-bottom:14px;color:#fff">${q.question}</h4>
+              <h4 style="font-size:1.1rem;margin-bottom:14px;color:var(--color-white)">${q.question}</h4>
 
               <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px">
                 ${q.options.map((opt, optIdx) => {
-                  let optStyle = 'background:var(--bg-surface-elevated);border:1.5px solid #000;';
+                  let optStyle = 'background:var(--bg-surface-elevated);border:1.5px solid var(--color-black);';
                   if (optIdx === q.answer) {
-                    optStyle = 'background:rgba(5, 255, 161, 0.2);border:2px solid var(--neon-green);color:#fff;font-weight:800;';
+                    optStyle = 'background:rgba(5, 255, 161, 0.2);border:2px solid var(--neon-green);color:var(--color-white);font-weight:800;';
                   } else if (optIdx === userAns) {
-                    optStyle = 'background:rgba(255, 42, 109, 0.2);border:2px solid var(--neon-pink);color:#fff;';
+                    optStyle = 'background:rgba(255, 42, 109, 0.2);border:2px solid var(--neon-pink);color:var(--color-white);';
                   }
                   return `
                     <div style="padding:10px 14px;border-radius:4px;font-size:0.9rem;display:flex;align-items:center;gap:10px;${optStyle}">
                       <span class="option-key-badge">${LETTERS[optIdx]}</span>
                       <span>${opt}</span>
-                      ${optIdx === q.answer ? '<span style="margin-left:auto;color:var(--neon-green);font-weight:900">KUNCI TKA</span>' : ''}
+                      ${optIdx === q.answer ? '<span style="margin-left:auto;color:var(--neon-green);font-weight:900">KUNCI RESMI</span>' : ''}
                       ${optIdx === userAns && !isCorrect ? '<span style="margin-left:auto;color:var(--neon-pink);font-weight:900">PILIHANMU</span>' : ''}
                     </div>
                   `;
                 }).join('')}
               </div>
 
-              <div style="background:#000;border:2px solid var(--neon-yellow);padding:14px;border-radius:4px;font-size:0.88rem;line-height:1.55">
-                <strong style="color:var(--neon-yellow)">💡 PENJELASAN RESMI:</strong> ${q.explanation}
+              <div style="background:var(--color-black-pure);border:2px solid var(--neon-yellow);padding:14px;border-radius:4px;font-size:0.88rem;line-height:1.55">
+                <strong style="color:var(--neon-yellow)">PENJELASAN RESMI:</strong> ${q.explanation}
               </div>
             </article>
           `;
@@ -1101,7 +1248,6 @@
       </div>
     `;
 
-    // Retest wrong questions listener
     $('#btnRetestWrongs')?.addEventListener('click', () => {
       startQuiz('zen', wrongQuestions);
     });
@@ -1111,7 +1257,7 @@
     });
   }
 
-  // Keyboard Shortcuts for Practice Mode
+  // Keyboard Shortcuts
   window.addEventListener('keydown', e => {
     const activeView = $('#quizActiveView');
     if (!activeView || activeView.hidden) return;
@@ -1131,6 +1277,8 @@
       $('#btnPrevQuestion')?.click();
     } else if (key === 'F') {
       $('#btnToggleFlag')?.click();
+    } else if (key === 'S') {
+      $('#btnToggleBookmark')?.click();
     }
   });
 
@@ -1144,16 +1292,16 @@
     container.innerHTML = state.cheatsheet.map(cat => `
       <div class="cheat-card-brutal">
         <div class="cheat-card-header">
-          <span style="font-size:1.4rem">⚡</span>
+          <svg class="icon" style="width:20px;height:20px;color:var(--neon-yellow)" aria-hidden="true"><use href="#i-zap"/></svg>
           <h3 style="color:${cat.color || 'var(--neon-yellow)'}">${cat.subject}</h3>
         </div>
 
         <div style="display:flex;flex-direction:column;gap:12px">
           ${cat.items.map(item => `
             <div>
-              <div style="font-weight:800;font-size:0.95rem;color:#fff;margin-bottom:4px">${item.title}</div>
+              <div style="font-weight:800;font-size:0.95rem;color:var(--color-white);margin-bottom:4px">${item.title}</div>
               <div class="cheat-formula-box">${item.formula}</div>
-              <p class="cheat-tip-text">💡 <strong>Tip Ujian:</strong> ${item.tip}</p>
+              <p class="cheat-tip-text"><strong>Tip Ujian:</strong> ${item.tip}</p>
             </div>
           `).join('')}
         </div>
@@ -1162,18 +1310,52 @@
   }
 
   // =========================================================================
-  // 5. PROGRESS & SMART SCRATCHPAD
+  // 5. CATATAN & PROGRES VIEW
   // =========================================================================
   function renderProgressPage() {
+    // Render Cluster Radar Card in Progress Screen
+    const radarContainer = $('#clusterRadarContainer');
+    if (radarContainer) {
+      const clusterNames = [
+        { label: 'Literasi Bahasa (Wajib & Pilihan)', prefix: 'tka-01', prefix2: 'tka-02', prefix3: 'tka-03', prefix4: 'tka-04', total: 4 },
+        { label: 'Numerasi & Sains (Matematika, Fisika, Kimia, Biologi)', total: 5, prefix: 'tka-05', prefix2: 'tka-06', prefix3: 'tka-07', prefix4: 'tka-09', prefix5: 'tka-11' },
+        { label: 'Sosial & Humaniora (Ekonomi, Geografi, Sejarah, PPKn, Sosiologi)', total: 5, prefix: 'tka-08', prefix2: 'tka-10', prefix3: 'tka-12', prefix4: 'tka-13', prefix5: 'tka-14' }
+      ];
+
+      radarContainer.innerHTML = clusterNames.map(cn => {
+        let doneInCluster = 0;
+        state.materials.forEach(m => {
+          if (state.doneSet.has(m.id)) {
+            if (cn.label.includes('Bahasa') && (m.id.startsWith('tka-01') || m.id.startsWith('tka-02') || m.id.startsWith('tka-03') || m.id.startsWith('tka-04'))) doneInCluster++;
+            if (cn.label.includes('Sains') && ['tka-05', 'tka-06', 'tka-07', 'tka-09', 'tka-11'].includes(m.id)) doneInCluster++;
+            if (cn.label.includes('Sosial') && ['tka-08', 'tka-10', 'tka-12', 'tka-13', 'tka-14'].includes(m.id)) doneInCluster++;
+          }
+        });
+        const pct = Math.round((doneInCluster / cn.total) * 100);
+
+        return `
+          <div class="cluster-bar-row">
+            <div class="cluster-bar-header">
+              <span>${cn.label}</span>
+              <span style="color:var(--neon-green)">${doneInCluster}/${cn.total} Selesai (${pct}%)</span>
+            </div>
+            <div class="cluster-progress-track">
+              <div class="cluster-progress-fill green" style="width:${pct}%"></div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
     // Render Checklist
     const listContainer = $('#progressChecklistContainer');
     if (listContainer) {
       listContainer.innerHTML = state.materials.map(m => {
         const isDone = state.doneSet.has(m.id);
         return `
-          <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg-surface-elevated);border:2px solid #000;border-radius:4px;cursor:pointer">
+          <label style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg-surface-elevated);border:2px solid var(--color-black);border-radius:4px;cursor:pointer">
             <input type="checkbox" class="progress-chk" data-id="${m.id}" ${isDone ? 'checked' : ''} style="width:18px;height:18px;accent-color:var(--neon-green)">
-            <span style="font-weight:700;${isDone ? 'color:var(--neon-green);text-decoration:line-through' : 'color:#fff'}">${m.title}</span>
+            <span style="font-weight:700;${isDone ? 'color:var(--neon-green);text-decoration:line-through' : 'color:var(--color-white)'}">${m.title}</span>
             <span style="margin-left:auto;font-family:var(--font-mono);font-size:0.75rem;color:var(--muted)">${m.pages || ''}</span>
           </label>
         `;
@@ -1194,7 +1376,6 @@
       });
     }
 
-    // Scratchpad input sync
     const pad = $('#scratchpadInput');
     if (pad) {
       pad.value = state.scratchpad || '';
@@ -1212,17 +1393,18 @@
       storage.set(STORAGE_KEYS.SCRATCHPAD, '');
       const pad = $('#scratchpadInput');
       if (pad) pad.value = '';
-      showToast('Catatan berhasil dikosongkan');
+      showToast('Catatan berhasil dikosongkan.');
     }
   });
 
   // Export / Import Data
   $('#btnExportData')?.addEventListener('click', () => {
     const backup = {
-      version: '2.5',
+      version: '2.5.1',
       author: 'rhmt ofc (HMMODZ)',
       timestamp: new Date().toISOString(),
       done: [...state.doneSet],
+      bookmarks: [...state.bookmarksSet],
       flashcardMastery: state.flashcardMastery,
       scratchpad: state.scratchpad
     };
@@ -1233,7 +1415,7 @@
     a.download = `tkaora_backup_${new Date().toISOString().slice(0, 10)}.json`;
     a.click();
     URL.revokeObjectURL(url);
-    showToast('Cadangan belajar berhasil diunduh!');
+    showToast('Cadangan belajar berhasil diunduh.');
   });
 
   $('#importFileInput')?.addEventListener('change', e => {
@@ -1244,16 +1426,18 @@
       try {
         const data = JSON.parse(ev.target.result);
         if (data.done) state.doneSet = new Set(data.done);
+        if (data.bookmarks) state.bookmarksSet = new Set(data.bookmarks);
         if (data.scratchpad) state.scratchpad = data.scratchpad;
         if (data.flashcardMastery) state.flashcardMastery = data.flashcardMastery;
         storage.set(STORAGE_KEYS.DONE, [...state.doneSet]);
+        storage.set(STORAGE_KEYS.BOOKMARKS, [...state.bookmarksSet]);
         storage.set(STORAGE_KEYS.SCRATCHPAD, state.scratchpad);
         storage.set(STORAGE_KEYS.FLASHCARD_MASTERY, state.flashcardMastery);
-        showToast('Cadangan berhasil dipulihkan! 🎉', 'green');
+        showToast('Cadangan berhasil dipulihkan.', 'green');
         renderProgressPage();
         renderHomeStats();
       } catch (err) {
-        showToast('Format berkas cadangan tidak valid!', 'pink');
+        showToast('Format berkas cadangan tidak valid.', 'pink');
       }
     };
     reader.readAsText(file);
@@ -1262,9 +1446,11 @@
   $('#btnResetProgress')?.addEventListener('click', () => {
     if (confirm('YAKIN RESET SEMUA PROGRES? Semua centang modul dan catatan akan dihapus permanen.')) {
       state.doneSet.clear();
+      state.bookmarksSet.clear();
       state.flashcardMastery = {};
       state.scratchpad = '';
       storage.set(STORAGE_KEYS.DONE, []);
+      storage.set(STORAGE_KEYS.BOOKMARKS, []);
       storage.set(STORAGE_KEYS.FLASHCARD_MASTERY, {});
       storage.set(STORAGE_KEYS.SCRATCHPAD, '');
       showToast('Semua data progres telah direset.');
@@ -1317,18 +1503,19 @@
   // =========================================================================
   async function init() {
     try {
-      // 1. Restore local storage
       const savedTheme = storage.get(STORAGE_KEYS.THEME, 'dark');
       applyTheme(savedTheme);
 
       const savedDone = storage.get(STORAGE_KEYS.DONE, []);
       state.doneSet = new Set(savedDone);
 
+      const savedBookmarks = storage.get(STORAGE_KEYS.BOOKMARKS, []);
+      state.bookmarksSet = new Set(savedBookmarks);
+
       state.scratchpad = storage.get(STORAGE_KEYS.SCRATCHPAD, '');
       state.flashcardMastery = storage.get(STORAGE_KEYS.FLASHCARD_MASTERY, {});
       state.lastMaterialId = storage.get(STORAGE_KEYS.LAST_MAT, null);
 
-      // 2. Fetch Datasets
       const [matRes, qRes, cheatRes] = await Promise.all([
         fetch('/materials.json'),
         fetch('/questions.json'),
@@ -1339,11 +1526,9 @@
       state.questions = await qRes.json();
       state.cheatsheet = await cheatRes.json();
 
-      // Update badge counts
       const navCount = $('#navMaterialCount');
       if (navCount) navCount.textContent = `${state.materials.length} Modul`;
 
-      // 3. Initial Routing
       const initRoute = location.hash.replace('#', '') || 'home';
       navigateTo(initRoute);
 
@@ -1353,7 +1538,6 @@
     }
   }
 
-  // Boot on DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
