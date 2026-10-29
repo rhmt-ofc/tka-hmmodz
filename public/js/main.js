@@ -46,6 +46,8 @@
     // Quiz State
     quizMode: 'zen',
     quizQuestions: [],
+    selectedPracticeCluster: 'all',
+    selectedPracticeSubject: 'all',
     answers: {},
     flagged: new Set(),
     quizIndex: 0,
@@ -911,6 +913,82 @@
   // =========================================================================
   // 3. PRAKTEK & ARENA 20 SOAL RESMI (PRACTICE)
   // =========================================================================
+  function getSelectedPracticeQuestions() {
+    if (state.selectedPracticeSubject && state.selectedPracticeSubject !== 'all') {
+      return state.questions.filter(q => q.subject === state.selectedPracticeSubject);
+    }
+    if (state.selectedPracticeCluster && state.selectedPracticeCluster !== 'all') {
+      return state.questions.filter(q => q.cluster === state.selectedPracticeCluster);
+    }
+    return [...state.questions];
+  }
+
+  function updatePracticeSelectorUI() {
+    const list = getSelectedPracticeQuestions();
+    const count = list.length;
+    const estMinutes = count;
+
+    const infoCount = $('#practiceInfoCount');
+    if (infoCount) infoCount.textContent = `Terpilih: ${count} Butir Soal Autentik`;
+
+    const infoEst = $('#practiceInfoEst');
+    if (infoEst) infoEst.textContent = `Estimasi CBT: ${estMinutes} Menit`;
+
+    const startBtnLabel = $('#btnStartQuizLabel');
+    if (startBtnLabel) startBtnLabel.textContent = `Mulai Kerjakan ${count} Soal`;
+
+    const clusterBadge = $('#practiceClusterBadge');
+    if (clusterBadge) {
+      if (state.selectedPracticeSubject !== 'all') {
+        clusterBadge.textContent = `${state.selectedPracticeSubject.toUpperCase()} (${count} SOAL)`;
+      } else if (state.selectedPracticeCluster !== 'all') {
+        const clusterNames = {
+          'Sains': 'SAINS & MATEMATIKA',
+          'Bahasa': 'BAHASA & LITERASI',
+          'Soshum': 'SOSIAL HUMANIORA'
+        };
+        clusterBadge.textContent = `${clusterNames[state.selectedPracticeCluster] || state.selectedPracticeCluster.toUpperCase()} (${count} SOAL)`;
+      } else {
+        clusterBadge.textContent = `SEMUA MATERI (${count} SOAL)`;
+      }
+    }
+  }
+
+  function initPracticeSelector() {
+    const clusterBtns = document.querySelectorAll('.practice-cluster-btn');
+    const subjectSelect = $('#practiceSubjectSelect');
+
+    clusterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        clusterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        state.selectedPracticeCluster = btn.getAttribute('data-cluster') || 'all';
+        state.selectedPracticeSubject = 'all';
+        if (subjectSelect) subjectSelect.value = 'all';
+        updatePracticeSelectorUI();
+      });
+    });
+
+    subjectSelect?.addEventListener('change', () => {
+      state.selectedPracticeSubject = subjectSelect.value;
+      if (state.selectedPracticeSubject !== 'all') {
+        const found = state.questions.find(q => q.subject === state.selectedPracticeSubject);
+        if (found) {
+          clusterBtns.forEach(b => {
+            b.classList.toggle('active', b.getAttribute('data-cluster') === found.cluster);
+          });
+          state.selectedPracticeCluster = found.cluster;
+        }
+      } else {
+        clusterBtns.forEach(b => {
+          b.classList.toggle('active', b.getAttribute('data-cluster') === 'all');
+        });
+        state.selectedPracticeCluster = 'all';
+      }
+      updatePracticeSelectorUI();
+    });
+  }
+
   function startQuiz(mode = 'zen', customQuestions = null) {
     state.quizMode = mode;
     state.quizQuestions = customQuestions || [...state.questions];
@@ -989,6 +1067,21 @@
       wacanaBox.hidden = false;
     } else {
       wacanaBox.hidden = true;
+    }
+
+    // Stimulus Diagram Visual
+    const diagBox = $('#qDiagramBox');
+    const diagContent = $('#qDiagramContent');
+    const diagTitle = $('#qDiagramTitle');
+    if (diagBox && diagContent) {
+      if (q.diagram) {
+        if (diagTitle) diagTitle.textContent = q.diagramTitle || 'STIMULUS VISUAL & DIAGRAM ILUSTRASI';
+        diagContent.innerHTML = q.diagram;
+        diagBox.hidden = false;
+      } else {
+        diagBox.hidden = true;
+        diagContent.innerHTML = '';
+      }
     }
 
     // Bookmark button state
@@ -1139,7 +1232,8 @@
   // Start Quiz Button
   $('#btnStartQuiz')?.addEventListener('click', () => {
     const selectedMode = $('input[name="quizModeOpt"]:checked')?.value || 'zen';
-    startQuiz(selectedMode);
+    const filteredList = getSelectedPracticeQuestions();
+    startQuiz(selectedMode, filteredList);
   });
 
   // Finish Quiz & Diagnostic Scoring
@@ -1252,7 +1346,7 @@
       <!-- Cluster Breakdown Analytics -->
       <div class="cluster-breakdown-card">
         <h3 style="margin-bottom:14px;color:var(--neon-cyan)">Diagnostik Penguasaan Rumpun Soal</h3>
-        ${Object.values(clusterStats).map(c => {
+        ${Object.values(clusterStats).filter(c => c.total > 0).map(c => {
           const cPct = c.total > 0 ? Math.round((c.correct / c.total) * 100) : 0;
           let gradeCls = 'cyan';
           if (cPct >= 80) gradeCls = 'green';
@@ -1291,8 +1385,15 @@
 
               ${q.passage ? `
                 <div class="question-passage-box" style="margin-bottom:14px">
-                  <div class="passage-label">STIMULUS SOAL:</div>
+                  <div class="passage-label">STIMULUS WACANA SOAL:</div>
                   ${q.passage}
+                </div>
+              ` : ''}
+
+              ${q.diagram ? `
+                <div class="question-diagram-box" style="margin-bottom:14px">
+                  <div class="diagram-label">${q.diagramTitle || 'DIAGRAM STIMULUS VISUAL:'}</div>
+                  <div class="diagram-render-area">${q.diagram}</div>
                 </div>
               ` : ''}
 
@@ -1331,7 +1432,7 @@
     });
 
     $('#btnRestartAll')?.addEventListener('click', () => {
-      startQuiz('zen');
+      startQuiz('zen', getSelectedPracticeQuestions());
     });
   }
 
@@ -1693,6 +1794,9 @@
       state.materials = await matRes.json();
       state.questions = await qRes.json();
       state.cheatsheet = await cheatRes.json();
+
+      initPracticeSelector();
+      updatePracticeSelectorUI();
 
       const navCount = $('#navMaterialCount');
       if (navCount) navCount.textContent = `${state.materials.length} Modul`;

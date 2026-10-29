@@ -366,7 +366,7 @@
               <h3 style="font-size:1.5rem;margin-bottom:12px;color:var(--color-white)">Pilih Mode Latihan TKA</h3>
               <p style="margin-bottom:20px">Kerjakan 20 butir soal komprehensif lengkap dengan wacana stimulus asli dan pembahasan detil langkah demi langkah.</p>
 
-              <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:14px;margin-bottom:24px">
+              <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:14px;margin-bottom:20px">
                 <label class="stat-card-brutal" style="cursor:pointer;border-color:var(--neon-green)">
                   <input type="radio" name="quizModeOpt" value="zen" checked style="accent-color:var(--neon-green);width:20px;height:20px">
                   <div>
@@ -378,10 +378,56 @@
                 <label class="stat-card-brutal" style="cursor:pointer;border-color:var(--neon-yellow)">
                   <input type="radio" name="quizModeOpt" value="timer" style="accent-color:var(--neon-yellow);width:20px;height:20px">
                   <div>
-                    <strong style="color:var(--neon-yellow);font-size:1.05rem;display:block">Simulasi CBT Resmi (20 Menit + Anti-Curang)</strong>
-                    <span style="font-size:0.85rem;color:var(--ink-secondary)">Standar ujian CBT: timer 1 menit/soal, deteksi tab switch/blur, dan batas 3 pelanggaran.</span>
+                    <strong style="color:var(--neon-yellow);font-size:1.05rem;display:block">Simulasi CBT Resmi (1 Menit/Soal + Anti-Curang)</strong>
+                    <span style="font-size:0.85rem;color:var(--ink-secondary)">Standar ujian CBT: timer proporsional, deteksi tab switch/blur, dan batas 3 pelanggaran.</span>
                   </div>
                 </label>
+              </div>
+
+              <!-- Subject / Topic Drill Selector -->
+              <div class="practice-selector-card">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px">
+                  <strong style="color:var(--neon-yellow);font-size:1.05rem">Materi Pelajaran yang Ingin Dikuasai:</strong>
+                  <span class="badge-pill-brutal cyan" id="practiceClusterBadge">SEMUA MATERI (20 SOAL)</span>
+                </div>
+
+                <!-- Cluster Quick Filter Buttons -->
+                <div class="practice-cluster-chips" role="group" aria-label="Pilih Rumpun Soal">
+                  <button type="button" class="practice-cluster-btn active" data-cluster="all">Semua Soal (20)</button>
+                  <button type="button" class="practice-cluster-btn" data-cluster="Sains">Sains &amp; Matematika (9)</button>
+                  <button type="button" class="practice-cluster-btn" data-cluster="Bahasa">Bahasa &amp; Literasi (4)</button>
+                  <button type="button" class="practice-cluster-btn" data-cluster="Soshum">Sosial Humaniora (7)</button>
+                </div>
+
+                <!-- Specific Subject Dropdown -->
+                <div style="margin-top:10px">
+                  <label for="practiceSubjectSelect" style="display:block;font-size:0.85rem;color:var(--ink-secondary);margin-bottom:6px">Atau drill mata pelajaran spesifik:</label>
+                  <select id="practiceSubjectSelect" class="practice-select-dropdown">
+                    <option value="all">-- Latihan Semua Mata Pelajaran --</option>
+                    <optgroup label="Sains &amp; Matematika">
+                      <option value="Matematika">Matematika (3 Soal - Fungsi Linear, Eksponen, Kalkulus)</option>
+                      <option value="Fisika">Fisika (2 Soal - Vektor Kecepatan Relatif, GLB/GLBB)</option>
+                      <option value="Kimia">Kimia (2 Soal - Stoikiometri Alanin, Bilangan Avogadro)</option>
+                      <option value="Biologi">Biologi (2 Soal - Simbiosis Lintah, Respirasi Aerobik)</option>
+                    </optgroup>
+                    <optgroup label="Bahasa &amp; Literasi">
+                      <option value="Bahasa Indonesia">Bahasa Indonesia (2 Soal - Tradisi Buwuhan, Cerpen Bondet)</option>
+                      <option value="Bahasa Inggris">Bahasa Inggris (2 Soal - Fable Singa-Tikus, Pomodoro)</option>
+                    </optgroup>
+                    <optgroup label="Sosial Humaniora (Soshum)">
+                      <option value="Ekonomi">Ekonomi (2 Soal - Biaya Peluang, Kurva UMP 2025)</option>
+                      <option value="Geografi">Geografi (1 Soal - Garis Wallace &amp; Weber Wallacea)</option>
+                      <option value="Sosiologi">Sosiologi (2 Soal - Kontak Sosial Digital, Sumpah Pemuda)</option>
+                      <option value="Pendidikan Pancasila">Pendidikan Pancasila (1 Soal - Bela Negara &amp; Hoaks)</option>
+                      <option value="Sejarah">Sejarah (1 Soal - Jalur Rempah &amp; Konstantinopel)</option>
+                    </optgroup>
+                  </select>
+                </div>
+
+                <div class="practice-info-banner" id="practiceInfoBanner">
+                  <span id="practiceInfoCount">Terpilih: 20 Butir Soal Autentik</span>
+                  <span id="practiceInfoEst" style="color:var(--neon-green);font-weight:700">Estimasi CBT: 20 Menit</span>
+                </div>
               </div>
 
               <button class="brutal-btn btn-pink" id="btnStartQuiz" style="font-size:1.05rem;padding:12px 24px">
@@ -448,6 +494,15 @@
                     <span>STIMULUS RESMI DOKUMEN TKA 2025</span>
                   </div>
                   <div id="wacanaText"></div>
+                </div>
+
+                <!-- Authentic PDF Stimulus Diagram Box -->
+                <div class="question-diagram-box" id="qDiagramBox" hidden>
+                  <div class="diagram-label">
+                    <svg class="icon" style="width:14px;height:14px" aria-hidden="true"><use href="#i-chart"/></svg>
+                    <span id="qDiagramTitle">STIMULUS VISUAL &amp; DIAGRAM ILUSTRASI</span>
+                  </div>
+                  <div class="diagram-render-area" id="qDiagramContent"></div>
                 </div>
 
                 <h3 class="question-prompt-text" id="qQuestionText">Teks pertanyaan…</h3>

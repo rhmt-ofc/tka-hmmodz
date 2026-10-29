@@ -13,7 +13,8 @@
       "Bentuk bantuan buwuhan diatur secara kaku oleh peraturan daerah setempat"
     ],
     "answer": 1,
-    "explanation": "Berdasarkan indikator resmi TKA 2025 (Pemahaman Inferensial), ide pokok bahwa buwuhan berfungsi sebagai utang bersyarat didukung oleh fakta bahwa penerima merasa terbebani secara moral untuk mengembalikan sumbangan dalam nilai yang setara atau lebih pada saat si pemberi menggelar hajatan."
+    "explanation": "Berdasarkan indikator resmi TKA 2025 (Pemahaman Inferensial), ide pokok bahwa buwuhan berfungsi sebagai utang bersyarat didukung oleh fakta bahwa penerima merasa terbebani secara moral untuk mengembalikan sumbangan dalam nilai yang setara atau lebih pada saat si pemberi menggelar hajatan.",
+    "cluster": "Bahasa"
   },
   {
     "id": 2,
@@ -29,7 +30,8 @@
       "Karena pihak kepolisian menutup seluruh akses perairan dusun Prau"
     ],
     "answer": 1,
-    "explanation": "Titik balik narasi terjadi saat konsekuensi fatal dari bom ikan (bondet) mencelakai anaknya sendiri, memicu penyesalan mendalam yang mendorong perubahan drastis pada sikap dan prinsip hidup sang tokoh."
+    "explanation": "Titik balik narasi terjadi saat konsekuensi fatal dari bom ikan (bondet) mencelakai anaknya sendiri, memicu penyesalan mendalam yang mendorong perubahan drastis pada sikap dan prinsip hidup sang tokoh.",
+    "cluster": "Bahasa"
   },
   {
     "id": 3,
@@ -45,7 +47,8 @@
       "Large strength alone is always sufficient to overcome any obstacle"
     ],
     "answer": 1,
-    "explanation": "The core moral of Aesop's fable (and the official TKA English indicator) emphasizes that size and physical strength do not determine one's worth; even the humblest individual can provide crucial assistance in times of need."
+    "explanation": "The core moral of Aesop's fable (and the official TKA English indicator) emphasizes that size and physical strength do not determine one's worth; even the humblest individual can provide crucial assistance in times of need.",
+    "cluster": "Bahasa"
   },
   {
     "id": 4,
@@ -61,7 +64,8 @@
       "Replicate"
     ],
     "answer": 1,
-    "explanation": "'Mitigate' means to make something less severe or painful. In this context, taking regular pauses alleviates (reduces) mental fatigue."
+    "explanation": "'Mitigate' means to make something less severe or painful. In this context, taking regular pauses alleviates (reduces) mental fatigue.",
+    "cluster": "Bahasa"
   },
   {
     "id": 5,
@@ -77,7 +81,10 @@
       "Tahun 2035"
     ],
     "answer": 2,
-    "explanation": "Substitusikan nilai y = 0,7 ke dalam model: 0,7 = 0,02x - 39,9. Pindahkan konstanta: 0,7 + 39,9 = 0,02x ==> 40,6 = 0,02x ==> x = 40,6 / 0,02 = 2030. Jadi peningkatan suhu mencapai 0,7 °C pada tahun 2030."
+    "explanation": "Substitusikan nilai y = 0,7 ke dalam model: 0,7 = 0,02x - 39,9. Pindahkan konstanta: 0,7 + 39,9 = 0,02x ==> 40,6 = 0,02x ==> x = 40,6 / 0,02 = 2030. Jadi peningkatan suhu mencapai 0,7 °C pada tahun 2030.",
+    "cluster": "Sains",
+    "diagram": "<svg viewBox=\"0 0 520 260\" xmlns=\"http://www.w3.org/2000/svg\" class=\"diagram-svg\" aria-label=\"Grafik Peningkatan Suhu Bumi y = 0.02x - 39.9\">\n  <rect width=\"520\" height=\"260\" fill=\"#0f0f15\" rx=\"6\" stroke=\"#2a2a38\" stroke-width=\"2\"/>\n  <text x=\"24\" y=\"28\" fill=\"#ffe600\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\">MODEL FUNGSI LINEAR: y = 0,02x - 39,9</text>\n  <text x=\"24\" y=\"44\" fill=\"#8e8ea0\" font-family=\"sans-serif\" font-size=\"11\">Sumbu X: Tahun (Masehi) | Sumbu Y: Peningkatan Suhu ΔT (°C)</text>\n  <g stroke=\"#1e1e2d\" stroke-width=\"1\" stroke-dasharray=\"3,3\">\n    <line x1=\"70\" y1=\"60\" x2=\"480\" y2=\"60\"/>\n    <line x1=\"70\" y1=\"100\" x2=\"480\" y2=\"100\"/>\n    <line x1=\"70\" y1=\"140\" x2=\"480\" y2=\"140\"/>\n    <line x1=\"70\" y1=\"180\" x2=\"480\" y2=\"180\"/>\n    <line x1=\"70\" y1=\"220\" x2=\"480\" y2=\"220\"/>\n    <line x1=\"150\" y1=\"60\" x2=\"150\" y2=\"220\"/>\n    <line x1=\"250\" y1=\"60\" x2=\"250\" y2=\"220\"/>\n    <line x1=\"350\" y1=\"60\" x2=\"350\" y2=\"220\"/>\n    <line x1=\"450\" y1=\"60\" x2=\"450\" y2=\"220\"/>\n  </g>\n  <line x1=\"70\" y1=\"220\" x2=\"485\" y2=\"220\" stroke=\"#f0f0f0\" stroke-width=\"2\"/>\n  <line x1=\"70\" y1=\"220\" x2=\"70\" y2=\"50\" stroke=\"#f0f0f0\" stroke-width=\"2\"/>\n  <text x=\"60\" y=\"224\" fill=\"#a0a0b0\" font-family=\"monospace\" font-size=\"11\" text-anchor=\"end\">0,5°</text>\n  <text x=\"60\" y=\"184\" fill=\"#a0a0b0\" font-family=\"monospace\" font-size=\"11\" text-anchor=\"end\">0,6°</text>\n  <text x=\"60\" y=\"144\" fill=\"#05ffa1\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\" text-anchor=\"end\">0,7°</text>\n  <text x=\"60\" y=\"104\" fill=\"#a0a0b0\" font-family=\"monospace\" font-size=\"11\" text-anchor=\"end\">0,8°</text>\n  <text x=\"60\" y=\"64\" fill=\"#a0a0b0\" font-family=\"monospace\" font-size=\"11\" text-anchor=\"end\">0,9°</text>\n  <text x=\"150\" y=\"238\" fill=\"#a0a0b0\" font-family=\"monospace\" font-size=\"11\" text-anchor=\"middle\">2020</text>\n  <text x=\"250\" y=\"238\" fill=\"#a0a0b0\" font-family=\"monospace\" font-size=\"11\" text-anchor=\"middle\">2025</text>\n  <text x=\"350\" y=\"238\" fill=\"#05ffa1\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\" text-anchor=\"middle\">2030</text>\n  <text x=\"450\" y=\"238\" fill=\"#a0a0b0\" font-family=\"monospace\" font-size=\"11\" text-anchor=\"middle\">2035</text>\n  <line x1=\"100\" y1=\"240\" x2=\"470\" y2=\"92\" stroke=\"#ff2a6d\" stroke-width=\"3\"/>\n  <line x1=\"70\" y1=\"140\" x2=\"350\" y2=\"140\" stroke=\"#05ffa1\" stroke-width=\"1.5\" stroke-dasharray=\"4,4\"/>\n  <line x1=\"350\" y1=\"220\" x2=\"350\" y2=\"140\" stroke=\"#05ffa1\" stroke-width=\"1.5\" stroke-dasharray=\"4,4\"/>\n  <circle cx=\"350\" cy=\"140\" r=\"6\" fill=\"#05ffa1\" stroke=\"#000\" stroke-width=\"2\"/>\n  <rect x=\"360\" y=\"122\" width=\"135\" height=\"26\" fill=\"#000\" stroke=\"#05ffa1\" stroke-width=\"1\" rx=\"3\"/>\n  <text x=\"368\" y=\"139\" fill=\"#05ffa1\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\">Target: (2030; 0,7°)</text>\n</svg>",
+    "diagramTitle": "Grafik Koordinat Kartesius: Pemanasan Global y = 0,02x - 39,9"
   },
   {
     "id": 6,
@@ -93,7 +100,8 @@
       "x * y"
     ],
     "answer": 0,
-    "explanation": "Sesuai sifat pembagian bilangan berpangkat: Untuk basis x: x^(3/2 - 1/2) = x^(2/2) = x^1 = x. Untuk basis y: y^(-1/3 - 2/3) = y^(-3/3) = y^(-1) = 1/y. Maka hasil akhirnya adalah x / y."
+    "explanation": "Sesuai sifat pembagian bilangan berpangkat: Untuk basis x: x^(3/2 - 1/2) = x^(2/2) = x^1 = x. Untuk basis y: y^(-1/3 - 2/3) = y^(-3/3) = y^(-1) = 1/y. Maka hasil akhirnya adalah x / y.",
+    "cluster": "Sains"
   },
   {
     "id": 7,
@@ -109,7 +117,8 @@
       "Netralisme, karena kedua belah pihak tidak saling mempengaruhi"
     ],
     "answer": 2,
-    "explanation": "Lintah bertindak sebagai ektoparasit. Lintah mengambil darah inang sebagai sumber makanan sekaligus merugikan inang (parasitisme)."
+    "explanation": "Lintah bertindak sebagai ektoparasit. Lintah mengambil darah inang sebagai sumber makanan sekaligus merugikan inang (parasitisme).",
+    "cluster": "Sains"
   },
   {
     "id": 8,
@@ -125,7 +134,8 @@
       "Pemecahan molekul air (fotolisis) menghasilkan elektron bebas"
     ],
     "answer": 1,
-    "explanation": "Dekarboksilasi oksidatif memproses 2 molekul asam piruvat (3C) menjadi 2 molekul Asetil Ko-A (2C) dengan melepaskan 2 molekul CO2 serta menghasilkan 2 molekul NADH."
+    "explanation": "Dekarboksilasi oksidatif memproses 2 molekul asam piruvat (3C) menjadi 2 molekul Asetil Ko-A (2C) dengan melepaskan 2 molekul CO2 serta menghasilkan 2 molekul NADH.",
+    "cluster": "Sains"
   },
   {
     "id": 9,
@@ -141,7 +151,8 @@
       "Rp800.000 per bulan"
     ],
     "answer": 1,
-    "explanation": "Biaya peluang (opportunity cost) adalah nilai manfaat dari alternatif terbaik berikutnya yang dikorbankan (dilepas). Dari pilihan yang ditinggalkan (Rp7,2 juta dan Rp6,5 juta), nilai tertinggi yang dikorbankan adalah Rp7.200.000 per bulan."
+    "explanation": "Biaya peluang (opportunity cost) adalah nilai manfaat dari alternatif terbaik berikutnya yang dikorbankan (dilepas). Dari pilihan yang ditinggalkan (Rp7,2 juta dan Rp6,5 juta), nilai tertinggi yang dikorbankan adalah Rp7.200.000 per bulan.",
+    "cluster": "Soshum"
   },
   {
     "id": 10,
@@ -157,7 +168,10 @@
       "Harga keseimbangan tetap karena produsen menanggung seluruh kenaikan upah"
     ],
     "answer": 1,
-    "explanation": "Kenaikan biaya input tenaga kerja menyebabkan kurva penawaran (supply) produsen bergeser ke kiri atas (berkurang). Akibatnya, pada titik keseimbangan pasar yang baru, harga barang naik dan kuantitas keseimbangan mengalami penurunan."
+    "explanation": "Kenaikan biaya input tenaga kerja menyebabkan kurva penawaran (supply) produsen bergeser ke kiri atas (berkurang). Akibatnya, pada titik keseimbangan pasar yang baru, harga barang naik dan kuantitas keseimbangan mengalami penurunan.",
+    "cluster": "Soshum",
+    "diagram": "<svg viewBox=\"0 0 520 260\" xmlns=\"http://www.w3.org/2000/svg\" class=\"diagram-svg\" aria-label=\"Kurva Keseimbangan Pasar Tekstil Pasca Kenaikan UMP\">\n  <rect width=\"520\" height=\"260\" fill=\"#0f0f15\" rx=\"6\" stroke=\"#2a2a38\" stroke-width=\"2\"/>\n  <text x=\"24\" y=\"28\" fill=\"#ffe600\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\">PERGESERAN KURVA PENAWARAN (BEBAN UMP 2025)</text>\n  <text x=\"24\" y=\"44\" fill=\"#8e8ea0\" font-family=\"sans-serif\" font-size=\"11\">Biaya produksi naik -> Penawaran bergeser S0 ke S1 (ke kiri atas)</text>\n  <line x1=\"70\" y1=\"220\" x2=\"480\" y2=\"220\" stroke=\"#f0f0f0\" stroke-width=\"2\"/>\n  <line x1=\"70\" y1=\"220\" x2=\"70\" y2=\"50\" stroke=\"#f0f0f0\" stroke-width=\"2\"/>\n  <text x=\"475\" y=\"238\" fill=\"#f0f0f0\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\">Q (Kuantitas)</text>\n  <text x=\"35\" y=\"60\" fill=\"#f0f0f0\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\">P (Harga)</text>\n  <line x1=\"120\" y1=\"70\" x2=\"440\" y2=\"210\" stroke=\"#00f0ff\" stroke-width=\"2.5\"/>\n  <text x=\"445\" y=\"215\" fill=\"#00f0ff\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\">D</text>\n  <line x1=\"160\" y1=\"210\" x2=\"420\" y2=\"70\" stroke=\"#05ffa1\" stroke-width=\"2.5\"/>\n  <text x=\"425\" y=\"75\" fill=\"#05ffa1\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\">S₀</text>\n  <line x1=\"100\" y1=\"180\" x2=\"360\" y2=\"60\" stroke=\"#ff2a6d\" stroke-width=\"2.5\" stroke-dasharray=\"5,3\"/>\n  <text x=\"365\" y=\"65\" fill=\"#ff2a6d\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\">S₁</text>\n  <path d=\"M 280 140 L 240 120\" stroke=\"#ffe600\" stroke-width=\"2.5\"/>\n  <circle cx=\"288\" cy=\"143\" r=\"5\" fill=\"#05ffa1\"/>\n  <text x=\"296\" y=\"148\" fill=\"#05ffa1\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\">E₀ (P₀, Q₀)</text>\n  <circle cx=\"225\" cy=\"116\" r=\"5\" fill=\"#ff2a6d\"/>\n  <text x=\"175\" y=\"112\" fill=\"#ff2a6d\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\">E₁ (P₁, Q₁)</text>\n  <rect x=\"75\" y=\"195\" width=\"245\" height=\"20\" fill=\"#000\" stroke=\"#ffe600\" stroke-width=\"1\" rx=\"2\"/>\n  <text x=\"82\" y=\"209\" fill=\"#ffe600\" font-family=\"sans-serif\" font-size=\"10\">Hasil: Harga Naik (P₁ > P₀), Kuantitas Turun (Q₁ &lt; Q₀)</text>\n</svg>",
+    "diagramTitle": "Kurva Ekuilibrium Penawaran & Permintaan: Pergeseran Akibat Beban UMP"
   },
   {
     "id": 11,
@@ -173,7 +187,10 @@
       "18 km/jam"
     ],
     "answer": 2,
-    "explanation": "Menggunakan teorema Pythagoras pada vektor kecepatan tegak lurus: v_resultan = sqrt(v_kapal^2 - v_arus^2) = sqrt(13^2 - 5^2) = sqrt(169 - 25) = sqrt(144) = 12 km/jam. Waktu tempuh = 12 km / 12 km/jam = 1 jam."
+    "explanation": "Menggunakan teorema Pythagoras pada vektor kecepatan tegak lurus: v_resultan = sqrt(v_kapal^2 - v_arus^2) = sqrt(13^2 - 5^2) = sqrt(169 - 25) = sqrt(144) = 12 km/jam. Waktu tempuh = 12 km / 12 km/jam = 1 jam.",
+    "cluster": "Sains",
+    "diagram": "<svg viewBox=\"0 0 520 260\" xmlns=\"http://www.w3.org/2000/svg\" class=\"diagram-svg\" aria-label=\"Diagram Vektor Kecepatan Relatif Perahu Menyeberang Arus\">\n  <rect width=\"520\" height=\"260\" fill=\"#0f0f15\" rx=\"6\" stroke=\"#2a2a38\" stroke-width=\"2\"/>\n  <text x=\"24\" y=\"28\" fill=\"#ffe600\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\">VEKTOR KINEMATIKA GERAK RELATIF PERAHU</text>\n  <text x=\"24\" y=\"44\" fill=\"#8e8ea0\" font-family=\"sans-serif\" font-size=\"11\">Menyeberang dari Pelabuhan A ke Dermaga B (Tepat ke Utara sejauh 12 km)</text>\n  <rect x=\"50\" y=\"55\" width=\"420\" height=\"18\" fill=\"#1b2a22\" stroke=\"#05ffa1\" stroke-width=\"1\"/>\n  <text x=\"60\" y=\"68\" fill=\"#05ffa1\" font-family=\"monospace\" font-size=\"10\">DERMAGA B (TEPI UTARA)</text>\n  <rect x=\"50\" y=\"215\" width=\"420\" height=\"18\" fill=\"#1b2a22\" stroke=\"#05ffa1\" stroke-width=\"1\"/>\n  <text x=\"60\" y=\"228\" fill=\"#05ffa1\" font-family=\"monospace\" font-size=\"10\">PELABUHAN A (TEPI SELATAN)</text>\n  <g stroke=\"#00f0ff\" stroke-width=\"1\" opacity=\"0.4\">\n    <line x1=\"80\" y1=\"100\" x2=\"160\" y2=\"100\"/>\n    <line x1=\"280\" y1=\"130\" x2=\"360\" y2=\"130\"/>\n    <line x1=\"120\" y1=\"170\" x2=\"200\" y2=\"170\"/>\n  </g>\n  <line x1=\"260\" y1=\"215\" x2=\"190\" y2=\"73\" stroke=\"#ff2a6d\" stroke-width=\"3\"/>\n  <text x=\"125\" y=\"150\" fill=\"#ff2a6d\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\">v_kapal = 13 km/jam</text>\n  <line x1=\"190\" y1=\"73\" x2=\"260\" y2=\"73\" stroke=\"#00f0ff\" stroke-width=\"3\"/>\n  <text x=\"175\" y=\"65\" fill=\"#00f0ff\" font-family=\"monospace\" font-size=\"10\" font-weight=\"bold\">v_arus = 5 km/jam (Timur) -></text>\n  <line x1=\"260\" y1=\"215\" x2=\"260\" y2=\"73\" stroke=\"#05ffa1\" stroke-width=\"3\" stroke-dasharray=\"5,4\"/>\n  <text x=\"270\" y=\"145\" fill=\"#05ffa1\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\">v_resultan = 12 km/jam (Lurus Utara)</text>\n  <rect x=\"190\" y=\"73\" width=\"12\" height=\"12\" fill=\"none\" stroke=\"#fff\" stroke-width=\"1.5\"/>\n  <rect x=\"290\" y=\"165\" width=\"200\" height=\"42\" fill=\"#000\" stroke=\"#05ffa1\" stroke-width=\"1\" rx=\"3\"/>\n  <text x=\"298\" y=\"182\" fill=\"#05ffa1\" font-family=\"monospace\" font-size=\"10\">v_r = √(13² - 5²) = √144</text>\n  <text x=\"298\" y=\"198\" fill=\"#ffe600\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\">= 12 km/jam (Waktu = 1 Jam)</text>\n</svg>",
+    "diagramTitle": "Diagram Vektor Kinematika: Gerak Relatif Kapal Menyeberang Arus"
   },
   {
     "id": 12,
@@ -189,7 +206,8 @@
       "15 detik"
     ],
     "answer": 2,
-    "explanation": "Mobil B menyusul mobil A saat jarak tempuh keduanya sama (s_A = s_B). s_A = v * t = 20t. s_B = v0*t + 0.5*a*t^2 = 0 + 0.5 * 4 * t^2 = 2t^2. Persamaan: 20t = 2t^2 ==> 2t^2 - 20t = 0 ==> 2t(t - 10) = 0. Jadi mobil B menyusul mobil A pada t = 10 detik setelah menempuh jarak s = 200 meter."
+    "explanation": "Mobil B menyusul mobil A saat jarak tempuh keduanya sama (s_A = s_B). s_A = v * t = 20t. s_B = v0*t + 0.5*a*t^2 = 0 + 0.5 * 4 * t^2 = 2t^2. Persamaan: 20t = 2t^2 ==> 2t^2 - 20t = 0 ==> 2t(t - 10) = 0. Jadi mobil B menyusul mobil A pada t = 10 detik setelah menempuh jarak s = 200 meter.",
+    "cluster": "Sains"
   },
   {
     "id": 13,
@@ -205,7 +223,10 @@
       "52,1%"
     ],
     "answer": 2,
-    "explanation": "Massa molekul relatif (Mr) C3H7NO2 = (3 * 12) + (7 * 1) + (1 * 14) + (2 * 16) = 36 + 7 + 14 + 32 = 89 g/mol. Persentase massa C = (massa total C / Mr alanin) * 100% = (36 / 89) * 100% ≈ 40,45% (dibulatkan menjadi 40,4%)."
+    "explanation": "Massa molekul relatif (Mr) C3H7NO2 = (3 * 12) + (7 * 1) + (1 * 14) + (2 * 16) = 36 + 7 + 14 + 32 = 89 g/mol. Persentase massa C = (massa total C / Mr alanin) * 100% = (36 / 89) * 100% ≈ 40,45% (dibulatkan menjadi 40,4%).",
+    "cluster": "Sains",
+    "diagram": "<svg viewBox=\"0 0 520 260\" xmlns=\"http://www.w3.org/2000/svg\" class=\"diagram-svg\" aria-label=\"Struktur Molekul Asam Amino Alanin C3H7NO2\">\n  <rect width=\"520\" height=\"260\" fill=\"#0f0f15\" rx=\"6\" stroke=\"#2a2a38\" stroke-width=\"2\"/>\n  <text x=\"24\" y=\"28\" fill=\"#ffe600\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\">STRUKTUR KIMIA ASAM AMINO ALANIN (C₃H₇NO₂)</text>\n  <text x=\"24\" y=\"44\" fill=\"#8e8ea0\" font-family=\"sans-serif\" font-size=\"11\">Massa Atom: C=12, H=1, N=14, O=16 | Total Mr = 89 g/mol</text>\n  <circle cx=\"240\" cy=\"140\" r=\"18\" fill=\"#222230\" stroke=\"#00f0ff\" stroke-width=\"2\"/>\n  <text x=\"240\" y=\"145\" fill=\"#00f0ff\" font-family=\"monospace\" font-size=\"14\" font-weight=\"bold\" text-anchor=\"middle\">Cα</text>\n  <line x1=\"222\" y1=\"140\" x2=\"175\" y2=\"140\" stroke=\"#f0f0f0\" stroke-width=\"3\"/>\n  <rect x=\"110\" y=\"122\" width=\"65\" height=\"36\" fill=\"#1b1b2a\" stroke=\"#ff2a6d\" stroke-width=\"2\" rx=\"4\"/>\n  <text x=\"142\" y=\"145\" fill=\"#ff2a6d\" font-family=\"monospace\" font-size=\"13\" font-weight=\"bold\" text-anchor=\"middle\">H₂N–</text>\n  <text x=\"142\" y=\"170\" fill=\"#8e8ea0\" font-family=\"sans-serif\" font-size=\"9\" text-anchor=\"middle\">Gugus Amino</text>\n  <line x1=\"258\" y1=\"140\" x2=\"310\" y2=\"140\" stroke=\"#f0f0f0\" stroke-width=\"3\"/>\n  <circle cx=\"325\" cy=\"140\" r=\"15\" fill=\"#222230\" stroke=\"#ffe600\" stroke-width=\"2\"/>\n  <text x=\"325\" y=\"145\" fill=\"#ffe600\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\" text-anchor=\"middle\">C</text>\n  <line x1=\"334\" y1=\"128\" x2=\"364\" y2=\"100\" stroke=\"#f0f0f0\" stroke-width=\"2\"/>\n  <line x1=\"340\" y1=\"134\" x2=\"370\" y2=\"106\" stroke=\"#f0f0f0\" stroke-width=\"2\"/>\n  <text x=\"382\" y=\"105\" fill=\"#ff2a6d\" font-family=\"monospace\" font-size=\"13\" font-weight=\"bold\">=O</text>\n  <line x1=\"336\" y1=\"150\" x2=\"365\" y2=\"175\" stroke=\"#f0f0f0\" stroke-width=\"2.5\"/>\n  <text x=\"375\" y=\"185\" fill=\"#05ffa1\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\">–OH</text>\n  <line x1=\"240\" y1=\"122\" x2=\"240\" y2=\"88\" stroke=\"#f0f0f0\" stroke-width=\"2.5\"/>\n  <circle cx=\"240\" cy=\"75\" r=\"13\" fill=\"#1b1b2a\" stroke=\"#fff\" stroke-width=\"1.5\"/>\n  <text x=\"240\" y=\"80\" fill=\"#fff\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\" text-anchor=\"middle\">H</text>\n  <line x1=\"240\" y1=\"158\" x2=\"240\" y2=\"192\" stroke=\"#f0f0f0\" stroke-width=\"3\"/>\n  <rect x=\"210\" y=\"192\" width=\"60\" height=\"32\" fill=\"#1b1b2a\" stroke=\"#05ffa1\" stroke-width=\"2\" rx=\"4\"/>\n  <text x=\"240\" y=\"213\" fill=\"#05ffa1\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\" text-anchor=\"middle\">–CH₃</text>\n  <text x=\"240\" y=\"238\" fill=\"#8e8ea0\" font-family=\"sans-serif\" font-size=\"9\" text-anchor=\"middle\">Rantai R (Metil)</text>\n  <rect x=\"330\" y=\"210\" width=\"170\" height=\"38\" fill=\"#000\" stroke=\"#00f0ff\" stroke-width=\"1\" rx=\"3\"/>\n  <text x=\"338\" y=\"225\" fill=\"#00f0ff\" font-family=\"monospace\" font-size=\"10\">%C = (3 × 12) / 89 × 100%</text>\n  <text x=\"338\" y=\"240\" fill=\"#05ffa1\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\">= 36 / 89 = 40,4%</text>\n</svg>",
+    "diagramTitle": "Struktur Kimia 2D & Stoikiometri: Asam Amino Alanin (C3H7NO2)"
   },
   {
     "id": 14,
@@ -221,7 +242,8 @@
       "1,20 x 10^24 molekul"
     ],
     "answer": 1,
-    "explanation": "Jumlah molekul = mol * Bilangan Avogadro = 0,05 mol * 6,02 x 10^23 molekul/mol = 0,301 x 10^23 = 3,01 x 10^22 molekul SO2."
+    "explanation": "Jumlah molekul = mol * Bilangan Avogadro = 0,05 mol * 6,02 x 10^23 molekul/mol = 0,301 x 10^23 = 3,01 x 10^22 molekul SO2.",
+    "cluster": "Sains"
   },
   {
     "id": 15,
@@ -237,7 +259,10 @@
       "Memusatkan seluruh pelestarian flora Asiatis di Kepulauan Maluku"
     ],
     "answer": 1,
-    "explanation": "Kawasan peralihan (Wallacea) meliputi Sulawesi, Maluku, dan Nusa Tenggara dengan flora endemik khas seperti kayu hitam (eboni) di Sulawesi dan cendana di Nusa Tenggara yang memerlukan konservasi in-situ ketat."
+    "explanation": "Kawasan peralihan (Wallacea) meliputi Sulawesi, Maluku, dan Nusa Tenggara dengan flora endemik khas seperti kayu hitam (eboni) di Sulawesi dan cendana di Nusa Tenggara yang memerlukan konservasi in-situ ketat.",
+    "cluster": "Soshum",
+    "diagram": "<svg viewBox=\"0 0 520 260\" xmlns=\"http://www.w3.org/2000/svg\" class=\"diagram-svg\" aria-label=\"Peta Zonasi Biogeografi Garis Wallace dan Garis Weber Indonesia\">\n  <rect width=\"520\" height=\"260\" fill=\"#0f0f15\" rx=\"6\" stroke=\"#2a2a38\" stroke-width=\"2\"/>\n  <text x=\"24\" y=\"28\" fill=\"#ffe600\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\">ZONASI BIOGEOGRAFI INDONESIA (WALLACE & WEBER)</text>\n  <text x=\"24\" y=\"44\" fill=\"#8e8ea0\" font-family=\"sans-serif\" font-size=\"11\">Pemisahan Kawasan Asiatis, Peralihan (Wallacea), dan Australis</text>\n  <rect x=\"35\" y=\"60\" width=\"140\" height=\"150\" fill=\"#11221c\" stroke=\"#05ffa1\" stroke-width=\"1\" rx=\"4\"/>\n  <text x=\"105\" y=\"80\" fill=\"#05ffa1\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\" text-anchor=\"middle\">ZONA ASIATIS</text>\n  <text x=\"105\" y=\"96\" fill=\"#8e8ea0\" font-family=\"sans-serif\" font-size=\"9\" text-anchor=\"middle\">(Dangkalan Sunda)</text>\n  <text x=\"105\" y=\"125\" fill=\"#fff\" font-family=\"sans-serif\" font-size=\"10\" text-anchor=\"middle\">Sumatera, Jawa,</text>\n  <text x=\"105\" y=\"140\" fill=\"#fff\" font-family=\"sans-serif\" font-size=\"10\" text-anchor=\"middle\">Kalimantan, Bali</text>\n  <text x=\"105\" y=\"175\" fill=\"#ffe600\" font-family=\"sans-serif\" font-size=\"9\" text-anchor=\"middle\">Flora: Meranti, Rafflesia</text>\n  <rect x=\"190\" y=\"60\" width=\"140\" height=\"150\" fill=\"#241724\" stroke=\"#ff2a6d\" stroke-width=\"2\" rx=\"4\"/>\n  <text x=\"260\" y=\"80\" fill=\"#ff2a6d\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\" text-anchor=\"middle\">ZONA PERALIHAN</text>\n  <text x=\"260\" y=\"96\" fill=\"#ffe600\" font-family=\"sans-serif\" font-size=\"9\" font-weight=\"bold\" text-anchor=\"middle\">(WALLACEA)</text>\n  <text x=\"260\" y=\"125\" fill=\"#fff\" font-family=\"sans-serif\" font-size=\"10\" text-anchor=\"middle\">Sulawesi, Maluku,</text>\n  <text x=\"260\" y=\"140\" fill=\"#fff\" font-family=\"sans-serif\" font-size=\"10\" text-anchor=\"middle\">Nusa Tenggara</text>\n  <rect x=\"196\" y=\"160\" width=\"128\" height=\"36\" fill=\"#000\" stroke=\"#ff2a6d\" stroke-width=\"1\" rx=\"2\"/>\n  <text x=\"260\" y=\"174\" fill=\"#05ffa1\" font-family=\"monospace\" font-size=\"9\" font-weight=\"bold\" text-anchor=\"middle\">Eboni (Sulawesi)</text>\n  <text x=\"260\" y=\"188\" fill=\"#ffe600\" font-family=\"monospace\" font-size=\"9\" font-weight=\"bold\" text-anchor=\"middle\">Cendana (NTT)</text>\n  <rect x=\"345\" y=\"60\" width=\"140\" height=\"150\" fill=\"#141e28\" stroke=\"#00f0ff\" stroke-width=\"1\" rx=\"4\"/>\n  <text x=\"415\" y=\"80\" fill=\"#00f0ff\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\" text-anchor=\"middle\">ZONA AUSTRALIS</text>\n  <text x=\"415\" y=\"96\" fill=\"#8e8ea0\" font-family=\"sans-serif\" font-size=\"9\" text-anchor=\"middle\">(Dangkalan Sahul)</text>\n  <text x=\"415\" y=\"125\" fill=\"#fff\" font-family=\"sans-serif\" font-size=\"10\" text-anchor=\"middle\">Papua & pulau sekitar</text>\n  <text x=\"415\" y=\"175\" fill=\"#ffe600\" font-family=\"sans-serif\" font-size=\"9\" text-anchor=\"middle\">Flora: Hutan Sagu,</text>\n  <text x=\"415\" y=\"190\" fill=\"#ffe600\" font-family=\"sans-serif\" font-size=\"9\" text-anchor=\"middle\">Eukaliptus, Matoa</text>\n  <line x1=\"182\" y1=\"52\" x2=\"182\" y2=\"218\" stroke=\"#ffe600\" stroke-width=\"3\" stroke-dasharray=\"6,4\"/>\n  <text x=\"182\" y=\"235\" fill=\"#ffe600\" font-family=\"monospace\" font-size=\"10\" font-weight=\"bold\" text-anchor=\"middle\">Garis Wallace</text>\n  <line x1=\"338\" y1=\"52\" x2=\"338\" y2=\"218\" stroke=\"#00f0ff\" stroke-width=\"3\" stroke-dasharray=\"6,4\"/>\n  <text x=\"338\" y=\"235\" fill=\"#00f0ff\" font-family=\"monospace\" font-size=\"10\" font-weight=\"bold\" text-anchor=\"middle\">Garis Weber</text>\n</svg>",
+    "diagramTitle": "Peta Zonasi Biogeografi: Garis Wallace & Garis Weber Indonesia"
   },
   {
     "id": 16,
@@ -253,7 +278,8 @@
       "Kepasrahan masyarakat terhadap pembatasan sosial"
     ],
     "answer": 1,
-    "explanation": "Dua syarat mutlak interaksi sosial adalah kontak sosial dan komunikasi. Kontak sosial tidak harus tatap muka fisik secara primer; kontak sosial sekunder yang dimediasi oleh teknologi daring yang menghasilkan komunikasi dua arah timbal balik tetap memenuhi syarat sosiologis interaksi sosial."
+    "explanation": "Dua syarat mutlak interaksi sosial adalah kontak sosial dan komunikasi. Kontak sosial tidak harus tatap muka fisik secara primer; kontak sosial sekunder yang dimediasi oleh teknologi daring yang menghasilkan komunikasi dua arah timbal balik tetap memenuhi syarat sosiologis interaksi sosial.",
+    "cluster": "Soshum"
   },
   {
     "id": 17,
@@ -269,7 +295,8 @@
       "Karena mendeklarasikan perang terbuka terhadap seluruh bangsa asing di Batavia"
     ],
     "answer": 1,
-    "explanation": "Multikulturalisme menghormati dan merangkul keberagaman dalam kesetaraan. Sumpah Pemuda adalah simbol integrasi nasional di mana perbedaan suku, agama, dan etnis bersatu membentuk identitas bersama 'Indonesia' tanpa menghapus identitas kultural masing-masing."
+    "explanation": "Multikulturalisme menghormati dan merangkul keberagaman dalam kesetaraan. Sumpah Pemuda adalah simbol integrasi nasional di mana perbedaan suku, agama, dan etnis bersatu membentuk identitas bersama 'Indonesia' tanpa menghapus identitas kultural masing-masing.",
+    "cluster": "Soshum"
   },
   {
     "id": 18,
@@ -285,7 +312,8 @@
       "Menyebarkan isu suku, agama, ras, dan antargolongan (SARA) di grup percakapan"
     ],
     "answer": 1,
-    "explanation": "Bela negara pelajar di era digital diwujudkan dengan literasi digital, menjaga persatuan, menyaring berita bohong (hoaks) yang dapat memecah belah bangsa, serta menjunjung tinggi toleransi kebinekaan."
+    "explanation": "Bela negara pelajar di era digital diwujudkan dengan literasi digital, menjaga persatuan, menyaring berita bohong (hoaks) yang dapat memecah belah bangsa, serta menjunjung tinggi toleransi kebinekaan.",
+    "cluster": "Soshum"
   },
   {
     "id": 19,
@@ -301,7 +329,8 @@
       "Membangun pangkalan militer untuk melawan kekaisaran Tiongkok"
     ],
     "answer": 1,
-    "explanation": "Faktor 'Gold' dan putusnya pasokan rempah akibat jatuhnya Konstantinopel mendorong Eropa mencari jalur laut langsung ke produsen rempah (Maluku & Nusantara) agar terbebas dari monopoli perantara dan meraih keuntungan komersial maksimal."
+    "explanation": "Faktor 'Gold' dan putusnya pasokan rempah akibat jatuhnya Konstantinopel mendorong Eropa mencari jalur laut langsung ke produsen rempah (Maluku & Nusantara) agar terbebas dari monopoli perantara dan meraih keuntungan komersial maksimal.",
+    "cluster": "Soshum"
   },
   {
     "id": 20,
@@ -317,6 +346,9 @@
       "m = 9"
     ],
     "answer": 2,
-    "explanation": "Gradien garis singgung m adalah turunan pertama f'(x) pada absis tersebut. f(x) = 2x^2 - 3x + 1 ==> f'(x) = 4x - 3. Untuk x = 2: m = f'(2) = 4(2) - 3 = 8 - 3 = 5. Maka gradien garis singgung adalah 5."
+    "explanation": "Gradien garis singgung m adalah turunan pertama f'(x) pada absis tersebut. f(x) = 2x^2 - 3x + 1 ==> f'(x) = 4x - 3. Untuk x = 2: m = f'(2) = 4(2) - 3 = 8 - 3 = 5. Maka gradien garis singgung adalah 5.",
+    "cluster": "Sains",
+    "diagram": "<svg viewBox=\"0 0 520 260\" xmlns=\"http://www.w3.org/2000/svg\" class=\"diagram-svg\" aria-label=\"Kurva Parabola dan Garis Singgung di Titik x=2\">\n  <rect width=\"520\" height=\"260\" fill=\"#0f0f15\" rx=\"6\" stroke=\"#2a2a38\" stroke-width=\"2\"/>\n  <text x=\"24\" y=\"28\" fill=\"#ffe600\" font-family=\"monospace\" font-size=\"12\" font-weight=\"bold\">KALKULUS: GARIS SINGGUNG KURVA PARABOLA f(x) = 2x² - 3x + 1</text>\n  <text x=\"24\" y=\"44\" fill=\"#8e8ea0\" font-family=\"sans-serif\" font-size=\"11\">Gradien m = Turunan pertama f'(x) pada absis x = 2</text>\n  <line x1=\"80\" y1=\"210\" x2=\"480\" y2=\"210\" stroke=\"#f0f0f0\" stroke-width=\"2\"/>\n  <line x1=\"160\" y1=\"230\" x2=\"160\" y2=\"50\" stroke=\"#f0f0f0\" stroke-width=\"2\"/>\n  <text x=\"475\" y=\"225\" fill=\"#f0f0f0\" font-family=\"monospace\" font-size=\"11\">x</text>\n  <text x=\"145\" y=\"60\" fill=\"#f0f0f0\" font-family=\"monospace\" font-size=\"11\">y</text>\n  <text x=\"160\" y=\"225\" fill=\"#8e8ea0\" font-family=\"monospace\" font-size=\"10\" text-anchor=\"middle\">0</text>\n  <text x=\"230\" y=\"225\" fill=\"#8e8ea0\" font-family=\"monospace\" font-size=\"10\" text-anchor=\"middle\">1</text>\n  <text x=\"300\" y=\"225\" fill=\"#05ffa1\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\" text-anchor=\"middle\">2</text>\n  <text x=\"370\" y=\"225\" fill=\"#8e8ea0\" font-family=\"monospace\" font-size=\"10\" text-anchor=\"middle\">3</text>\n  <path d=\"M 120 100 Q 212 235 330 60\" fill=\"none\" stroke=\"#00f0ff\" stroke-width=\"3\"/>\n  <text x=\"105\" y=\"88\" fill=\"#00f0ff\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\">f(x) = 2x² - 3x + 1</text>\n  <line x1=\"260\" y1=\"205\" x2=\"340\" y2=\"5\" stroke=\"#ff2a6d\" stroke-width=\"2.5\" stroke-dasharray=\"6,3\"/>\n  <text x=\"345\" y=\"30\" fill=\"#ff2a6d\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\">Garis singgung g</text>\n  <line x1=\"300\" y1=\"210\" x2=\"300\" y2=\"105\" stroke=\"#05ffa1\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\"/>\n  <line x1=\"160\" y1=\"105\" x2=\"300\" y2=\"105\" stroke=\"#05ffa1\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\"/>\n  <text x=\"145\" y=\"110\" fill=\"#05ffa1\" font-family=\"monospace\" font-size=\"10\" text-anchor=\"end\">y=3</text>\n  <circle cx=\"300\" cy=\"105\" r=\"5\" fill=\"#ffe600\" stroke=\"#000\" stroke-width=\"2\"/>\n  <text x=\"312\" y=\"112\" fill=\"#ffe600\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\">P(2, 3)</text>\n  <rect x=\"330\" y=\"130\" width=\"175\" height=\"52\" fill=\"#000\" stroke=\"#ffe600\" stroke-width=\"1\" rx=\"3\"/>\n  <text x=\"338\" y=\"148\" fill=\"#a0a0b0\" font-family=\"monospace\" font-size=\"10\">f'(x) = 4x - 3</text>\n  <text x=\"338\" y=\"163\" fill=\"#ffe600\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\">m = f'(2) = 4(2) - 3</text>\n  <text x=\"338\" y=\"176\" fill=\"#05ffa1\" font-family=\"monospace\" font-size=\"11\" font-weight=\"bold\">m = 5</text>\n</svg>",
+    "diagramTitle": "Grafik Kalkulus: Garis Singgung Kurva Parabola f(x) = 2x² - 3x + 1"
   }
 ]
