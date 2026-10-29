@@ -3,470 +3,556 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="color-scheme" content="dark light">
-  <meta name="description" content="TKAORA by HMMODZ — Platform belajar mandiri TKA SMA tanpa stres. Baca 14 materi PDF, latihan 15 soal interaktif, dan ringkasan rumus kilat 5 menit.">
-  <meta name="theme-color" content="#090d16">
-  <title>TKAORA | Ruang Belajar & Latihan TKA SMA by HMMODZ</title>
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="TKAORA Dark Neobrutalism Edition — Platform Belajar & Latihan TKA SMA. Dikembangkan oleh rhmt ofc (HMMODZ). 14 modul PDF resmi, 20 soal autentik dari PDF, lab interaktif, dan flashcard konsep.">
+  <meta name="theme-color" content="#080b11">
+  <title>TKAORA | Dark Neobrutalism by rhmt ofc (HMMODZ)</title>
 
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%236366f1'/%3E%3Cpath d='M10 8h12v4H10zm0 6h8v4H10zm0 6h10v4H10z' fill='%23ffffff'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23ffe600' stroke='%23000' stroke-width='3'/%3E%3Cpath d='M8 7h16v4H8zm0 7h11v4H8zm0 7h14v4H8z' fill='%23000'/%3E%3C/svg%3E">
 
-  <!-- Modern Fonts -->
+  <!-- Brutalist Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800;12..96,900&family=JetBrains+Mono:wght@600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <!-- Inline SVG Sprite Icons -->
   <svg width="0" height="0" style="position:absolute;display:none" aria-hidden="true">
-    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></symbol>
-    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15zM4 19.5H2"/></symbol>
-    <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></symbol>
-    <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
-    <symbol id="i-list" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></symbol>
-    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></symbol>
-    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
-    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></symbol>
-    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
-    <symbol id="i-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
-    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
-    <symbol id="i-external" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
-    <symbol id="i-refresh" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></symbol>
-    <symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
-    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
-    <symbol id="i-split" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="3" x2="12" y2="21"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15zM4 19.5H2" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line x1="8" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line x1="8" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line x1="3" y1="6" x2="3.01" y2="6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><line x1="3" y1="12" x2="3.01" y2="12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><line x1="3" y1="18" x2="3.01" y2="18" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2.5"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2.5"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2.5"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2.5"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2.5"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2.5"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2.5"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2.5"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2.5"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2.5"/><polyline points="12 6 12 12 16 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><polyline points="12 5 19 12 12 19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="2.5"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" fill="none" stroke="currentColor" stroke-width="2.5"/><polyline points="15 3 21 3 21 9" fill="none" stroke="currentColor" stroke-width="2.5"/><line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2.5"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" fill="none" stroke="currentColor" stroke-width="2.5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" fill="none" stroke="currentColor" stroke-width="2.5"/><polyline points="7 10 12 15 17 10" fill="none" stroke="currentColor" stroke-width="2.5"/><line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2.5"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2" fill="none" stroke="currentColor" stroke-width="2.5"/><polyline points="2 17 12 22 22 17" fill="none" stroke="currentColor" stroke-width="2.5"/><polyline points="2 12 12 17 22 12" fill="none" stroke="currentColor" stroke-width="2.5"/></symbol>
   </svg>
 
   <a class="skip-link" href="#main">Lewati ke konten utama</a>
 
+  <!-- Top Brutalist Marquee Ticker -->
+  <div class="brutal-ticker-bar" aria-label="Pengumuman Resmi Platform">
+    <div class="ticker-content">
+      <span class="ticker-item"><span class="ticker-badge">TKA 2025</span> RESMI: 14 MODUL PDF TERINTEGRASI</span>
+      <span class="ticker-item"><span class="ticker-badge pink">AUTHENTIC</span> 20 SOAL RESMI DIEKSTRAK LANGSUNG DARI PDF</span>
+      <span class="ticker-item"><span class="ticker-badge green">CORE ENGINE</span> ARCHITECTED BY RHMT OFC (HMMODZ)</span>
+      <span class="ticker-item"><span class="ticker-badge purple">INTERAKTIF</span> FLASHCARD HAFALAN • LAB SIMULASI • CHECKPOINT</span>
+      <span class="ticker-item"><span class="ticker-badge cyan">ZERO SLOP</span> 100% BEBAS SLOP AI • DARK NEOBRUTALISM UI</span>
+      <span class="ticker-item"><span class="ticker-badge">TKA 2025</span> RESMI: 14 MODUL PDF TERINTEGRASI</span>
+      <span class="ticker-item"><span class="ticker-badge pink">AUTHENTIC</span> 20 SOAL RESMI DIEKSTRAK LANGSUNG DARI PDF</span>
+      <span class="ticker-item"><span class="ticker-badge green">CORE ENGINE</span> ARCHITECTED BY RHMT OFC (HMMODZ)</span>
+      <span class="ticker-item"><span class="ticker-badge purple">INTERAKTIF</span> FLASHCARD HAFALAN • LAB SIMULASI • CHECKPOINT</span>
+      <span class="ticker-item"><span class="ticker-badge cyan">ZERO SLOP</span> 100% BEBAS SLOP AI • DARK NEOBRUTALISM UI</span>
+    </div>
+  </div>
+
   <div class="app-shell">
-    <!-- Desktop Sidebar / Mobile Nav Dock -->
+    <!-- Desktop Sidebar -->
     <aside class="sidebar" aria-label="Navigasi Utama">
-      <div class="brand-box">
-        <div class="brand-logo-mark" aria-hidden="true">
-          <svg class="icon" style="width:20px;height:20px"><use href="#i-zap"/></svg>
-        </div>
+      <div class="brand-box" id="brandBoxSidebar" title="TKAORA — Base Engine by rhmt ofc (HMMODZ)">
+        <div class="brand-logo-mark">⚡</div>
         <div class="brand-meta">
-          <h1>TKAORA <span class="brand-badge">PRO</span></h1>
-          <span class="brand-author">by HMMODZ</span>
+          <h1>TKAORA <span class="brand-badge">HMMODZ</span></h1>
+          <span class="brand-author">rhmt ofc engine</span>
         </div>
       </div>
 
       <nav class="nav-menu">
-        <a class="nav-link" href="#home" data-nav="home" aria-current="page">
-          <svg class="icon"><use href="#i-home"/></svg>
-          <span>Beranda</span>
+        <span class="nav-section-title">Menu Utama</span>
+        <a class="nav-link active" href="#home" data-nav="home" aria-current="page">
+          <div class="nav-link-inner">
+            <svg class="icon" style="width:18px;height:18px"><use href="#i-home"/></svg>
+            <span>Beranda</span>
+          </div>
         </a>
         <a class="nav-link" href="#library" data-nav="library">
-          <svg class="icon"><use href="#i-book"/></svg>
-          <span>Materi TKA</span>
-          <span class="nav-badge-pill" id="navMaterialCount">14</span>
+          <div class="nav-link-inner">
+            <svg class="icon" style="width:18px;height:18px"><use href="#i-book"/></svg>
+            <span>Materi Interaktif</span>
+          </div>
+          <span class="nav-badge-pill" id="navMaterialCount">14 Modul</span>
         </a>
         <a class="nav-link" href="#practice" data-nav="practice">
-          <svg class="icon"><use href="#i-pencil"/></svg>
-          <span>Latihan Soal</span>
-          <span class="nav-badge-pill">15</span>
+          <div class="nav-link-inner">
+            <svg class="icon" style="width:18px;height:18px"><use href="#i-pencil"/></svg>
+            <span>Latihan Soal PDF</span>
+          </div>
+          <span class="nav-badge-pill" style="color:var(--neon-green)">20 Soal</span>
         </a>
         <a class="nav-link" href="#cheatsheet" data-nav="cheatsheet">
-          <svg class="icon"><use href="#i-zap"/></svg>
-          <span>Rumus Kilat</span>
-          <span class="nav-badge-pill">5 Mnt</span>
+          <div class="nav-link-inner">
+            <svg class="icon" style="width:18px;height:18px"><use href="#i-zap"/></svg>
+            <span>Rumus Kilat</span>
+          </div>
+          <span class="nav-badge-pill" style="color:var(--neon-cyan)">5 Mnt</span>
         </a>
         <a class="nav-link" href="#progress" data-nav="progress">
-          <svg class="icon"><use href="#i-list"/></svg>
-          <span>Catatan Belajar</span>
+          <div class="nav-link-inner">
+            <svg class="icon" style="width:18px;height:18px"><use href="#i-list"/></svg>
+            <span>Catatan Belajar</span>
+          </div>
         </a>
       </nav>
 
       <div class="sidebar-footer">
-        <button class="developer-card-mini" id="openAboutDev" aria-label="Tentang Pengembang HMMODZ">
-          <div class="dev-avatar">HM</div>
-          <div class="dev-info">
-            <strong>HMMODZ</strong>
-            <span>Arsitek & Pengembang</span>
+        <div class="sidebar-credits">
+          <strong>ARIKTEKTUR SISTEM:</strong>
+          Source code dasar & engine platform dikembangkan oleh <strong>rhmt ofc (HMMODZ)</strong>.
+          <div style="margin-top:8px;display:flex;gap:6px">
+            <button class="brutal-btn btn-sm btn-outline" id="openAboutDevSidebar" style="width:100%">Tentang Developer</button>
           </div>
-        </button>
-
-        <div class="sidebar-controls">
-          <button class="theme-toggle-btn" id="themeToggle" aria-label="Beralih tema terang atau gelap">
-            <svg class="icon theme-icon-sun" style="display:none"><use href="#i-sun"/></svg>
-            <svg class="icon theme-icon-moon"><use href="#i-moon"/></svg>
-            <span id="themeLabel">Mode Gelap</span>
-          </button>
         </div>
       </div>
     </aside>
 
     <!-- Main Content Area -->
-    <main class="main-viewport" id="main">
-      <!-- Mobile Top Bar -->
-      <div class="mobile-top-bar">
-        <div style="display:flex;align-items:center;gap:10px">
-          <div class="brand-logo-mark" style="width:32px;height:32px;border-radius:8px">
-            <svg class="icon" style="width:16px;height:16px"><use href="#i-zap"/></svg>
+    <main class="main-content" id="main">
+      <!-- Top Bar -->
+      <header class="top-bar">
+        <div class="top-bar-left">
+          <div class="mobile-brand-title">
+            <span style="background:var(--neon-yellow);color:#000;padding:2px 6px;border:1.5px solid #000;border-radius:3px">⚡</span>
+            <span>TKAORA</span>
+            <span class="brand-badge">v2.5</span>
           </div>
-          <span style="font-family:var(--font-display);font-weight:800;font-size:17px">TKAORA</span>
-          <span class="brand-badge">PRO</span>
+          <div class="system-status-chip">
+            <span class="status-dot-pulse"></span>
+            <span>14 DOKUMEN TKA 2025 AKTIF</span>
+          </div>
         </div>
-        <div style="display:flex;align-items:center;gap:8px">
-          <button class="btn btn-sm btn-ghost" id="themeToggleMobile" aria-label="Beralih tema">
-            <svg class="icon theme-icon-sun" style="display:none"><use href="#i-sun"/></svg>
-            <svg class="icon theme-icon-moon"><use href="#i-moon"/></svg>
+
+        <div class="top-bar-right">
+          <button class="icon-btn-brutal" id="themeToggleBtn" aria-label="Beralih tema kontras" title="Ubah Tema">
+            <svg class="icon theme-icon-sun" style="display:none;width:18px;height:18px"><use href="#i-sun"/></svg>
+            <svg class="icon theme-icon-moon" style="width:18px;height:18px"><use href="#i-moon"/></svg>
           </button>
-          <button class="btn btn-sm btn-ghost" id="openAboutDevMobile" aria-label="Tentang HMMODZ">
-            <div class="dev-avatar" style="width:28px;height:28px;font-size:11px">HM</div>
-          </button>
+          <a class="brutal-btn btn-sm" href="#practice">
+            <svg class="icon" style="width:14px;height:14px"><use href="#i-pencil"/></svg>
+            <span>Uji 20 Soal PDF</span>
+          </a>
         </div>
-      </div>
-      
-      <!-- ===================================================================
-           1. BERANDA (HOME) SCREEN
-           =================================================================== -->
-      <section class="page-view" id="home" aria-labelledby="h-home">
-        <div class="hero-crafted">
-          <div class="hero-copy-box">
-            <span class="page-header-eyebrow">✦ Platform Belajar Mandiri • Anti-Stres</span>
-            <h2 id="h-home">Belajar Tenang.<br><em>Kuasai TKA SMA.</em></h2>
-            <p>Platform persiapan Tes Kemampuan Akademik tanpa tekanan poin dan tanpa peringkat. Pelajari 14 modul PDF interaktif, uji logika dengan 15 latihan soal, dan kuasai konsep lewat rangkuman rumus kilat.</p>
-            <div class="hero-action-row">
-              <a class="btn btn-primary" href="#library">
-                <span>Buka Materi Modul</span>
+      </header>
+
+      <!-- View Containers -->
+      <div class="view-container">
+
+        <!-- =================================================================
+             1. BERANDA (HOME) VIEW
+             ================================================================= -->
+        <section class="view-section active" id="home" aria-labelledby="h-home">
+          <!-- Hero Brutal -->
+          <div class="brutal-hero">
+            <div class="brutal-hero-badge-row">
+              <span class="badge-pill-brutal yellow">⚡ EDISI DARK NEOBRUTALISM</span>
+              <span class="badge-pill-brutal pink">🎯 SOAL ASLI DARI 14 PDF</span>
+              <span class="badge-pill-brutal green">🧠 INTERACTIVE LEARNING LAB</span>
+              <span class="badge-pill-brutal purple">CORE: RHMT OFC (HMMODZ)</span>
+            </div>
+
+            <h2 id="h-home">Kuasai TKA SMA.<br><span class="highlight-yellow">Interaktif. Nyata. Anti-AI Slop.</span></h2>
+            <p>Platform persiapan Tes Kemampuan Akademik modern berdaya visual tinggi. Pelajari 14 modul PDF dengan <strong>flashcard hafalan 3D</strong>, simulasi <strong>lab interaktif</strong>, dan uji daya nalar dengan <strong>20 soal autentik</strong> yang diekstraksi langsung dari bank soal resmi TKA 2025.</p>
+
+            <div class="brutal-hero-actions">
+              <a class="brutal-btn btn-yellow" href="#library">
+                <span>Buka Materi Interaktif (14)</span>
                 <svg class="icon" style="width:16px;height:16px"><use href="#i-arrow-right"/></svg>
               </a>
-              <a class="btn" href="#practice">
+              <a class="brutal-btn btn-pink" href="#practice">
                 <svg class="icon" style="width:16px;height:16px"><use href="#i-pencil"/></svg>
-                <span>Mulai Latihan</span>
+                <span>Mulai Latihan 20 Soal PDF</span>
               </a>
-              <a class="btn btn-ghost" href="#cheatsheet">
+              <a class="brutal-btn btn-outline" href="#cheatsheet">
                 <svg class="icon" style="width:16px;height:16px"><use href="#i-zap"/></svg>
-                <span>Rumus Kilat</span>
+                <span>Rumus Kilat 5 Mnt</span>
               </a>
             </div>
           </div>
 
-          <!-- Interactive Study Meter Widget -->
-          <div class="resume-widget-card">
-            <div class="resume-header">
-              <span class="resume-label">Kemajuan Belajar</span>
-              <span class="brand-badge" id="homeProgressPct">0% Selesai</span>
-            </div>
-            
-            <div class="ring-metric-container">
-              <svg class="progress-ring-svg" viewBox="0 0 80 80">
-                <circle class="progress-ring-bg" stroke-width="7" fill="transparent" r="32" cx="40" cy="40"/>
-                <circle class="progress-ring-fill" id="homeRingFill" stroke-width="7" stroke-dasharray="201" stroke-dashoffset="201" stroke-linecap="round" fill="transparent" r="32" cx="40" cy="40"/>
-              </svg>
-              <div class="metric-text-box">
-                <strong id="homeCountText">0 dari 14</strong>
-                <small id="homeProgressStatus">Mulai dari materi yang kamu sukai</small>
-              </div>
-            </div>
-
-            <a class="resume-jump-btn" id="resumeLastBtn" href="#library">
-              <span id="resumeLastLabel">Lanjutkan Belajar</span>
-              <svg class="icon" style="width:16px;height:16px"><use href="#i-arrow-right"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- 4 Highlights Grid -->
-        <div class="features-grid-4">
-          <a class="feature-tile-card" href="#library">
-            <div class="tile-icon-bubble">
-              <svg class="icon"><use href="#i-book"/></svg>
-            </div>
-            <strong>14 Modul PDF In-App</strong>
-            <p>Membaca dokumen resmi langsung di dalam web tanpa harus keluar ke aplikasi lain.</p>
-          </a>
-
-          <a class="feature-tile-card" href="#practice">
-            <div class="tile-icon-bubble">
-              <svg class="icon"><use href="#i-pencil"/></svg>
-            </div>
-            <strong>Latihan Soal Taktil</strong>
-            <p>15 soal terkurasi dengan tombol bendera ragu-ragu dan wacana bacaan split-view.</p>
-          </a>
-
-          <a class="feature-tile-card" href="#practice">
-            <div class="tile-icon-bubble">
-              <svg class="icon"><use href="#i-refresh"/></svg>
-            </div>
-            <strong>Latih Ulang Soal Salah</strong>
-            <p>Sistem langsung menyaring nomor-nomor yang keliru agar kamu bisa kuasai titik lemah.</p>
-          </a>
-
-          <a class="feature-tile-card" href="#cheatsheet">
-            <div class="tile-icon-bubble">
-              <svg class="icon"><use href="#i-zap"/></svg>
-            </div>
-            <strong>Rumus Kilat 5 Menit</strong>
-            <p>Intisari formula dan trik penalaran matematika, sains, dan literasi sebelum ujian.</p>
-          </a>
-        </div>
-      </section>
-
-      <!-- ===================================================================
-           2. MATERI TKA (LIBRARY) SCREEN — FASE 1
-           =================================================================== -->
-      <section class="page-view" id="library" aria-labelledby="h-library" hidden>
-        <header class="page-header">
-          <span class="page-header-eyebrow">Modul Kurikulum Resmi</span>
-          <h2 id="h-library">Materi TKA SMA</h2>
-          <p>Pilih mata pelajaran untuk membaca modul PDF secara terintegrasi, lengkap dengan lembar memo rumus pribadi.</p>
-        </header>
-
-        <div class="catalog-toolbar">
-          <div class="search-field-crafted">
-            <svg class="icon search-icon-left"><use href="#i-search"/></svg>
-            <input id="searchInput" type="search" placeholder="Cari mata pelajaran, topik, atau kata kunci..." autocomplete="off">
-            <span class="search-shortcut-badge">/</span>
-          </div>
-
-          <div class="filter-chips-strip" role="group" aria-label="Filter Rumpun Pelajaran">
-            <button class="filter-chip active" data-filter="semua">Semua (14)</button>
-            <button class="filter-chip" data-filter="Wajib">Wajib (4)</button>
-            <button class="filter-chip" data-filter="Pilihan">Pilihan (10)</button>
-            <button class="filter-chip" data-filter="Bahasa">Bahasa (4)</button>
-            <button class="filter-chip" data-filter="Sains">Sains (5)</button>
-            <button class="filter-chip" data-filter="Soshum">Soshum (5)</button>
-          </div>
-        </div>
-
-        <div class="materials-grid" id="materialsContainer">
-          <p class="muted">Memuat katalog materi...</p>
-        </div>
-      </section>
-
-      <!-- ===================================================================
-           3. LATIHAN INTERAKTIF (PRACTICE) SCREEN — FASE 1 & FASE 2
-           =================================================================== -->
-      <section class="page-view" id="practice" aria-labelledby="h-practice" hidden>
-        <header class="page-header">
-          <span class="page-header-eyebrow">Simulasi Interaktif</span>
-          <h2 id="h-practice">Latihan 15 Soal TKA</h2>
-          <p>Uji penalaran dan literasimu dengan soal terstruktur. Dilengkapi mode timer pilihan, navigasi taktil, dan pembahasan komprehensif.</p>
-        </header>
-
-        <!-- Quiz Intro View -->
-        <div id="quizIntroView" class="quiz-intro-hero">
-          <div>
-            <h3>Pilih Mode Latihan</h3>
-            <p class="muted">Sesuaikan dengan tujuan belajarmu saat ini.</p>
-          </div>
-
-          <div class="mode-selector-strip">
-            <label class="mode-card selected" id="modeCardZen">
-              <input type="radio" name="quizModeOpt" value="zen" class="mode-radio" checked>
+          <!-- Stats Grid Brutal -->
+          <div class="stats-grid-brutal">
+            <div class="stat-card-brutal">
+              <div class="stat-icon-box yellow">📚</div>
               <div>
-                <strong>Mode Santai (Zen Mode)</strong>
-                <span>Belajar tanpa batas waktu, fokus sepenuhnya pada pemahaman konsep soal.</span>
+                <div class="stat-value" id="statCompletedModul">0/14</div>
+                <div class="stat-label">Modul Dipelajari</div>
               </div>
-            </label>
+            </div>
 
-            <label class="mode-card" id="modeCardTimer">
-              <input type="radio" name="quizModeOpt" value="timer" class="mode-radio">
+            <div class="stat-card-brutal">
+              <div class="stat-icon-box pink">⚡</div>
               <div>
-                <strong>Mode Simulasi Waktu (15 Menit)</strong>
-                <span>Mengasah kecepatan berpikir dengan timer 1 menit per soal.</span>
+                <div class="stat-value">20</div>
+                <div class="stat-label">Soal Autentik PDF</div>
               </div>
-            </label>
-          </div>
-
-          <div class="hero-action-row">
-            <button class="btn btn-primary" id="btnStartQuiz">
-              <svg class="icon"><use href="#i-pencil"/></svg>
-              <span id="btnStartQuizLabel">Mulai Latihan Sekarang</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Active Quiz View -->
-        <div id="quizActiveView" class="quiz-active-wrapper" hidden>
-          <div class="quiz-top-bar">
-            <div class="quiz-progress-label">
-              <strong id="quizCurrentIndexLabel">Soal 1 dari 15</strong>
-              <small id="quizAnsweredCountLabel">0 dijawab</small>
             </div>
 
-            <div class="quiz-timer-capsule" id="quizTimerBox">
-              <svg class="icon" style="width:15px;height:15px"><use href="#i-clock"/></svg>
-              <span id="quizTimerText">00:00</span>
+            <div class="stat-card-brutal">
+              <div class="stat-icon-box green">🧪</div>
+              <div>
+                <div class="stat-value">14</div>
+                <div class="stat-label">Lab Simulator & Quiz</div>
+              </div>
             </div>
 
-            <div style="display:flex;gap:8px">
-              <button class="btn btn-sm" id="btnToggleFlag" aria-label="Tandai ragu-ragu">
-                <svg class="icon" style="width:14px;height:14px"><use href="#i-flag"/></svg>
-                <span id="btnToggleFlagLabel">Ragu-ragu</span>
+            <div class="stat-card-brutal">
+              <div class="stat-icon-box purple">👑</div>
+              <div>
+                <div class="stat-value">rhmt ofc</div>
+                <div class="stat-label">HMMODZ Core Engine</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 Main Feature Cards -->
+          <div class="materials-grid-brutal" style="margin-top:10px">
+            <div class="material-card-brutal" style="border-color:var(--neon-yellow)">
+              <div class="card-top-meta">
+                <span class="card-cluster-tag" style="color:var(--neon-yellow);border-color:var(--neon-yellow)">STUDIO INTERAKTIF</span>
+                <span class="card-pages-badge">14 MATA PELAJARAN</span>
+              </div>
+              <h3>Pelajaran Interaktif & Flashcard 3D</h3>
+              <p>Bukan sekadar PDF pasif! Setiap bab dibekali kartu hafalan interaktif 3D, deteksi jebakan soal, dan tantangan kilat pemahaman konsep.</p>
+              <div class="card-footer-actions">
+                <a class="brutal-btn btn-sm btn-yellow" href="#library" style="width:100%">Eksplorasi Modul Sekarang →</a>
+              </div>
+            </div>
+
+            <div class="material-card-brutal" style="border-color:var(--neon-pink)">
+              <div class="card-top-meta">
+                <span class="card-cluster-tag" style="color:var(--neon-pink);border-color:var(--neon-pink)">BANK SOAL REAL 2025</span>
+                <span class="card-pages-badge">EKSTRAK DARI PDF</span>
+              </div>
+              <h3>20 Soal Autentik Wacana & Hitungan</h3>
+              <p>Soal asli seperti Wacana Tradisi Buwuhan, Cerpen Layur karya Anang YB, Model Pemanasan Global y=0,02x-39,9, Alanin C3H7NO2, dan Kenaikan UMP 2025.</p>
+              <div class="card-footer-actions">
+                <a class="brutal-btn btn-sm btn-pink" href="#practice" style="width:100%">Kerjakan Soal PDF →</a>
+              </div>
+            </div>
+
+            <div class="material-card-brutal" style="border-color:var(--neon-cyan)">
+              <div class="card-top-meta">
+                <span class="card-cluster-tag" style="color:var(--neon-cyan);border-color:var(--neon-cyan)">SIMULATOR & KALKULATOR</span>
+                <span class="card-pages-badge">LAB FISIKA, MAT, KIMIA</span>
+              </div>
+              <h3>Laboratorium Rumus Terapan</h3>
+              <p>Eksperimen langsung dengan slider gerak relatif perahu menyeberang arus laut, penghitung persen karbon mol, dan simulator kurva pasar.</p>
+              <div class="card-footer-actions">
+                <a class="brutal-btn btn-sm btn-cyan" href="#cheatsheet" style="width:100%">Buka Rumus Kilat →</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================================
+             2. MATERI INTERAKTIF (LIBRARY) VIEW
+             ================================================================= -->
+        <section class="view-section" id="library" aria-labelledby="h-library">
+          <div style="margin-bottom:24px">
+            <span class="badge-pill-brutal yellow">KURIKULUM RESMI TKA 2025</span>
+            <h2 id="h-library" style="font-size:2rem;margin:10px 0 6px">14 Modul Interaktif & In-App PDF</h2>
+            <p>Pilih mata pelajaran untuk membuka <strong>Studio Belajar Interaktif</strong> (Flashcard 3D, Lab Simulator, Kuis Checkpoint, dan Pembaca PDF Resmi).</p>
+          </div>
+
+          <div class="controls-strip">
+            <div class="filter-tabs-brutal" role="group" aria-label="Filter Rumpun">
+              <button class="tab-btn-brutal active" data-filter="semua">Semua (14)</button>
+              <button class="tab-btn-brutal" data-filter="Wajib">Wajib (4)</button>
+              <button class="tab-btn-brutal" data-filter="Pilihan">Pilihan (10)</button>
+              <button class="tab-btn-brutal" data-filter="Bahasa">Bahasa (4)</button>
+              <button class="tab-btn-brutal" data-filter="Sains">Sains (5)</button>
+              <button class="tab-btn-brutal" data-filter="Soshum">Soshum (5)</button>
+            </div>
+
+            <div class="search-input-brutal-wrap">
+              <svg class="icon search-input-brutal-icon" style="width:16px;height:16px"><use href="#i-search"/></svg>
+              <input class="search-input-brutal" id="searchInput" type="search" placeholder="Cari topik atau modul..." autocomplete="off">
+            </div>
+          </div>
+
+          <!-- Dynamic Materials Grid -->
+          <div class="materials-grid-brutal" id="materialsContainer">
+            <p class="muted">Memuat katalog materi...</p>
+          </div>
+        </section>
+
+        <!-- =================================================================
+             3. LATIHAN SOAL DARI PDF (PRACTICE) VIEW
+             ================================================================= -->
+        <section class="view-section" id="practice" aria-labelledby="h-practice">
+          <div style="margin-bottom:24px">
+            <span class="badge-pill-brutal pink">SOAL ASLI RESMI TKA 2025</span>
+            <h2 id="h-practice" style="font-size:2rem;margin:10px 0 6px">Arena Latihan 20 Soal PDF</h2>
+            <p>Diekstraksi langsung dari 14 berkas PDF resmi: Bahasa Indonesia, Inggris, Matematika, Fisika, Biologi, Kimia, Ekonomi, Geografi, Sejarah, PPKn, Sosiologi.</p>
+          </div>
+
+          <!-- Intro View -->
+          <div id="quizIntroView">
+            <div class="brutal-hero" style="border-color:var(--neon-pink);box-shadow:6px 6px 0px var(--neon-pink)">
+              <h3 style="font-size:1.5rem;margin-bottom:12px;color:#fff">Pilih Mode Latihan TKA</h3>
+              <p style="margin-bottom:20px">Kerjakan 20 butir soal komprehensif lengkap dengan wacana bacaan asli dan pembahasan detil langkah demi langkah.</p>
+
+              <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:14px;margin-bottom:24px">
+                <label class="stat-card-brutal" style="cursor:pointer;border-color:var(--neon-green)">
+                  <input type="radio" name="quizModeOpt" value="zen" checked style="accent-color:var(--neon-green);width:20px;height:20px">
+                  <div>
+                    <strong style="color:var(--neon-green);font-size:1.05rem;display:block">Mode Santai (Zen Mode)</strong>
+                    <span style="font-size:0.85rem;color:var(--ink-secondary)">Fokus tanpa batas waktu untuk memahami logika setiap indikator.</span>
+                  </div>
+                </label>
+
+                <label class="stat-card-brutal" style="cursor:pointer;border-color:var(--neon-yellow)">
+                  <input type="radio" name="quizModeOpt" value="timer" style="accent-color:var(--neon-yellow);width:20px;height:20px">
+                  <div>
+                    <strong style="color:var(--neon-yellow);font-size:1.05rem;display:block">Mode Simulasi Waktu (20 Menit)</strong>
+                    <span style="font-size:0.85rem;color:var(--ink-secondary)">Mengasah kecepatan mental 1 menit per butir soal.</span>
+                  </div>
+                </label>
+              </div>
+
+              <button class="brutal-btn btn-pink" id="btnStartQuiz" style="font-size:1.05rem;padding:12px 24px">
+                <svg class="icon" style="width:18px;height:18px"><use href="#i-pencil"/></svg>
+                <span id="btnStartQuizLabel">Mulai Kerjakan 20 Soal PDF</span>
               </button>
-              <button class="btn btn-sm btn-ghost" id="btnRestartQuiz">Ulangi</button>
             </div>
           </div>
 
-          <!-- Smooth Horizontal Number Strip -->
-          <div class="question-nav-strip" id="questionNavStrip" role="group" aria-label="Pilih nomor soal"></div>
+          <!-- Active Quiz Arena -->
+          <div id="quizActiveView" hidden>
+            <div class="quiz-arena">
+              <!-- Top Controls Bar -->
+              <div class="quiz-header-bar">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <span class="quiz-mode-pill" id="quizModeBadge">ZEN MODE</span>
+                  <strong id="quizCurrentIndexLabel" style="font-family:var(--font-mono);font-size:1rem;color:#fff">Soal 1 dari 20</strong>
+                </div>
 
-          <!-- Question Content Card -->
-          <article class="question-card-crafted">
-            <div class="question-meta-row">
-              <span class="cluster-pill" id="qSubjectBadge">Bahasa Indonesia</span>
-              <span class="muted" id="qTopicText">Teks argumentasi</span>
-              <span class="search-shortcut-badge" style="margin-left:auto">Pintasan: A, B, C, D</span>
+                <div class="quiz-timer-chip" id="quizTimerBox">
+                  <svg class="icon" style="width:16px;height:16px"><use href="#i-clock"/></svg>
+                  <span id="quizTimerText">00:00</span>
+                </div>
+
+                <div style="display:flex;align-items:center;gap:8px">
+                  <button class="brutal-btn btn-sm btn-outline" id="btnToggleFlag" title="Tandai ragu-ragu">
+                    <svg class="icon" style="width:14px;height:14px;color:var(--neon-pink)"><use href="#i-flag"/></svg>
+                    <span id="btnToggleFlagLabel">Ragu</span>
+                  </button>
+                  <button class="brutal-btn btn-sm btn-outline" id="btnRestartQuiz">Batal</button>
+                </div>
+              </div>
+
+              <!-- Question Palette Numbers -->
+              <div class="quiz-palette-modal" id="questionNavStrip" role="group" aria-label="Navigasi nomor soal"></div>
+
+              <!-- Main Question Box -->
+              <article class="question-card-brutal" style="margin-top:20px">
+                <div class="question-meta-row">
+                  <span class="badge-pill-brutal yellow" id="qSubjectBadge">Bahasa Indonesia</span>
+                  <span style="font-family:var(--font-mono);font-size:0.8rem;color:var(--muted)" id="qTopicText">Indikator Resmi</span>
+                  <span class="badge-pill-brutal cyan" style="margin-left:auto">Pintasan: 1-5 atau A-E</span>
+                </div>
+
+                <!-- Authentic PDF Wacana / Stimulus -->
+                <div class="question-passage-box" id="wacanaBox" hidden>
+                  <div class="passage-label">
+                    <svg class="icon" style="width:14px;height:14px"><use href="#i-book"/></svg>
+                    <span>WACANA / STIMULUS RESMI DOKUMEN TKA 2025</span>
+                  </div>
+                  <div id="wacanaText"></div>
+                </div>
+
+                <h3 class="question-prompt-text" id="qQuestionText">Teks pertanyaan...</h3>
+
+                <!-- Options -->
+                <div class="quiz-options-list" id="optionsContainer" role="radiogroup"></div>
+
+                <!-- Navigation Controls -->
+                <div class="quiz-navigation-controls">
+                  <button class="brutal-btn btn-outline" id="btnPrevQuestion">
+                    <span>← Sebelumnya</span>
+                  </button>
+                  <button class="brutal-btn btn-yellow" id="btnNextQuestion">
+                    <span>Berikutnya →</span>
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Quiz Results View -->
+          <div id="quizResultsView" hidden></div>
+        </section>
+
+        <!-- =================================================================
+             4. RUMUS KILAT (CHEATSHEET) VIEW
+             ================================================================= -->
+        <section class="view-section" id="cheatsheet" aria-labelledby="h-cheatsheet">
+          <div style="margin-bottom:24px">
+            <span class="badge-pill-brutal yellow">FORMULA & LOGIKA KILAT</span>
+            <h2 id="h-cheatsheet" style="font-size:2rem;margin:10px 0 6px">Rumus Kilat 5 Menit</h2>
+            <p>Intisari formula eksponen, kalkulus gradien, vektor kinematika perahu, stoikiometri alanin, dan kurva elastisitas pasar sebelum tes.</p>
+          </div>
+
+          <div class="cheatsheet-grid-brutal" id="cheatsheetContainer">
+            <p class="muted">Memuat ringkasan rumus...</p>
+          </div>
+        </section>
+
+        <!-- =================================================================
+             5. CATATAN BELAJAR & PROGRESS VIEW
+             ================================================================= -->
+        <section class="view-section" id="progress" aria-labelledby="h-progress">
+          <div style="margin-bottom:24px">
+            <span class="badge-pill-brutal green">STUDY TRACKER</span>
+            <h2 id="h-progress" style="font-size:2rem;margin:10px 0 6px">Catatan & Progres Belajar</h2>
+            <p>Kelola catatan rumus pribadi, pantau 14 modul yang telah dikuasai, dan cadangkan data belajarmu.</p>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:24px">
+            <!-- Checklist Card -->
+            <div class="material-card-brutal">
+              <h3 style="margin-bottom:14px;color:var(--neon-green)">Daftar Capaian 14 Modul</h3>
+              <div id="progressChecklistContainer" style="display:flex;flex-direction:column;gap:8px"></div>
             </div>
 
-            <h3 class="question-body-text" id="qQuestionText">Pertanyaan soal akan muncul di sini...</h3>
-
-            <!-- Collapsible Wacana Drawer -->
-            <div class="wacana-toggle-box" id="wacanaBox" hidden>
-              <div class="wacana-card" id="wacanaText"></div>
+            <!-- Scratchpad Card -->
+            <div class="material-card-brutal">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+                <h3 style="color:var(--neon-yellow)">Smart Scratchpad</h3>
+                <button class="brutal-btn btn-sm btn-outline" id="btnClearScratchpad">Kosongkan</button>
+              </div>
+              <p style="font-size:0.85rem;margin-bottom:12px">Tuliskan formula penting atau trik hafalan. Catatan otomatis disimpan secara lokal di peramban.</p>
+              <textarea class="scratchpad-textarea-brutal" id="scratchpadInput" placeholder="Ketik rumus penting atau catatan di sini..."></textarea>
+              <small style="color:var(--neon-green);font-family:var(--font-mono);margin-top:8px;display:block" id="scratchpadSaveStatus">✓ Tersimpan otomatis</small>
             </div>
+          </div>
 
-            <!-- Options Grid -->
-            <div class="options-grid" id="optionsContainer" role="radiogroup"></div>
-          </article>
-
-          <!-- Bottom Navigation Action Row -->
-          <div class="quiz-bottom-actions">
-            <button class="btn" id="btnPrevQuestion">
-              <span>← Sebelumnya</span>
+          <!-- Backup & Restore Buttons -->
+          <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px">
+            <button class="brutal-btn btn-sm btn-outline" id="btnExportData">
+              <svg class="icon" style="width:14px;height:14px"><use href="#i-download"/></svg>
+              <span>Ekspor Cadangan Belajar (JSON)</span>
             </button>
-
-            <button class="btn btn-primary" id="btnNextQuestion">
-              <span>Berikutnya →</span>
-            </button>
+            <label class="brutal-btn btn-sm btn-outline" style="cursor:pointer">
+              <svg class="icon" style="width:14px;height:14px"><use href="#i-refresh"/></svg>
+              <span>Impor Cadangan</span>
+              <input type="file" id="importFileInput" accept=".json" style="display:none">
+            </label>
+            <button class="brutal-btn btn-sm btn-pink" id="btnResetProgress">Reset Semua Data</button>
           </div>
-        </div>
+        </section>
 
-        <!-- Quiz Results & Diagnostic Breakdown View -->
-        <div id="quizResultsView" hidden></div>
-      </section>
-
-      <!-- ===================================================================
-           4. RUMUS KILAT (CHEATSHEET) SCREEN — FASE 4
-           =================================================================== -->
-      <section class="page-view" id="cheatsheet" aria-labelledby="h-cheatsheet" hidden>
-        <header class="page-header">
-          <span class="page-header-eyebrow">Persiapan Kilat 5 Menit</span>
-          <h2 id="h-cheatsheet">Ringkasan Rumus & Konsep</h2>
-          <p>Kompilasi rumus kunci, kaidah literasi, dan trik penalaran cepat untuk bekal sebelum mengerjakan soal atau tryout.</p>
-        </header>
-
-        <div id="cheatsheetContainer">
-          <p class="muted">Memuat ringkasan rumus...</p>
-        </div>
-      </section>
-
-      <!-- ===================================================================
-           5. CATATAN BELAJAR & PROGRESS SCREEN — FASE 3
-           =================================================================== -->
-      <section class="page-view" id="progress" aria-labelledby="h-progress" hidden>
-        <header class="page-header">
-          <span class="page-header-eyebrow">Manajemen Belajar Mandiri</span>
-          <h2 id="h-progress">Catatan Belajar</h2>
-          <p>Pantau modul yang telah kamu pelajari, simpan catatan memo rumus, dan kelola cadangan data langsung di perangkatmu.</p>
-        </header>
-
-        <div class="checklist-container" id="progressChecklistContainer"></div>
-
-        <!-- Personal Scratchpad -->
-        <div class="scratchpad-container">
-          <div style="display:flex;align-items:center;justify-content:space-between">
-            <div>
-              <h3>Lembar Catatan & Rumus Saku</h3>
-              <p class="muted">Catat rumus atau materi yang sering kamu lupakan. Otomatis tersimpan di browser perangkat ini.</p>
-            </div>
-            <button class="btn btn-sm btn-ghost" id="btnClearScratchpad">Kosongkan</button>
-          </div>
-
-          <textarea class="scratchpad-textarea" id="scratchpadInput" placeholder="Ketik rumus penting, tips penalaran, atau catatan materi di sini..."></textarea>
-          <small class="muted" id="scratchpadSaveStatus">Tersimpan otomatis di perangkat</small>
-        </div>
-
-        <!-- Backup & Restore -->
-        <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:10px;align-items:center">
-          <button class="btn btn-sm" id="btnExportData">
-            <svg class="icon"><use href="#i-download"/></svg>
-            <span>Ekspor Cadangan Belajar (JSON)</span>
-          </button>
-          <label class="btn btn-sm" style="cursor:pointer">
-            <svg class="icon"><use href="#i-refresh"/></svg>
-            <span>Impor Cadangan</span>
-            <input type="file" id="importFileInput" accept=".json" style="display:none">
-          </label>
-          <button class="btn btn-sm btn-ghost" id="btnResetProgress" style="color:var(--rose)">Reset Semua Data</button>
-        </div>
-      </section>
+      </div>
     </main>
   </div>
 
-  <!-- ===================================================================
-       IMMERSIVE PDF READER MODAL DIALOG — FASE 3
-       =================================================================== -->
-  <dialog class="pdf-modal-dialog" id="pdfReaderModal" aria-labelledby="pdfModalTitle">
-    <div class="pdf-modal-header">
-      <div style="display:flex;align-items:center;gap:12px">
-        <span class="cluster-pill" id="pdfModalCluster">Materi</span>
-        <h3 id="pdfModalTitle" style="font-size:18px">Judul Materi</h3>
-      </div>
-      <div style="display:flex;align-items:center;gap:8px">
-        <a class="btn btn-sm btn-ghost" id="pdfExternalSourceBtn" target="_blank" rel="noopener noreferrer">
-          <span>Buka di Drive</span>
-          <svg class="icon" style="width:14px;height:14px"><use href="#i-external"/></svg>
-        </a>
-        <button class="btn btn-sm btn-ghost" id="pdfCloseBtn" aria-label="Tutup pembaca dokumen">Tutup (Esc)</button>
-      </div>
-    </div>
-
-    <div class="pdf-modal-body">
-      <iframe class="pdf-iframe-frame" id="pdfIframe" title="Dokumen Materi PDF"></iframe>
-    </div>
-
-    <div class="pdf-modal-footer">
-      <div style="font-size:13px;color:var(--muted)">
-        <span id="pdfPageCountNote">Modul resmi TKA SMA</span>
-      </div>
-      <button class="btn btn-sm btn-primary" id="pdfMarkDoneBtn">
-        <svg class="icon" style="width:14px;height:14px"><use href="#i-check"/></svg>
-        <span>Tandai Selesai Dipelajari</span>
-      </button>
-    </div>
-  </dialog>
+  <!-- Mobile Bottom Nav Dock -->
+  <nav class="mobile-nav-dock" aria-label="Navigasi Layar Ponsel">
+    <a class="mobile-nav-item active" href="#home" data-nav="home">
+      <svg><use href="#i-home"/></svg>
+      <span>Beranda</span>
+    </a>
+    <a class="mobile-nav-item" href="#library" data-nav="library">
+      <svg><use href="#i-book"/></svg>
+      <span>Materi</span>
+    </a>
+    <a class="mobile-nav-item" href="#practice" data-nav="practice">
+      <svg><use href="#i-pencil"/></svg>
+      <span>Soal</span>
+    </a>
+    <a class="mobile-nav-item" href="#cheatsheet" data-nav="cheatsheet">
+      <svg><use href="#i-zap"/></svg>
+      <span>Rumus</span>
+    </a>
+    <a class="mobile-nav-item" href="#progress" data-nav="progress">
+      <svg><use href="#i-list"/></svg>
+      <span>Catatan</span>
+    </a>
+  </nav>
 
   <!-- ===================================================================
-       ABOUT CREATOR (HMMODZ) MODAL DIALOG
+       STUDIO BELAJAR INTERAKTIF (MODAL WINDOW)
        =================================================================== -->
-  <dialog class="about-creator-dialog" id="aboutCreatorModal" aria-labelledby="aboutCreatorTitle">
-    <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
-      <div class="dev-avatar" style="width:48px;height:48px;font-size:18px">HM</div>
+  <div class="studio-modal-backdrop" id="studioModal" role="dialog" aria-modal="true" aria-labelledby="studioModalTitle">
+    <div class="studio-modal-window">
+      <!-- Header -->
+      <div class="studio-header">
+        <div class="studio-header-title">
+          <span class="badge-pill-brutal yellow" id="studioClusterBadge">Wajib</span>
+          <h2 id="studioModalTitle">Judul Materi</h2>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <a class="brutal-btn btn-sm btn-outline" id="studioDriveLink" target="_blank" rel="noopener noreferrer">
+            <span>Buka PDF di Drive</span>
+            <svg class="icon" style="width:12px;height:12px"><use href="#i-external"/></svg>
+          </a>
+          <button class="brutal-btn btn-sm btn-pink" id="studioCloseBtn">Tutup (Esc)</button>
+        </div>
+      </div>
+
+      <!-- Studio Subtabs -->
+      <div class="studio-tabs-bar">
+        <button class="studio-tab-btn active" data-tab="flashcards">
+          <span>🧠 Flashcard 3D</span>
+        </button>
+        <button class="studio-tab-btn" data-tab="lab">
+          <span>⚡ Lab Simulator</span>
+        </button>
+        <button class="studio-tab-btn" data-tab="checkpoint">
+          <span>🎯 Kuis Checkpoint</span>
+        </button>
+        <button class="studio-tab-btn" data-tab="pdf">
+          <span>📄 Dokumen PDF & Memo</span>
+        </button>
+      </div>
+
+      <!-- Studio Content Body -->
+      <div class="studio-body" id="studioBody">
+        <!-- Injected via main.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       ABOUT CREATOR MODAL DIALOG
+       =================================================================== -->
+  <dialog class="studio-modal-window" id="aboutCreatorModal" style="margin:auto;max-width:540px;padding:24px;background:#000;border:3px solid var(--neon-yellow);box-shadow:8px 8px 0 var(--neon-yellow);color:#fff">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+      <div style="width:52px;height:52px;background:var(--neon-yellow);color:#000;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:24px;font-weight:900;border:2.5px solid #000;box-shadow:3px 3px 0 #000;border-radius:4px">HM</div>
       <div>
-        <h3 id="aboutCreatorTitle" style="font-size:22px">HMMODZ</h3>
-        <p class="muted">Rohmatulloh • Full-Stack Developer & Pelajar MA</p>
+        <h3 style="font-size:1.4rem;color:#fff">rhmt ofc (HMMODZ)</h3>
+        <span style="font-family:var(--font-mono);font-size:0.8rem;color:var(--neon-green)">Creator & System Architect</span>
       </div>
     </div>
 
-    <p style="margin-bottom:14px;line-height:1.7;color:var(--ink-secondary)">
-      <strong>TKAORA</strong> diciptakan sebagai wujud ruang belajar digital yang tenang, efisien, dan bebas distraksi. Dibangun dengan filosofi <em>Calm Ed-Tech</em> tanpa peringkat beracun, tanpa poin adu gengsi, dan berfokus murni pada pemahaman konsep siswa.
+    <p style="font-size:0.95rem;line-height:1.6;margin-bottom:14px;color:var(--ink-secondary)">
+      <strong>TKAORA v2.5</strong> adalah platform belajar mandiri TKA SMA berdaya visual <strong>Dark Neobrutalism</strong>. Source code dasar dan kerangka arsitektur dibangun oleh <strong>rhmt ofc (HMMODZ)</strong> dengan komitmen bebas slop AI, performa instan tanpa beban bloatware, dan kurikulum resmi 2025.
     </p>
 
-    <div style="padding:14px;border-radius:var(--radius-sm);background:var(--bg-subtle);border:1px solid var(--line);margin-bottom:20px;font-size:13px">
-      <strong>Spesifikasi & Kecepatan:</strong>
-      <p class="muted" style="margin-top:4px">Zero-bloatware Vanilla JS + Modern CSS. Waktu muat instan (&lt;0.2s), hemat kuota, dan siap berjalan offline.</p>
+    <div style="background:#111827;border:2px solid var(--neon-cyan);padding:12px;border-radius:4px;font-family:var(--font-mono);font-size:0.8rem;margin-bottom:20px;color:#e2e8f0">
+      ⚡ Fitur Utama: 14 Modul PDF Asli • 20 Soal Autentik TKA • Flashcard 3D Interaktif • Lab Simulator Formula • 100% Client-Side Fast.
     </div>
 
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-      <a class="btn btn-sm btn-primary" href="https://rhmt.biz.id" target="_blank" rel="noopener noreferrer">
-        <span>Portofolio Pengembang</span>
-        <svg class="icon" style="width:14px;height:14px"><use href="#i-external"/></svg>
-      </a>
-      <button class="btn btn-sm" id="closeAboutDevBtn">Tutup</button>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+      <a class="brutal-btn btn-sm btn-yellow" href="https://rhmt.biz.id" target="_blank" rel="noopener noreferrer">Portofolio rhmt.biz.id</a>
+      <button class="brutal-btn btn-sm btn-outline" id="closeAboutCreatorBtn">Tutup</button>
     </div>
   </dialog>
 
-  <!-- Toast Notification Capsule -->
-  <div class="toast-capsule" id="toastBox" role="status" aria-live="polite">Notifikasi</div>
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
 
+  <!-- Application Logic -->
   <script src="/js/main.js"></script>
 </body>
 </html>

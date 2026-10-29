@@ -1,198 +1,560 @@
 [
   {
     "id": "tka-01",
-    "title": "Bahasa Indonesia Wajib",
+    "title": "Bahasa Indonesia (Wajib)",
     "kind": "Wajib",
-    "description": "Literasi bahasa Indonesia",
-    "pdf": "/pdfs/tka-01.pdf",
-    "sourceUrl": "https://drive.google.com/file/d/11jG1A9WE8iU4BXThqrXTECL_Pa4XRvkL/view",
-    "availability": "needs_pdf_import",
-    "hasPdf": true,
     "cluster": "Bahasa & Literasi",
-    "icon": "book-open",
-    "color": "#f59e0b",
-    "pages": "32 hal"
+    "description": "Literasi teks argumentasi, wacana tradisi lokal (Buwuhan), dan apresiasi cerpen (Layur).",
+    "pdf": "/pdfs/tka-01.pdf",
+    "pages": "22 halaman",
+    "accentColor": "#ffe600",
+    "flashcards": [
+      {
+        "term": "Ide Pokok vs Gagasan Pendukung",
+        "definition": "Ide pokok adalah inti pikiran dalam suatu paragraf. Gagasan pendukung berisi data, bukti, contoh, atau rincian yang menguatkan ide pokok.",
+        "jebakan": "Terkecoh kalimat pertama! Ide pokok tidak selalu di awal (deduktif), bisa di akhir (induktif) atau campuran.",
+        "tip": "Cari kata kunci yang paling sering diulang dan menjadi payung bagi kalimat lainnya."
+      },
+      {
+        "term": "Hubungan Kausalitas (Sebab-Akibat)",
+        "definition": "Koneksi logis antarkalimat di mana suatu peristiwa terjadi sebagai akibat langsung dari pemicu sebelumnya.",
+        "jebakan": "Menyamakan korelasi waktu dengan hubungan sebab-akibat langsung.",
+        "tip": "Gunakan tes kata penghubung: 'karena', 'sehingga', 'mengakibatkan'."
+      },
+      {
+        "term": "Titik Balik (Turning Point) Narasi",
+        "definition": "Momen kritis ketika nasib tokoh utama berubah secara drastis menuju klimaks atau resolusi.",
+        "jebakan": "Mengira insiden biasa sebagai titik balik. Titik balik harus mengubah keputusan/karakter tokoh.",
+        "tip": "Cari peristiwa yang memicu penyesalan atau komitmen baru dalam cerpen."
+      }
+    ],
+    "lab": {
+      "type": "text-analyzer",
+      "title": "Lab Analisis Wacana Argumentasi",
+      "prompt": "Uji premis & kesimpulan wacana secara interaktif",
+      "cases": [
+        {"claim": "Tradisi buwuhan di pesisir Surabaya adalah bentuk utang bersyarat.", "evidence": "Adanya pencatatan rapi dan ekspektasi membalas lebih besar saat ada hajatan berikutnya.", "validity": "Valid (Kausalitas Kuat)"},
+        {"claim": "Penangkapan ikan dengan bondet menguntungkan jangka panjang.", "evidence": "Merusak terumbu karang dan berisiko mencelakai pembuatnya sendiri.", "validity": "Tidak Valid (Kontradiktif)"}
+      ]
+    },
+    "checkpoint": [
+      {
+        "q": "Manakah bukti bahwa buwuhan membebani masyarakat prasejahtera?",
+        "options": ["Adanya rasa sungkan dan kewajiban mengembalikan setara", "Dilarang oleh pamong desa", "Jumlah warga yang datang berkurang"],
+        "ans": 0,
+        "expl": "Pencatatan dan beban moral menciptakan utang terselubung bagi keluarga berpenghasilan rendah."
+      }
+    ]
   },
   {
     "id": "tka-02",
-    "title": "Bahasa Indonesia Pilihan",
+    "title": "Bahasa Indonesia (Pilihan)",
     "kind": "Pilihan",
-    "description": "Literasi bahasa Indonesia",
-    "pdf": "/pdfs/tka-02.pdf",
-    "sourceUrl": "https://drive.google.com/file/d/1CziaZLn7_NzRyvjaWw7u1UhJIUj885hL/view",
-    "availability": "needs_pdf_import",
-    "hasPdf": true,
     "cluster": "Bahasa & Literasi",
-    "icon": "book-open",
-    "color": "#f59e0b",
-    "pages": "28 hal"
+    "description": "Retorika lanjutan, struktur esai kritis, kohesi-koherensi, dan sintaksis kompleks.",
+    "pdf": "/pdfs/tka-02.pdf",
+    "pages": "39 halaman",
+    "accentColor": "#05ffa1",
+    "flashcards": [
+      {
+        "term": "Kohesi Gramatikal & Leksikal",
+        "definition": "Kohesi adalah keterikatan antarunsur dalam teks secara bentuk (pronomina, konjungsi, repetisi, sinonimi).",
+        "jebakan": "Paragraf terasa padu (koheren) padahal kata rujukannya salah tuju.",
+        "tip": "Pastikan kata ganti seperti 'hal tersebut', 'ia', 'mereka' merujuk jelas ke nomina sebelumnya."
+      },
+      {
+        "term": "Gaya Bahasa Ironi vs Sarkasme",
+        "definition": "Ironi menyatakan kebalikan dari maksud sebenarnya secara halus. Sarkasme bernada pedas dan menyindir langsung.",
+        "jebakan": "Menganggap semua sindiran adalah sarkasme.",
+        "tip": "Perhatikan intensitas kehalusan bahasa dan konteks kesantunan."
+      }
+    ],
+    "lab": {
+      "type": "grammar-check",
+      "title": "Lab Sintaksis & Keefektifan Kalimat",
+      "prompt": "Deteksi kerancuan kalimat majemuk",
+      "cases": [
+        {"sentence": "Meskipun hujan lebat, tetapi ia tetap berangkat.", "status": "Rancu (Konjungsi Ganda)", "fix": "Pilih salah satu: Meskipun hujan lebat, ia tetap... ATAU Hujan lebat, tetapi ia tetap..."},
+        {"sentence": "Buku itu saya sudah baca tiga kali.", "status": "Tidak Efektif", "fix": "Buku itu sudah saya baca tiga kali."}
+      ]
+    },
+    "checkpoint": [
+      {
+        "q": "Kalimat yang menggunakan konjungsi subordinatif secara tepat adalah ...",
+        "options": ["Karena ia rajin, maka ia lulus.", "Karena ia rajin, ia lulus dengan predikat memuaskan.", "Meskipun lapar tetapi ia puasa."],
+        "ans": 1,
+        "expl": "Klausa bawahan 'Karena ia rajin' tidak boleh disandingkan dengan kata penghubung antarklausa seperti 'maka'."
+      }
+    ]
   },
   {
     "id": "tka-03",
-    "title": "Bahasa Inggris Wajib",
+    "title": "Bahasa Inggris (Wajib)",
     "kind": "Wajib",
-    "description": "English literacy",
-    "pdf": "/pdfs/tka-03.pdf",
-    "sourceUrl": "https://drive.google.com/file/d/1UizwTZWXp9EX6IKOdUQZDeKiy_y1q2CR/view",
-    "availability": "needs_pdf_import",
-    "hasPdf": true,
     "cluster": "Bahasa & Literasi",
-    "icon": "languages",
-    "color": "#f59e0b",
-    "pages": "35 hal"
+    "description": "Narrative fables, expository study techniques (Pomodoro), and inference mastery.",
+    "pdf": "/pdfs/tka-03.pdf",
+    "pages": "17 halaman",
+    "accentColor": "#00f0ff",
+    "flashcards": [
+      {
+        "term": "Inference vs Direct Fact",
+        "definition": "Inference requires concluding what is implied rather than what is explicitly stated in the text.",
+        "jebakan": "Picking an option that is factually true in real life, but not supported by clues in the passage.",
+        "tip": "Look for textual evidence: tone, actions, and causal consequence."
+      },
+      {
+        "term": "Author's Tone & Attitude",
+        "definition": "The writer's underlying emotional disposition (objective, enthusiastic, critical, skeptical, cautionary).",
+        "jebakan": "Confusing the character's emotion with the overall narrator/author's tone.",
+        "tip": "Observe descriptive adjectives and adverbs throughout the text."
+      }
+    ],
+    "lab": {
+      "type": "vocab-inference",
+      "title": "Lab Contextual Clues & Inference",
+      "prompt": "Practice deciphering high-yield academic vocabulary",
+      "cases": [
+        {"word": "Mitigate", "context": "Taking breaks mitigates fatigue.", "meaning": "Alleviates / reduces"},
+        {"word": "Dispel", "context": "The data helped dispel the popular myth.", "meaning": "Banish / eliminate"}
+      ]
+    },
+    "checkpoint": [
+      {
+        "q": "What is the primary objective of the Pomodoro technique?",
+        "options": ["To avoid finishing study tasks", "To sustain focus through timed intervals and short rests", "To study 8 hours consecutively"],
+        "ans": 1,
+        "expl": "The Pomodoro technique optimizes neural retention by balancing 25-min deep focus with 5-min cognitive pauses."
+      }
+    ]
   },
   {
     "id": "tka-04",
-    "title": "Bahasa Inggris Pilihan",
+    "title": "Bahasa Inggris (Pilihan)",
     "kind": "Pilihan",
-    "description": "English literacy",
-    "pdf": "/pdfs/tka-04.pdf",
-    "sourceUrl": "https://drive.google.com/file/d/1jun2TvbY9BMjx1X4TH_ZnyH2b8F1nR0I/view",
-    "availability": "needs_pdf_import",
-    "hasPdf": true,
     "cluster": "Bahasa & Literasi",
-    "icon": "languages",
-    "color": "#f59e0b",
-    "pages": "30 hal"
+    "description": "Scientific papers, synthesis of opposing arguments, and advanced rhetorical registers.",
+    "pdf": "/pdfs/tka-04.pdf",
+    "pages": "41 halaman",
+    "accentColor": "#ff2a6d",
+    "flashcards": [
+      {
+        "term": "Synthesis of Multiple Texts",
+        "definition": "Combining perspectives from two distinct texts to form a unified, coherent synthesis.",
+        "jebakan": "Summarizing each passage separately without identifying the overlap or divergence.",
+        "tip": "Draw a Venn diagram: What point do both authors agree on? Where do they clash?"
+      }
+    ],
+    "lab": {
+      "type": "argument-map",
+      "title": "Lab Cross-Text Synthesis",
+      "prompt": "Match contrasting viewpoint arguments",
+      "cases": [
+        {"passageA": "AI accelerates human productivity across industries.", "passageB": "Unregulated AI displaces junior labor disproportionately.", "synthesis": "AI brings immense productivity gains but poses acute transition risks for entry-level employment."}
+      ]
+    },
+    "checkpoint": [
+      {
+        "q": "When two authors argue about renewable subsidies, what constitutes a shared premise?",
+        "options": ["Both agree energy transitions require state incentives", "Both reject clean energy completely", "Both support coal tariffs"],
+        "ans": 0,
+        "expl": "Shared premise is the foundational assumption both sides take as given before diverging on methods."
+      }
+    ]
   },
   {
     "id": "tka-05",
-    "title": "Matematika Wajib",
+    "title": "Matematika (Wajib)",
     "kind": "Wajib",
-    "description": "Numerasi dan penalaran matematika",
+    "cluster": "Matematika & Sains",
+    "description": "Eksponen, aljabar, dan pemodelan fungsi linear pemanasan global y = 0,02x - 39,9.",
     "pdf": "/pdfs/tka-05.pdf",
-    "sourceUrl": "https://drive.google.com/file/d/1ulrVfOUNJqE4oFV63tu-GOgkesSZx_bL/view",
-    "availability": "needs_pdf_import",
-    "hasPdf": true,
-    "cluster": "Numerasi & Sains",
-    "icon": "calculator",
-    "color": "#6366f1",
-    "pages": "40 hal"
+    "pages": "29 halaman",
+    "accentColor": "#ffe600",
+    "flashcards": [
+      {
+        "term": "Model Linear y = mx + c",
+        "definition": "m adalah laju perubahan (gradien/slope) per satuan x, sedangkan c adalah nilai titik potong saat x = 0.",
+        "jebakan": "Tertukar antara variabel bebas (x, misal waktu/tahun) dan variabel terikat (y, misal suhu).",
+        "tip": "Jika ditanya tahun saat y diketahui, susun persamaan: x = (y - c) / m."
+      },
+      {
+        "term": "Sifat Pangkat Pecahan a^(m/n)",
+        "definition": "a^(m/n) sama dengan akar pangkat n dari a dipangkatkan m: n_akar(a^m).",
+        "jebakan": "Membalik posisi pembilang dan penyebut pada bentuk akar.",
+        "tip": "Ingat mantra: Pembilang adalah Pangkat di dalam, Penyebut adalah Pintu akar di luar."
+      }
+    ],
+    "lab": {
+      "type": "linear-model-calculator",
+      "title": "Simulator Fungsi Pemanasan Global TKA",
+      "formula": "y = 0.02x - 39.9",
+      "targetUnit": "°C Peningkatan Suhu",
+      "defaultYear": 2030
+    },
+    "checkpoint": [
+      {
+        "q": "Pada model y = 0,02x - 39,9, berapa suhu tahun 2050?",
+        "options": ["0,9 °C", "1,1 °C", "1,5 °C"],
+        "ans": 1,
+        "expl": "y = 0,02(2050) - 39,9 = 41 - 39,9 = 1,1 °C."
+      }
+    ]
   },
   {
     "id": "tka-06",
-    "title": "Matematika Pilihan",
+    "title": "Matematika (Pilihan)",
     "kind": "Pilihan",
-    "description": "Numerasi dan penalaran matematika",
+    "cluster": "Matematika & Sains",
+    "description": "Kalkulus diferensial, gradien kurva f'(x), matriks transformasi, dan trigonometri analitik.",
     "pdf": "/pdfs/tka-06.pdf",
-    "sourceUrl": "https://drive.google.com/file/d/1vuoprVI88kZppNW2zrW_i5kH6cRoSNge/view",
-    "availability": "needs_pdf_import",
-    "hasPdf": true,
-    "cluster": "Numerasi & Sains",
-    "icon": "calculator",
-    "color": "#6366f1",
-    "pages": "36 hal"
+    "pages": "25 halaman",
+    "accentColor": "#7952ff",
+    "flashcards": [
+      {
+        "term": "Gradien Garis Singgung Kurva",
+        "definition": "m = f'(x_0). Kemiringan garis singgung di titik (x_0, y_0) adalah nilai turunan pertama di absis tersebut.",
+        "jebakan": "Lupa mensubstitusikan nilai x_0 setelah menurunkan fungsi f(x).",
+        "tip": "Persamaan garis singgung lengkap: y - y_0 = m(x - x_0)."
+      },
+      {
+        "term": "Aturan Rantai (Chain Rule)",
+        "definition": "Jika y = f(u) dan u = g(x), maka dy/dx = (dy/du) * (du/dx).",
+        "jebakan": "Hanya menurunkan fungsi luar dan lupa mengalikan dengan turunan fungsi dalam.",
+        "tip": "Turunkan dari lapisan paling luar ke lapisan paling dalam."
+      }
+    ],
+    "lab": {
+      "type": "derivative-calculator",
+      "title": "Kalkulator Gradien Garis Singgung Kurva",
+      "formula": "f(x) = 2x² - 3x + 1 ==> f'(x) = 4x - 3",
+      "evalPoint": 2
+    },
+    "checkpoint": [
+      {
+        "q": "Berapakah gradien kurva f(x) = x³ - 3x di titik x = 2?",
+        "options": ["6", "9", "12"],
+        "ans": 1,
+        "expl": "f'(x) = 3x² - 3. Untuk x = 2: f'(2) = 3(4) - 3 = 12 - 3 = 9."
+      }
+    ]
   },
   {
     "id": "tka-07",
-    "title": "Biologi Pilihan",
+    "title": "Biologi (Pilihan)",
     "kind": "Pilihan",
-    "description": "Ilmu hayati",
+    "cluster": "Matematika & Sains",
+    "description": "Metabolisme respirasi seluler, enzim, simbiosis ekosistem, dan genetika Mendel.",
     "pdf": "/pdfs/tka-07.pdf",
-    "sourceUrl": "https://drive.google.com/file/d/12LPPseLSnjNwZmKIkfyRejD3UuFUphIm/view",
-    "availability": "needs_pdf_import",
-    "hasPdf": true,
-    "cluster": "Numerasi & Sains",
-    "icon": "dna",
-    "color": "#10b981",
-    "pages": "34 hal"
+    "pages": "27 halaman",
+    "accentColor": "#05ffa1",
+    "flashcards": [
+      {
+        "term": "4 Tahap Respirasi Aerob",
+        "definition": "1. Glikolisis (Sitoplasma -> 2 Piruvat, 2 ATP, 2 NADH). 2. Dekarboksilasi Oksidatif (Matriks -> 2 Asetil KoA, 2 CO2, 2 NADH). 3. Siklus Krebs (Matriks -> 4 CO2, 2 ATP, 6 NADH, 2 FADH2). 4. Transpor Elektron (Krista -> 32-34 ATP, 6 H2O).",
+        "jebakan": "Tertukar lokasi tempat berlangsungnya Dekarboksilasi Oksidatif dengan Glikolisis.",
+        "tip": "Glikolisis adalah satu-satunya tahap respirasi yang berada di luar mitokondria (di sitoplasma)."
+      },
+      {
+        "term": "Simbiosis Parasitisme vs Predasi",
+        "definition": "Parasitisme: Satu pihak diuntungkan, pihak lain dirugikan secara bertahap tanpa membunuh inang seketika. Predasi: Pemangsa langsung membunuh mangsa.",
+        "jebakan": "Menganggap lintah sebagai predator karena menghisap darah.",
+        "tip": "Lintah adalah ektoparasit obligat temporer, bukan predator pemangsa jaringan."
+      }
+    ],
+    "lab": {
+      "type": "cellular-respiration",
+      "title": "Simulasi Hasil ATP Respirasi Seluler",
+      "input": "1 Molekul Glukosa",
+      "output": "36-38 ATP, 6 CO2, 6 H2O"
+    },
+    "checkpoint": [
+      {
+        "q": "Pada tahap transpor elektron, molekul apakah yang bertindak sebagai akseptor elektron terakhir?",
+        "options": ["Oksigen (O2)", "Karbon dioksida (CO2)", "Glukosa"],
+        "ans": 0,
+        "expl": "Oksigen mengikat elektron dan ion H+ membentuk air (H2O)."
+      }
+    ]
   },
   {
     "id": "tka-08",
-    "title": "Ekonomi Pilihan",
+    "title": "Ekonomi (Pilihan)",
     "kind": "Pilihan",
-    "description": "Ekonomi dan literasi finansial",
+    "cluster": "Sosial & Humaniora",
+    "description": "Biaya peluang (opportunity cost), kurva permintaan-penawaran, dan pergeseran UMP 2025.",
     "pdf": "/pdfs/tka-08.pdf",
-    "sourceUrl": "https://drive.google.com/file/d/1WRHxJu2IvQDwNN-6M9qqFe9Lbf87cb4t/view",
-    "availability": "needs_pdf_import",
-    "hasPdf": true,
-    "cluster": "Numerasi & Sains",
-    "icon": "flask-conical",
-    "color": "#06b6d4",
-    "pages": "38 hal"
+    "pages": "30 halaman",
+    "accentColor": "#ffe600",
+    "flashcards": [
+      {
+        "term": "Biaya Peluang (Opportunity Cost)",
+        "definition": "Nilai dari kesempatan/manfaat terbaik berikutnya yang harus dikorbankan ketika memilih suatu alternatif.",
+        "jebakan": "Menjumlahkan seluruh alternatif yang tidak dipilih. Biaya peluang HANYA alternatif bernilai tertinggi yang dilepas.",
+        "tip": "Urutkan semua opsi yang ditolak, ambil yang nilainya paling menguntungkan."
+      },
+      {
+        "term": "Pergeseran Kurva Penawaran (Supply Shift)",
+        "definition": "Faktor kenaikan biaya produksi (seperti kenaikan upah buruh atau bahan baku) menggeser kurva penawaran ke kiri.",
+        "jebakan": "Mengira kenaikan biaya produksi menggeser kurva permintaan.",
+        "tip": "Penawaran bergeser ke kiri ==> Harga Keseimbangan Naik (P Naik), Kuantitas Keseimbangan Turun (Q Turun)."
+      }
+    ],
+    "lab": {
+      "type": "supply-demand-simulator",
+      "title": "Simulator Pergeseran Kurva Pasar (Efek Biaya UMP)",
+      "scenario": "Biaya Tenaga Kerja Naik 6,5%",
+      "effectSupply": "Kurva Bergeser ke Kiri (Berkurang)",
+      "effectPrice": "Harga Ekuilibrium Meningkat",
+      "effectQuantity": "Kuantitas Ekuilibrium Menurun"
+    },
+    "checkpoint": [
+      {
+        "q": "Jika Safia memilih tawaran gaji 8 juta dan mengorbankan tawaran 7,2 juta dan 6,5 juta, berapa opportunity cost-nya?",
+        "options": ["Rp7.200.000", "Rp13.700.000", "Rp800.000"],
+        "ans": 0,
+        "expl": "Hanya nilai tertinggi di antara opsi yang dikorbankan yang dihitung sebagai biaya peluang."
+      }
+    ]
   },
   {
     "id": "tka-09",
-    "title": "Fisika Pilihan",
+    "title": "Fisika (Pilihan)",
     "kind": "Pilihan",
-    "description": "Fisika dan penalaran",
+    "cluster": "Matematika & Sains",
+    "description": "Kinematika gerak lurus, grafik v-t, dan gerak relatif perahu melawan arus sungai/laut.",
     "pdf": "/pdfs/tka-09.pdf",
-    "sourceUrl": "https://drive.google.com/file/d/1D0v8L-3fqVEWsC0W2barKC0wB7qms9Bi/view",
-    "availability": "needs_pdf_import",
-    "hasPdf": true,
-    "cluster": "Numerasi & Sains",
-    "icon": "atom",
-    "color": "#8b5cf6",
-    "pages": "42 hal"
+    "pages": "25 halaman",
+    "accentColor": "#00f0ff",
+    "flashcards": [
+      {
+        "term": "Vektor Gerak Relatif Tegak Lurus",
+        "definition": "v_total² = v_arah² + v_arus². Jika perahu ingin melaju tegak lurus menyeberang arus, haluan diarahkan melawan arah arus.",
+        "jebakan": "Menjumlahkan kecepatan kapal dan kecepatan arus secara skalar tanpa memperhatikan arah vektor.",
+        "tip": "Gunakan tripel Pythagoras: 5, 12, 13 atau 3, 4, 5."
+      },
+      {
+        "term": "Grafik Kecepatan-Waktu (v-t)",
+        "definition": "Kemiringan/gradien garis pada grafik v-t adalah percepatan (a). Luas daerah di bawah kurva grafik v-t adalah jarak tempuh (s).",
+        "jebakan": "Menghitung luas kurva pada grafik percepatan-waktu untuk mencari jarak (seharusnya kecepatan).",
+        "tip": "Luas segitiga/trapesium di bawah kurva v-t = jarak tempuh total."
+      }
+    ],
+    "lab": {
+      "type": "kinematics-solver",
+      "title": "Kalkulator Gerak Menyusul Mobil A & B",
+      "carA": "v = 20 m/s (Konstan)",
+      "carB": "a = 4 m/s² (Mulai dari diam)",
+      "catchTime": "10 detik (Jarak 200 m)"
+    },
+    "checkpoint": [
+      {
+        "q": "Benda bergerak dari diam dengan a = 3 m/s². Berapa jarak yang ditempuh setelah 4 detik?",
+        "options": ["12 meter", "24 meter", "48 meter"],
+        "ans": 1,
+        "expl": "s = 0,5 * a * t² = 0,5 * 3 * (16) = 24 meter."
+      }
+    ]
   },
   {
     "id": "tka-10",
-    "title": "Geografi Pilihan",
+    "title": "Geografi (Pilihan)",
     "kind": "Pilihan",
-    "description": "Geografi",
-    "pdf": "/pdfs/tka-10.pdf",
-    "sourceUrl": "https://drive.google.com/file/d/1Rukc7rmPhj2UheBywc-mf7E_yR0hTFVl/view",
-    "availability": "needs_pdf_import",
-    "hasPdf": true,
     "cluster": "Sosial & Humaniora",
-    "icon": "landmark",
-    "color": "#ec4899",
-    "pages": "30 hal"
+    "description": "Garis Wallace-Weber, citra penginderaan jauh multitemporal, dan energi PLTS Cirata.",
+    "pdf": "/pdfs/tka-10.pdf",
+    "pages": "49 halaman",
+    "accentColor": "#05ffa1",
+    "flashcards": [
+      {
+        "term": "Zona Biogeografi Wallace & Weber",
+        "definition": "Asiatis: Barat garis Wallace (Sumatra, Jawa, Kalimantan). Peralihan (Wallacea): Di antara garis Wallace dan Weber (Sulawesi, Nusa Tenggara). Australis: Timur garis Weber (Papua, Maluku).",
+        "jebakan": "Memasukkan Sulawesi ke dalam zona fauna Asiatis.",
+        "tip": "Sulawesi dan Nusa Tenggara adalah pulau endemik khas kawasan peralihan."
+      },
+      {
+        "term": "Citra Multitemporal Penginderaan Jauh",
+        "definition": "Perbandingan foto satelit lokasi yang sama pada waktu berbeda untuk mendeteksi alih fungsi lahan dan deforestasi.",
+        "jebakan": "Mengabaikan resolusi spasial dan musim saat membandingkan dua citra.",
+        "tip": "Perhatikan perbedaan tekstur, rona warna, dan pola keteraturan bangunan."
+      }
+    ],
+    "lab": {
+      "type": "geo-zonation",
+      "title": "Peta Interaktif Garis Wallace-Weber",
+      "zones": [
+        {"name": "Asiatis", "fauna": "Harimau, Badak, Orangutan", "flora": "Raflesia, Meranti"},
+        {"name": "Peralihan (Wallacea)", "fauna": "Anoa, Babirusa, Komodo", "flora": "Kayu Eboni, Cendana"},
+        {"name": "Australis", "fauna": "Cenderawasih, Kasuari, Kanguru Pohon", "flora": "Sagu, Matoa"}
+      ]
+    },
+    "checkpoint": [
+      {
+        "q": "Pohon Cendana dan Anoa merupakan flora-fauna khas zona ...",
+        "options": ["Zona Asiatis", "Zona Peralihan (Wallacea)", "Zona Australis"],
+        "ans": 1,
+        "expl": "Cendana (NTT) dan Anoa (Sulawesi) merupakan organisme endemik kawasan peralihan Wallacea."
+      }
+    ]
   },
   {
     "id": "tka-11",
-    "title": "Kimia Pilihan",
+    "title": "Kimia (Pilihan)",
     "kind": "Pilihan",
-    "description": "Kimia",
+    "cluster": "Matematika & Sains",
+    "description": "Stoikiometri persen massa asam amino alanin C3H7NO2 dan bilangan Avogadro gas SO2.",
     "pdf": "/pdfs/tka-11.pdf",
-    "sourceUrl": "https://drive.google.com/file/d/1WBIr1jddvkh9CGoPv6xyo3Ta2tZoLAP3/view",
-    "availability": "needs_pdf_import",
-    "hasPdf": true,
-    "cluster": "Sosial & Humaniora",
-    "icon": "globe",
-    "color": "#3b82f6",
-    "pages": "32 hal"
+    "pages": "25 halaman",
+    "accentColor": "#ff2a6d",
+    "flashcards": [
+      {
+        "term": "Persen Massa Unsur (%X)",
+        "definition": "%X = (Jumlah atom X * Ar X / Mr Senyawa) * 100%.",
+        "jebakan": "Lupa mengalikan Ar dengan koefisien/indeks atom unsur dalam molekul.",
+        "tip": "Pada C3H7NO2: Massa C = 3 * 12 = 36. Mr = 89. %C = 36/89 * 100% ≈ 40,4%."
+      },
+      {
+        "term": "Konversi Mol ke Jumlah Partikel",
+        "definition": "Jumlah Partikel = n (mol) * N_A (6,02 * 10^23 partikel/mol).",
+        "jebakan": "Membalik perkalian dan pembagian saat mencari mol dari jumlah partikel.",
+        "tip": "Partikel = Mol dikali Avogadro. Mol = Partikel dibagi Avogadro."
+      }
+    ],
+    "lab": {
+      "type": "stoichiometry-calc",
+      "title": "Kalkulator Massa Molar & Persen Karbon",
+      "molecule": "Alanin (C3H7NO2)",
+      "formula": "3(12) + 7(1) + 14 + 2(16) = 89 g/mol",
+      "carbonPercent": "40,45%"
+    },
+    "checkpoint": [
+      {
+        "q": "Berapakah jumlah molekul yang terdapat dalam 0,1 mol gas O2?",
+        "options": ["6,02 x 10^22", "6,02 x 10^23", "1,20 x 10^23"],
+        "ans": 0,
+        "expl": "Jumlah partikel = 0,1 * 6,02 x 10^23 = 6,02 x 10^22 molekul."
+      }
+    ]
   },
   {
     "id": "tka-12",
-    "title": "PPKn Pilihan",
+    "title": "Pendidikan Pancasila",
     "kind": "Pilihan",
-    "description": "Pendidikan Pancasila dan kewarganegaraan",
-    "pdf": "/pdfs/tka-12.pdf",
-    "sourceUrl": "https://drive.google.com/file/d/1ns6wVWlaBcZJYMF9iWrI4oG-YQuEq_JG/view",
-    "availability": "needs_pdf_import",
-    "hasPdf": true,
     "cluster": "Sosial & Humaniora",
-    "icon": "trending-up",
-    "color": "#14b8a6",
-    "pages": "36 hal"
+    "description": "UUD NRI 1945 pasal 27 bela negara, harmoni kebinekaan modal sosial, dan wawasan nusantara.",
+    "pdf": "/pdfs/tka-12.pdf",
+    "pages": "27 halaman",
+    "accentColor": "#ffe600",
+    "flashcards": [
+      {
+        "term": "Pasal 27 ayat (3) UUD 1945",
+        "definition": "Setiap warga negara berhak dan wajib ikut serta dalam upaya pembelaan negara.",
+        "jebakan": "Mengidentikkan bela negara hanya sebatas dinas wajib militer.",
+        "tip": "Di era modern, menangkal hoaks, literasi digital, dan menjaga toleransi adalah wujud bela negara."
+      },
+      {
+        "term": "Kebinekaan sebagai Modal Sosial",
+        "definition": "Keragaman bukan sumber konflik, melainkan kekuatan sinergis yang memperkaya inovasi dan solidaritas.",
+        "jebakan": "Memandang keseragaman mutlak sebagai satu-satunya syarat integrasi nasional.",
+        "tip": "Prinsip Bhinneka Tunggal Ika: Berbeda-beda tetapi tetap satu jua dalam kesetaraan martabat."
+      }
+    ],
+    "lab": {
+      "type": "civics-scenarios",
+      "title": "Studi Kasus Bela Negara Kontemporer",
+      "scenario": "Menghadapi Kampanye Disinformasi Pemilu di Media Sosial",
+      "action": "Melakukan verifikasi fakta (fact-check), melaporkan konten hoaks, dan tidak meneruskan pesan provokatif."
+    },
+    "checkpoint": [
+      {
+        "q": "Wujud nyata partisipasi bela negara bagi pelajar di era keterbukaan informasi adalah ...",
+        "options": ["Menyaring kebenaran informasi sebelum membagikannya", "Membatasi diri dari pergaulan antarsuku", "Golput dalam pemilihan"],
+        "ans": 0,
+        "expl": "Literasi informasi mencegah polarisasi dan perpecahan sosial bangsa."
+      }
+    ]
   },
   {
     "id": "tka-13",
-    "title": "Sejarah Pilihan",
+    "title": "Sejarah (Pilihan)",
     "kind": "Pilihan",
-    "description": "Sejarah",
-    "pdf": "/pdfs/tka-13.pdf",
-    "sourceUrl": "https://drive.google.com/file/d/1425CRMf0OkEVTej6mb2LZpOjei6OBZcu/view",
-    "availability": "needs_pdf_import",
-    "hasPdf": true,
     "cluster": "Sosial & Humaniora",
-    "icon": "users",
-    "color": "#f97316",
-    "pages": "28 hal"
+    "description": "Jalur maritim perdagangan Islam, motif kolonialisme Gold Glory Gospel, dan Sumpah Pemuda.",
+    "pdf": "/pdfs/tka-13.pdf",
+    "pages": "29 halaman",
+    "accentColor": "#7952ff",
+    "flashcards": [
+      {
+        "term": "Jatuhnya Konstantinopel (1453)",
+        "definition": "Penguasaan jalur darat rempah oleh Kesultanan Utsmaniyah memaksa bangsa Eropa mencari jalur laut langsung ke Hindia Timur.",
+        "jebakan": "Mengira kedatangan bangsa Barat diawali murni niat penjajahan politik sejak hari pertama.",
+        "tip": "Awalnya motivasi murni komersial (rempah), baru kemudian bergeser ke monopoli bersenjata dan kolonialisme."
+      },
+      {
+        "term": "Semboyan 3G Kolonialisme",
+        "definition": "Gold (Meraih kekayaan rempah & komoditas), Glory (Kejayaan kekuasaan maritim negara), Gospel (Penyebaran agama Nasrani).",
+        "jebakan": "Tertukar antara urutan motivasi pada masa penjelajahan samudra.",
+        "tip": "Gold menjadi motor ekonomi penggerak utama armada laut Eropa."
+      }
+    ],
+    "lab": {
+      "type": "history-timeline",
+      "title": "Garis Waktu Jalur Rempah & Pergerakan Nasional",
+      "events": [
+        {"year": "1453", "event": "Konstantinopel Jatuh ke Turki Utsmani"},
+        {"year": "1511", "event": "Portugis Menguasai Malaka di Bawah Alfonso de Albuquerque"},
+        {"year": "1908", "event": "Kelahiran Budi Utomo & Kebangkitan Nasional"},
+        {"year": "1928", "event": "Kongres Pemuda II Melahirkan Sumpah Pemuda"}
+      ]
+    },
+    "checkpoint": [
+      {
+        "q": "Faktor geopolitik utama di Timur Tengah yang memicu penjelajahan samudra bangsa Barat adalah ...",
+        "options": ["Jatuhnya Konstantinopel 1453", "Perang Salib I", "Revolusi Perancis"],
+        "ans": 0,
+        "expl": "Penutupan jalur perdagangan konvensional oleh Ottoman mendorong Eropa mencari rute maritim samudra."
+      }
+    ]
   },
   {
     "id": "tka-14",
-    "title": "Sosiologi Pilihan",
+    "title": "Sosiologi (Pilihan)",
     "kind": "Pilihan",
-    "description": "Sosiologi",
-    "pdf": "/pdfs/tka-14.pdf",
-    "sourceUrl": "https://drive.google.com/file/d/1teMfqJ0GP6zqE4-Y1sgcEpknW4lMRgy4/view",
-    "availability": "needs_pdf_import",
-    "hasPdf": true,
     "cluster": "Sosial & Humaniora",
-    "icon": "compass",
-    "color": "#a855f7",
-    "pages": "26 hal"
+    "description": "Interaksi sosial bermedia daring, dinamika masyarakat multikultural, dan integrasi pasca konflik.",
+    "pdf": "/pdfs/tka-14.pdf",
+    "pages": "34 halaman",
+    "accentColor": "#ff2a6d",
+    "flashcards": [
+      {
+        "term": "Dua Syarat Mutlak Interaksi Sosial",
+        "definition": "1. Kontak Sosial (primer langsung atau sekunder bermedia). 2. Komunikasi (pengiriman dan penafsiran pesan timbal balik).",
+        "jebakan": "Mengira interaksi sosial mensyaratkan tatap muka fisik di lokasi yang sama.",
+        "tip": "Panggilan video atau diskusi WhatsApp memenuhi syarat interaksi sosial secara penuh."
+      },
+      {
+        "term": "Akomodasi Sosial: Mediasi vs Arbitrase",
+        "definition": "Mediasi: Pihak ketiga netral hanya sebagai fasilitator pemberi masukan. Arbitrase: Pihak ketiga berwenang memutuskan keputusan yang mengikat kedua pihak.",
+        "jebakan": "Menganggap keputusan mediator bersifat mengikat secara hukum seperti arbiter.",
+        "tip": "Mediasi = saran damai sukarela; Arbitrase = putusan wasit yang wajib dipatuhi."
+      }
+    ],
+    "lab": {
+      "type": "sociology-interactions",
+      "title": "Lab Bentuk-Bentuk Interaksi Sosial",
+      "types": [
+        {"name": "Kontak Sekunder Langsung", "example": "Video call interaktif guru-siswa via Zoom"},
+        {"name": "Kontak Sekunder Tidak Langsung", "example": "Kirim pesan surat elektronik atau memo tertulis"},
+        {"name": "Akomodasi Ajudikasi", "example": "Penyelesaian sengketa hak paten di pengadilan niaga"}
+      ]
+    },
+    "checkpoint": [
+      {
+        "q": "Perbedaan mendasar antara mediasi dan arbitrase terletak pada ...",
+        "options": ["Kekuatan mengikat keputusan pihak ketiga", "Jumlah pihak yang bersengketa", "Tempat pelaksanaan sidang"],
+        "ans": 0,
+        "expl": "Keputusan mediator tidak mengikat secara paksa, sedangkan keputusan arbiter mengikat kedua belah pihak."
+      }
+    ]
   }
 ]
