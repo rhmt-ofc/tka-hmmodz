@@ -217,6 +217,19 @@
     const validPages = ['home', 'library', 'practice', 'cheatsheet', 'progress'];
     if (!validPages.includes(pageId)) pageId = 'home';
 
+    if (document.body.classList.contains('in-cbt-exam') && pageId !== 'practice') {
+      if (!confirm('Simulasi CBT sedang berlangsung. Yakin ingin meninggalkan halaman dan membatalkan ujian?')) {
+        return;
+      }
+      document.body.classList.remove('in-cbt-exam');
+      clearInterval(state.timerInterval);
+      state.antiCheatActive = false;
+      const antiCheatPill = $('#antiCheatStatusPill');
+      if (antiCheatPill) antiCheatPill.style.display = 'none';
+      $('#quizActiveView').hidden = true;
+      $('#quizIntroView').hidden = false;
+    }
+
     // Update section visibility
     $$('.view-section').forEach(sec => {
       sec.classList.remove('active');
@@ -1005,6 +1018,7 @@
     $('#quizIntroView').hidden = true;
     $('#quizResultsView').hidden = true;
     $('#quizActiveView').hidden = false;
+    document.body.classList.add('in-cbt-exam');
 
     $('#quizModeBadge').textContent = mode === 'timer' ? 'SIMULASI WAKTU' : 'ZEN MODE';
     $('#quizModeBadge').className = `quiz-mode-pill ${mode === 'timer' ? 'pink' : 'purple'}`;
@@ -1217,6 +1231,7 @@
   // Cancel Quiz
   $('#btnRestartQuiz')?.addEventListener('click', () => {
     if (confirm('Batalkan latihan dan kembali ke menu awal?')) {
+      document.body.classList.remove('in-cbt-exam');
       clearInterval(state.timerInterval);
       state.antiCheatActive = false;
       const antiCheatPill = $('#antiCheatStatusPill');
@@ -1238,6 +1253,7 @@
 
   // Finish Quiz & Diagnostic Scoring
   function finishQuiz(force = false) {
+    document.body.classList.remove('in-cbt-exam');
     clearInterval(state.timerInterval);
     state.antiCheatActive = false;
     const antiCheatPill = $('#antiCheatStatusPill');
