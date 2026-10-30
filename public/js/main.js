@@ -1117,6 +1117,8 @@
     $('#quizActiveView').hidden = false;
     document.body.classList.add('in-cbt-exam');
 
+    showToast('📌 Tips Ujian: Soal referensi 2025. Fokus pada penalaran wacana/hitung & simulasi CBT!', 'info', 5000);
+
     $('#quizModeBadge').textContent = mode === 'timer' ? 'SIMULASI WAKTU' : 'ZEN MODE';
     $('#quizModeBadge').className = `quiz-mode-pill ${mode === 'timer' ? 'pink' : 'purple'}`;
 
@@ -1915,6 +1917,7 @@
       setTimeout(() => {
         modal.hidden = true;
       }, 200);
+      showToast('⚠️ Catatan: Soal merupakan referensi 2025 (dapat berubah). Pelajari pola logika & simulasi CBT!', 'info', 6500);
     };
 
     closeBtn?.addEventListener('click', closeModal);
