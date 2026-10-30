@@ -2106,3 +2106,556 @@ body.in-cbt-exam .toast-container {
   from { transform: translateX(100%); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
 }
+
+/* ==========================================================================
+   CUSTOM CYBER-BRUTALIST SELECT DROPDOWN (NO NATIVE BROWSER PICKER)
+   ========================================================================== */
+.custom-select-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+}
+.custom-select-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink-secondary);
+  margin-bottom: 6px;
+}
+.custom-select-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--bg-card);
+  color: var(--color-white);
+  border: 2.5px solid var(--border-color);
+  box-shadow: 3px 3px 0px var(--color-black);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: left;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.15s, box-shadow 0.15s, background-color 0.15s;
+}
+.custom-select-trigger:hover,
+.custom-select-wrapper.open .custom-select-trigger {
+  border-color: var(--neon-yellow);
+  box-shadow: 4px 4px 0px var(--neon-yellow);
+  background: var(--bg-surface-elevated);
+}
+.custom-select-value {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+.custom-select-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.custom-select-text {
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--color-white);
+}
+.custom-select-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  background: var(--neon-cyan);
+  color: var(--color-black);
+  border: 1.5px solid var(--color-black);
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.custom-select-chevron {
+  flex-shrink: 0;
+  color: var(--ink-secondary);
+  transition: transform 0.2s var(--ease-brutal);
+}
+.custom-select-wrapper.open .custom-select-chevron {
+  transform: rotate(180deg);
+  color: var(--neon-yellow);
+}
+.custom-select-panel {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: var(--color-black-pure);
+  border: 2.5px solid var(--neon-yellow);
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.8), 0 12px 28px rgba(0, 0, 0, 0.6);
+  border-radius: var(--radius-sm);
+  max-height: 340px;
+  overflow-y: auto;
+  z-index: 500;
+  padding: 6px;
+  display: none;
+  animation: dropdownPop 0.15s var(--ease-brutal);
+}
+.custom-select-wrapper.open .custom-select-panel {
+  display: block;
+}
+@keyframes dropdownPop {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.custom-select-group-header {
+  padding: 8px 8px 4px;
+  margin-top: 4px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+}
+.custom-select-group-header:first-of-type {
+  border-top: none;
+  margin-top: 0;
+}
+.custom-select-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.1s, border-color 0.1s;
+  border: 1.5px solid transparent;
+  margin-bottom: 2px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.custom-select-option:hover {
+  background: var(--bg-surface-elevated);
+  border-color: var(--border-color);
+}
+.custom-select-option.active,
+.custom-select-option[aria-selected="true"] {
+  background: rgba(255, 230, 0, 0.14);
+  border-color: var(--neon-yellow);
+}
+.custom-select-option-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+.custom-select-option-title {
+  font-weight: 800;
+  font-size: 0.88rem;
+  color: var(--color-white);
+}
+.custom-select-option.active .custom-select-option-title {
+  color: var(--neon-yellow);
+}
+.custom-select-option-desc {
+  font-size: 0.72rem;
+  color: var(--ink-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ==========================================================================
+   WELCOME & KOMDIGI 2025 NOTICE MODAL POPUP
+   ========================================================================== */
+.welcome-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.84);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s var(--ease-brutal);
+}
+.welcome-modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.welcome-modal-card {
+  background: var(--color-black-pure);
+  color: var(--color-white);
+  border: 3px solid var(--neon-yellow);
+  box-shadow: 8px 8px 0px var(--neon-pink);
+  border-radius: var(--radius-md);
+  max-width: 560px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+  position: relative;
+  transform: scale(0.95) translateY(12px);
+  transition: transform 0.2s var(--ease-brutal);
+}
+.welcome-modal-backdrop.open .welcome-modal-card {
+  transform: scale(1) translateY(0);
+}
+.welcome-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  background: var(--bg-surface-elevated);
+  border: 2px solid var(--border-color);
+  color: var(--color-white);
+  font-size: 1.2rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+  line-height: 1;
+}
+.welcome-modal-close:hover {
+  background: var(--neon-pink);
+  border-color: var(--color-pure-white);
+  color: var(--color-pure-white);
+  transform: scale(1.06);
+}
+.welcome-badge-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding-right: 36px;
+}
+.welcome-modal-title {
+  font-size: 1.4rem;
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: var(--color-white);
+  margin-bottom: 14px;
+}
+.welcome-callout-box {
+  display: flex;
+  gap: 12px;
+  background: rgba(255, 230, 0, 0.08);
+  border: 2px solid var(--neon-yellow);
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 14px;
+}
+.welcome-callout-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.welcome-callout-text strong {
+  display: block;
+  color: var(--neon-yellow);
+  font-size: 0.92rem;
+  margin-bottom: 4px;
+}
+.welcome-callout-text p {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--color-white);
+  margin: 0;
+}
+.welcome-subtext {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--ink-secondary);
+  margin-bottom: 20px;
+}
+.welcome-modal-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.btn-rhmt-spotlight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--neon-yellow);
+  color: var(--color-black-pure) !important;
+  font-size: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 13px 20px;
+  border: 3px solid var(--color-black-pure);
+  box-shadow: 5px 5px 0px var(--neon-pink);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s var(--ease-brutal);
+}
+.btn-rhmt-spotlight:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px var(--neon-pink);
+  background: #fff34d;
+}
+.btn-enter-portal {
+  background: var(--bg-surface-elevated);
+  color: var(--color-white);
+  border: 2px solid var(--border-color);
+  box-shadow: 3px 3px 0px var(--color-black);
+  padding: 11px 16px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: all 0.12s;
+}
+.btn-enter-portal:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+}
+
+/* ==========================================================================
+   MOBILE HIGH-DENSITY SCALING (360px - 480px VIEWPORT & BOTTOM DOCK SLEEK)
+   Emulates 480dpi spatial density on standard 360-380px phone screens!
+   ========================================================================== */
+@media (max-width: 480px) {
+  /* Scale root rem base proportionally: 380/480 = ~0.79x (12.2px vs 15px) */
+  html {
+    font-size: 12.2px !important;
+  }
+
+  /* Compact Ticker Bar */
+  .ticker-wrap {
+    height: 24px !important;
+    line-height: 24px !important;
+    font-size: 0.65rem !important;
+  }
+
+  /* Compact Top Bar */
+  .top-bar {
+    height: 42px !important;
+    padding: 0 10px !important;
+    top: 24px !important;
+    border-bottom-width: 2px !important;
+  }
+  .mobile-brand-title {
+    font-size: 0.85rem !important;
+    gap: 6px !important;
+  }
+  .mobile-brand-title .brand-logo-mark {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 0.75rem !important;
+    border-width: 1.5px !important;
+  }
+  .focus-audio-btn,
+  .theme-toggle {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    padding: 5px !important;
+    border-width: 1.5px !important;
+  }
+  .focus-audio-btn svg,
+  .theme-toggle svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  /* App Shell & View Container */
+  .app-shell {
+    min-height: calc(100vh - 24px) !important;
+    padding-bottom: calc(52px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  .view-container {
+    padding: 10px 10px 18px !important;
+  }
+
+  /* Hero Banner - No Longer Giant! */
+  .brutal-hero {
+    padding: 14px 12px !important;
+    border-width: 2px !important;
+    box-shadow: 3px 3px 0px var(--neon-yellow) !important;
+    margin-bottom: 12px !important;
+    border-radius: var(--radius-sm) !important;
+  }
+  .brutal-hero-badge-row {
+    gap: 4px !important;
+    margin-bottom: 8px !important;
+  }
+  .badge-pill-brutal {
+    font-size: 0.62rem !important;
+    padding: 2px 6px !important;
+    border-width: 1.2px !important;
+  }
+  .brutal-hero h2 {
+    font-size: 1.25rem !important;
+    line-height: 1.22 !important;
+    margin-bottom: 8px !important;
+    letter-spacing: -0.03em !important;
+  }
+  .brutal-hero h2 .highlight-yellow {
+    padding: 0 4px !important;
+  }
+  .brutal-hero p {
+    font-size: 0.8rem !important;
+    line-height: 1.42 !important;
+    margin-bottom: 12px !important;
+  }
+  /* 2-Column Balanced Action Grid instead of 4 Giant Vertical Buttons */
+  .brutal-hero-actions {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+  }
+  .brutal-hero-actions .brutal-btn:first-child {
+    grid-column: 1 / -1 !important;
+  }
+  .brutal-hero-actions .brutal-btn {
+    padding: 8px 10px !important;
+    font-size: 0.78rem !important;
+    box-shadow: 2px 2px 0px var(--color-black) !important;
+    border-width: 2px !important;
+    white-space: normal !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Sleek, Compact Mobile Bottom Dock */
+  .mobile-nav-dock {
+    height: calc(46px + env(safe-area-inset-bottom, 0px)) !important;
+    border-top: 2px solid var(--neon-yellow) !important;
+    padding: 0 0 env(safe-area-inset-bottom, 0px) 0 !important;
+  }
+  .mobile-nav-item {
+    font-size: 0.62rem !important;
+    font-weight: 700 !important;
+    padding: 2px 0 !important;
+    gap: 1px !important;
+  }
+  .mobile-nav-item svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  /* Stats Grid Compact */
+  .stats-grid-brutal {
+    gap: 8px !important;
+    margin-bottom: 12px !important;
+  }
+  .stat-card-brutal {
+    padding: 8px 10px !important;
+    border-width: 2px !important;
+    box-shadow: 2px 2px 0px var(--border-color) !important;
+    gap: 8px !important;
+  }
+  .stat-icon-box {
+    width: 32px !important;
+    height: 32px !important;
+    border-width: 1.5px !important;
+  }
+  .stat-icon-box svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  .stat-card-content h3 {
+    font-size: 1.1rem !important;
+  }
+  .stat-card-content p {
+    font-size: 0.68rem !important;
+  }
+
+  /* Practice Card & Custom Dropdown on Mobile */
+  .practice-selector-card {
+    padding: 12px 10px !important;
+    border-width: 2px !important;
+    box-shadow: 3px 3px 0px var(--color-black) !important;
+  }
+  .practice-cluster-chips {
+    gap: 4px !important;
+  }
+  .practice-cluster-btn {
+    padding: 4px 8px !important;
+    font-size: 0.72rem !important;
+    border-width: 1.5px !important;
+  }
+  .custom-select-trigger {
+    padding: 8px 10px !important;
+    font-size: 0.82rem !important;
+    border-width: 2px !important;
+    box-shadow: 2px 2px 0px var(--color-black) !important;
+  }
+  .custom-select-option {
+    padding: 6px 8px !important;
+  }
+  .custom-select-option-title {
+    font-size: 0.8rem !important;
+  }
+  .custom-select-option-desc {
+    font-size: 0.68rem !important;
+  }
+  .practice-info-banner {
+    padding: 8px 10px !important;
+    font-size: 0.75rem !important;
+    gap: 6px !important;
+  }
+
+  /* Welcome Modal Mobile Adjustments */
+  .welcome-modal-card {
+    padding: 16px 14px !important;
+    border-width: 2.5px !important;
+    box-shadow: 5px 5px 0px var(--neon-pink) !important;
+  }
+  .welcome-modal-title {
+    font-size: 1.15rem !important;
+  }
+  .welcome-callout-box {
+    padding: 10px !important;
+    gap: 8px !important;
+  }
+  .welcome-callout-icon {
+    font-size: 1.4rem !important;
+  }
+  .welcome-callout-text strong {
+    font-size: 0.85rem !important;
+  }
+  .welcome-callout-text p {
+    font-size: 0.78rem !important;
+  }
+  .welcome-subtext {
+    font-size: 0.78rem !important;
+    margin-bottom: 14px !important;
+  }
+  .btn-rhmt-spotlight {
+    font-size: 0.88rem !important;
+    padding: 10px 14px !important;
+    box-shadow: 4px 4px 0px var(--neon-pink) !important;
+  }
+  .btn-enter-portal {
+    font-size: 0.8rem !important;
+    padding: 9px 12px !important;
+  }
+
+  /* Toast Notification */
+  .toast-container {
+    bottom: calc(56px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  .toast-brutal {
+    padding: 8px 14px !important;
+    font-size: 0.78rem !important;
+  }
+}

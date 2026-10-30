@@ -971,6 +971,93 @@
     const clusterBtns = document.querySelectorAll('.practice-cluster-btn');
     const subjectSelect = $('#practiceSubjectSelect');
 
+    // Custom Cyber-Brutalist Dropdown Elements
+    const customWrapper = $('#customSubjectDropdown');
+    const customTrigger = $('#customSelectTrigger');
+    const customPanel = $('#customSelectPanel');
+    const currentText = $('#customSelectCurrentText');
+    const currentBadge = $('#customSelectCurrentBadge');
+    const customOptions = document.querySelectorAll('.custom-select-option');
+
+    function selectCustomOption(val, title, badgeText, cluster) {
+      customOptions.forEach(opt => {
+        const isMatch = opt.getAttribute('data-value') === val;
+        opt.classList.toggle('active', isMatch);
+        opt.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+      });
+
+      if (currentText) currentText.textContent = title;
+      if (currentBadge) currentBadge.textContent = badgeText;
+
+      state.selectedPracticeSubject = val;
+      if (subjectSelect) subjectSelect.value = val;
+
+      if (val !== 'all') {
+        const found = state.questions.find(q => q.subject === val);
+        const targetCluster = cluster || (found ? found.cluster : 'all');
+        clusterBtns.forEach(b => {
+          b.classList.toggle('active', b.getAttribute('data-cluster') === targetCluster);
+        });
+        state.selectedPracticeCluster = targetCluster;
+      } else {
+        clusterBtns.forEach(b => {
+          b.classList.toggle('active', b.getAttribute('data-cluster') === 'all');
+        });
+        state.selectedPracticeCluster = 'all';
+      }
+
+      updatePracticeSelectorUI();
+      closeCustomDropdown();
+    }
+
+    function toggleCustomDropdown() {
+      if (!customWrapper || !customPanel) return;
+      const isOpen = customWrapper.classList.contains('open');
+      if (isOpen) {
+        closeCustomDropdown();
+      } else {
+        customWrapper.classList.add('open');
+        customPanel.hidden = false;
+        customTrigger?.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    function closeCustomDropdown() {
+      if (!customWrapper || !customPanel) return;
+      customWrapper.classList.remove('open');
+      customPanel.hidden = true;
+      customTrigger?.setAttribute('aria-expanded', 'false');
+    }
+
+    customTrigger?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleCustomDropdown();
+    });
+
+    customOptions.forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const val = opt.getAttribute('data-value') || 'all';
+        const title = opt.querySelector('.custom-select-option-title')?.textContent || val;
+        const badgeText = opt.querySelector('.badge-pill-brutal')?.textContent || '';
+        const cluster = opt.getAttribute('data-cluster') || 'all';
+        selectCustomOption(val, title, badgeText, cluster);
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (customWrapper && !customWrapper.contains(e.target)) {
+        closeCustomDropdown();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && customWrapper?.classList.contains('open')) {
+        closeCustomDropdown();
+        customTrigger?.focus();
+      }
+    });
+
     clusterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         clusterBtns.forEach(b => b.classList.remove('active'));
@@ -978,6 +1065,16 @@
         state.selectedPracticeCluster = btn.getAttribute('data-cluster') || 'all';
         state.selectedPracticeSubject = 'all';
         if (subjectSelect) subjectSelect.value = 'all';
+
+        customOptions.forEach(opt => {
+          const isAll = opt.getAttribute('data-value') === 'all';
+          opt.classList.toggle('active', isAll);
+          opt.setAttribute('aria-selected', isAll ? 'true' : 'false');
+        });
+        if (currentText) currentText.textContent = '-- Latihan Semua Mata Pelajaran --';
+        const filteredCount = getSelectedPracticeQuestions().length;
+        if (currentBadge) currentBadge.textContent = `${filteredCount} Soal`;
+
         updatePracticeSelectorUI();
       });
     });
@@ -1795,10 +1892,54 @@
   $('#themeToggleBtn')?.addEventListener('click', toggleTheme);
 
   // =========================================================================
-  // 8. INITIALIZATION
+  // 8. WELCOME & KOMDIGI 2025 NOTICE POPUP MODAL
+  // =========================================================================
+  function initWelcomeNoticeModal() {
+    const modal = $('#welcomeNoticeModal');
+    const closeBtn = $('#btnCloseWelcomeModal');
+    const enterBtn = $('#btnEnterPortal');
+    const portfolioBtn = $('#btnWelcomePortfolio');
+
+    if (!modal) return;
+
+    // Display welcome popup card whenever user visits the browser
+    setTimeout(() => {
+      modal.hidden = false;
+      requestAnimationFrame(() => {
+        modal.classList.add('open');
+      });
+    }, 250);
+
+    const closeModal = () => {
+      modal.classList.remove('open');
+      setTimeout(() => {
+        modal.hidden = true;
+      }, 200);
+    };
+
+    closeBtn?.addEventListener('click', closeModal);
+    enterBtn?.addEventListener('click', closeModal);
+    portfolioBtn?.addEventListener('click', () => {
+      setTimeout(closeModal, 300);
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        closeModal();
+      }
+    });
+  }
+
+  // =========================================================================
+  // 9. INITIALIZATION
   // =========================================================================
   async function init() {
     try {
+      initWelcomeNoticeModal();
       const savedTheme = storage.get(STORAGE_KEYS.THEME, 'dark');
       applyTheme(savedTheme);
 

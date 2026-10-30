@@ -418,28 +418,136 @@
                   <button type="button" class="practice-cluster-btn" data-cluster="Soshum">Sosial Humaniora (7)</button>
                 </div>
 
-                <!-- Specific Subject Dropdown -->
-                <div style="margin-top:10px">
-                  <label for="practiceSubjectSelect" style="display:block;font-size:0.85rem;color:var(--ink-secondary);margin-bottom:6px">Atau drill mata pelajaran spesifik:</label>
-                  <select id="practiceSubjectSelect" class="practice-select-dropdown">
+                <!-- Specific Subject Dropdown (Custom Cyber-Brutalist Select - No Native Browser Picker) -->
+                <div class="custom-select-wrapper" id="customSubjectDropdown">
+                  <label id="practiceSubjectLabel" class="custom-select-label">Atau drill mata pelajaran spesifik:</label>
+                  <button type="button" class="custom-select-trigger" id="customSelectTrigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="practiceSubjectLabel customSelectTrigger">
+                    <div class="custom-select-value">
+                      <span class="custom-select-icon" aria-hidden="true">⚡</span>
+                      <span class="custom-select-text" id="customSelectCurrentText">-- Latihan Semua Mata Pelajaran --</span>
+                    </div>
+                    <span class="custom-select-badge" id="customSelectCurrentBadge">20 Soal</span>
+                    <svg class="custom-select-chevron" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                      <path fill="currentColor" d="M7 10l5 5 5-5z"/>
+                    </svg>
+                  </button>
+
+                  <div class="custom-select-panel" id="customSelectPanel" role="listbox" tabindex="-1" hidden>
+                    <div class="custom-select-option active" role="option" data-value="all" aria-selected="true">
+                      <div class="custom-select-option-main">
+                        <span class="custom-select-option-title">-- Latihan Semua Mata Pelajaran --</span>
+                        <span class="custom-select-option-desc">Gabungan 20 butir soal lengkap seluruh rumpun</span>
+                      </div>
+                      <span class="badge-pill-brutal cyan">20 Soal</span>
+                    </div>
+
+                    <!-- Sains & Matematika -->
+                    <div class="custom-select-group-header">
+                      <span class="badge-pill-brutal yellow">SAINS &amp; MATEMATIKA</span>
+                    </div>
+                    <div class="custom-select-option" role="option" data-value="Matematika" data-cluster="Sains">
+                      <div class="custom-select-option-main">
+                        <span class="custom-select-option-title">Matematika</span>
+                        <span class="custom-select-option-desc">Fungsi Linear, Eksponen, Kalkulus Terapan</span>
+                      </div>
+                      <span class="badge-pill-brutal yellow">3 Soal</span>
+                    </div>
+                    <div class="custom-select-option" role="option" data-value="Fisika" data-cluster="Sains">
+                      <div class="custom-select-option-main">
+                        <span class="custom-select-option-title">Fisika</span>
+                        <span class="custom-select-option-desc">Vektor Kecepatan Relatif, GLB/GLBB</span>
+                      </div>
+                      <span class="badge-pill-brutal yellow">2 Soal</span>
+                    </div>
+                    <div class="custom-select-option" role="option" data-value="Kimia" data-cluster="Sains">
+                      <div class="custom-select-option-main">
+                        <span class="custom-select-option-title">Kimia</span>
+                        <span class="custom-select-option-desc">Stoikiometri Alanin, Bilangan Avogadro</span>
+                      </div>
+                      <span class="badge-pill-brutal yellow">2 Soal</span>
+                    </div>
+                    <div class="custom-select-option" role="option" data-value="Biologi" data-cluster="Sains">
+                      <div class="custom-select-option-main">
+                        <span class="custom-select-option-title">Biologi</span>
+                        <span class="custom-select-option-desc">Simbiosis Lintah, Respirasi Aerobik</span>
+                      </div>
+                      <span class="badge-pill-brutal yellow">2 Soal</span>
+                    </div>
+
+                    <!-- Bahasa & Literasi -->
+                    <div class="custom-select-group-header">
+                      <span class="badge-pill-brutal green">BAHASA &amp; LITERASI</span>
+                    </div>
+                    <div class="custom-select-option" role="option" data-value="Bahasa Indonesia" data-cluster="Bahasa">
+                      <div class="custom-select-option-main">
+                        <span class="custom-select-option-title">Bahasa Indonesia</span>
+                        <span class="custom-select-option-desc">Tradisi Buwuhan, Cerpen Bondet</span>
+                      </div>
+                      <span class="badge-pill-brutal green">2 Soal</span>
+                    </div>
+                    <div class="custom-select-option" role="option" data-value="Bahasa Inggris" data-cluster="Bahasa">
+                      <div class="custom-select-option-main">
+                        <span class="custom-select-option-title">Bahasa Inggris</span>
+                        <span class="custom-select-option-desc">Fable Singa-Tikus, Pomodoro</span>
+                      </div>
+                      <span class="badge-pill-brutal green">2 Soal</span>
+                    </div>
+
+                    <!-- Sosial Humaniora -->
+                    <div class="custom-select-group-header">
+                      <span class="badge-pill-brutal purple">SOSIAL HUMANIORA (SOSHUM)</span>
+                    </div>
+                    <div class="custom-select-option" role="option" data-value="Ekonomi" data-cluster="Soshum">
+                      <div class="custom-select-option-main">
+                        <span class="custom-select-option-title">Ekonomi</span>
+                        <span class="custom-select-option-desc">Biaya Peluang, Kurva UMP 2025</span>
+                      </div>
+                      <span class="badge-pill-brutal purple">2 Soal</span>
+                    </div>
+                    <div class="custom-select-option" role="option" data-value="Geografi" data-cluster="Soshum">
+                      <div class="custom-select-option-main">
+                        <span class="custom-select-option-title">Geografi</span>
+                        <span class="custom-select-option-desc">Garis Wallace &amp; Weber Wallacea</span>
+                      </div>
+                      <span class="badge-pill-brutal purple">1 Soal</span>
+                    </div>
+                    <div class="custom-select-option" role="option" data-value="Sosiologi" data-cluster="Soshum">
+                      <div class="custom-select-option-main">
+                        <span class="custom-select-option-title">Sosiologi</span>
+                        <span class="custom-select-option-desc">Kontak Sosial Digital, Sumpah Pemuda</span>
+                      </div>
+                      <span class="badge-pill-brutal purple">2 Soal</span>
+                    </div>
+                    <div class="custom-select-option" role="option" data-value="Pendidikan Pancasila" data-cluster="Soshum">
+                      <div class="custom-select-option-main">
+                        <span class="custom-select-option-title">Pendidikan Pancasila</span>
+                        <span class="custom-select-option-desc">Bela Negara Digital &amp; Hoaks Medsos</span>
+                      </div>
+                      <span class="badge-pill-brutal purple">1 Soal</span>
+                    </div>
+                    <div class="custom-select-option" role="option" data-value="Sejarah" data-cluster="Soshum">
+                      <div class="custom-select-option-main">
+                        <span class="custom-select-option-title">Sejarah</span>
+                        <span class="custom-select-option-desc">Jalur Rempah &amp; Konstantinopel</span>
+                      </div>
+                      <span class="badge-pill-brutal purple">1 Soal</span>
+                    </div>
+                  </div>
+
+                  <!-- Hidden select for script backward compatibility -->
+                  <select id="practiceSubjectSelect" style="display:none !important;" aria-hidden="true" tabindex="-1">
                     <option value="all">-- Latihan Semua Mata Pelajaran --</option>
-                    <optgroup label="Sains &amp; Matematika">
-                      <option value="Matematika">Matematika (3 Soal - Fungsi Linear, Eksponen, Kalkulus)</option>
-                      <option value="Fisika">Fisika (2 Soal - Vektor Kecepatan Relatif, GLB/GLBB)</option>
-                      <option value="Kimia">Kimia (2 Soal - Stoikiometri Alanin, Bilangan Avogadro)</option>
-                      <option value="Biologi">Biologi (2 Soal - Simbiosis Lintah, Respirasi Aerobik)</option>
-                    </optgroup>
-                    <optgroup label="Bahasa &amp; Literasi">
-                      <option value="Bahasa Indonesia">Bahasa Indonesia (2 Soal - Tradisi Buwuhan, Cerpen Bondet)</option>
-                      <option value="Bahasa Inggris">Bahasa Inggris (2 Soal - Fable Singa-Tikus, Pomodoro)</option>
-                    </optgroup>
-                    <optgroup label="Sosial Humaniora (Soshum)">
-                      <option value="Ekonomi">Ekonomi (2 Soal - Biaya Peluang, Kurva UMP 2025)</option>
-                      <option value="Geografi">Geografi (1 Soal - Garis Wallace &amp; Weber Wallacea)</option>
-                      <option value="Sosiologi">Sosiologi (2 Soal - Kontak Sosial Digital, Sumpah Pemuda)</option>
-                      <option value="Pendidikan Pancasila">Pendidikan Pancasila (1 Soal - Bela Negara &amp; Hoaks)</option>
-                      <option value="Sejarah">Sejarah (1 Soal - Jalur Rempah &amp; Konstantinopel)</option>
-                    </optgroup>
+                    <option value="Matematika">Matematika</option>
+                    <option value="Fisika">Fisika</option>
+                    <option value="Kimia">Kimia</option>
+                    <option value="Biologi">Biologi</option>
+                    <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+                    <option value="Bahasa Inggris">Bahasa Inggris</option>
+                    <option value="Ekonomi">Ekonomi</option>
+                    <option value="Geografi">Geografi</option>
+                    <option value="Sosiologi">Sosiologi</option>
+                    <option value="Pendidikan Pancasila">Pendidikan Pancasila</option>
+                    <option value="Sejarah">Sejarah</option>
                   </select>
                 </div>
 
@@ -745,6 +853,57 @@
       </button>
     </div>
   </dialog>
+
+  <!-- ===================================================================
+       WELCOME & KOMDIGI 2025 OFFICIAL NOTICE POPUP MODAL
+       =================================================================== -->
+  <div class="welcome-modal-backdrop" id="welcomeNoticeModal" role="dialog" aria-modal="true" aria-labelledby="welcomeModalTitle" hidden>
+    <div class="welcome-modal-card">
+      <button type="button" class="welcome-modal-close" id="btnCloseWelcomeModal" aria-label="Tutup Sambutan">&times;</button>
+      
+      <div class="welcome-modal-header">
+        <div class="welcome-badge-strip">
+          <span class="badge-pill-brutal yellow">SAMBUTAN HANGAT</span>
+          <span class="badge-pill-brutal pink">BOCORAN ASLI KOMDIGI 2025</span>
+          <span class="badge-pill-brutal green">HMMODZ &times; RHMT OFC</span>
+        </div>
+        <h2 id="welcomeModalTitle" class="welcome-modal-title">
+          Selamat Datang di Platform Ujian &amp; Materi Latihan TKA SMA 🚀
+        </h2>
+      </div>
+
+      <div class="welcome-modal-body">
+        <div class="welcome-callout-box">
+          <div class="welcome-callout-icon" aria-hidden="true">🔥</div>
+          <div class="welcome-callout-text">
+            <strong>Informasi Autentik Materi Soal:</strong>
+            <p>
+              Seluruh soal pada platform ini merupakan <strong>soal asli bocoran resmi dari Komdigi tahun 2025</strong> yang diperoleh oleh tim <strong>HMMODZ</strong> dan dikembangkan serta disempurnakan secara interaktif oleh <strong>saya (RHMT OFC / Rahmat)</strong>.
+            </p>
+          </div>
+        </div>
+
+        <p class="welcome-subtext">
+          Nikmati simulasi CBT terpadu dengan standar anti-curang, latihan drill topik terfokus, formula lab interaktif, serta akses unduh 14 modul PDF resmi untuk persiapan maksimal Anda!
+        </p>
+      </div>
+
+      <div class="welcome-modal-footer">
+        <!-- Tombol / Button Mencolok Menuju Portofolio rhmt -->
+        <a href="https://rhmt.biz.id/" target="_blank" rel="noopener noreferrer" class="btn-rhmt-spotlight" id="btnWelcomePortfolio">
+          <svg style="width:20px;height:20px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          <span>Selengkapnya tentang rhmt</span>
+        </a>
+        <button type="button" class="btn-enter-portal" id="btnEnterPortal">
+          <span>Mulai Belajar &amp; Latihan Sekarang &rarr;</span>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Toast Notification Container -->
   <div class="toast-container" id="toastContainer"></div>
