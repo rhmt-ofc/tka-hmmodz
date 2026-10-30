@@ -1755,9 +1755,16 @@
   });
 
   window.addEventListener('blur', () => {
-    if (state.antiCheatActive) {
-      triggerCheatViolation('Kursor / Jendela Kehilangan Fokus');
-    }
+    if (!state.antiCheatActive) return;
+    // Debounce to distinguish genuine tab/window switch from mobile touch/select/address bar events
+    setTimeout(() => {
+      if (!state.antiCheatActive) return;
+      if (document.hidden) return; // Handled definitively by visibilitychange
+      // If user is interacting with an element within the page (e.g. native select or dialog)
+      if (document.activeElement && document.activeElement !== document.body) return;
+      if (document.hasFocus && document.hasFocus()) return;
+      triggerCheatViolation('Jendela Browser Kehilangan Fokus');
+    }, 250);
   });
 
   document.addEventListener('contextmenu', e => {
@@ -1778,6 +1785,10 @@
     const modal = $('#antiCheatModal');
     if (modal?.close) { try { modal.close(); } catch(_) { modal.removeAttribute('open'); } }
     else modal?.removeAttribute('open');
+  });
+
+  $('#mobileBrandTitleBtn')?.addEventListener('click', () => {
+    navigateTo('home');
   });
 
   // Theme Toggle Button
